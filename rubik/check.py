@@ -7,7 +7,7 @@ def _check(parms):
     encodedCube = parms.get('cube', None)
     
     # encodedCube is empty    
-    if encodedCube == None:
+    if encodedCube is None:
         result['status'] = 'error: cube missing'
         
     # encodedCube is a string
@@ -15,7 +15,7 @@ def _check(parms):
         result['status'] = 'error: not a string'
         
     # encodedCube is alphanumeric
-    elif encodedCube.isalnum() == False:
+    elif not encodedCube.isalnum():
         result['status'] = 'error: invalid characters'
     
     # encodedCube is 54 characters
@@ -31,7 +31,7 @@ def _check(parms):
         result['status'] = 'error: invalid centers'
     
     # encodedCube contains 9 of each color
-    elif str(collections.Counter(encodedCube).values()) != 'dict_values([9, 9, 9, 9, 9, 9])':
+    elif any([i != 9 for i in collections.Counter(encodedCube).values()]):
         result['status'] = 'error: amount of each color'
 
     # valid
