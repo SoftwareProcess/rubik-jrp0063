@@ -10,15 +10,11 @@ class SolveTest(unittest.TestCase):
         pass
 
     def test_solve_01_rotateF(self):
-        inputDict = {}
-        inputDict['cube'] = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
-        inputDict['rotate'] = 'F'
-        inputDict['op'] = 'solve'
-        
-        expectedResult = {}
-        expectedResult['cube'] = 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy'
-        expectedResult['status'] = 'ok'
-        
-        actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        parm = {'op':'solve', 'cube':'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy', 'rotate':'F'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        cube = result.get('cube')
+        self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
+        print("ST 01 PASSED - rotate F")
