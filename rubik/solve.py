@@ -6,3 +6,10 @@ def _solve(parms):
     result['solution'] = 'FfRrBbLlUuDd'        #example rotations
     result['status'] = 'ok'                     
     return result
+
+# needs to:
+#    validate parms
+#    load parms['cube'] into cube model
+#    rotate cube in desired direction
+#    serialize cube model in string
+#    return string + status of 'ok'
