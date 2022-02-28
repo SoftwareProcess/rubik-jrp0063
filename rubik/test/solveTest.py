@@ -9,14 +9,14 @@ class SolveTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_solve_01_HAPPY_ValidNominalCube_RotateF(self):
+    def test_solve_01_rotateF(self):
         inputDict = {}
-        inputDict['cube'] = ''
+        inputDict['cube'] = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         inputDict['rotate'] = 'F'
         inputDict['op'] = 'solve'
         
         expectedResult = {}
-        expectedResult['cube'] = ''
+        expectedResult['cube'] = 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy'
         expectedResult['status'] = 'ok'
         
         actualResult = solve._solve(inputDict)
