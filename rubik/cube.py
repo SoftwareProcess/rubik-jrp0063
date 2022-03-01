@@ -1,9 +1,9 @@
 
 # NOTES:
+#    use __str__ method to display string class representation instead of memory address
+#    unused loop variables can be replaced with '_'
 #    : str is a parameter annotation
 #    -> is a return value annotation
-#    unused loop variables can be replaced with '_'
-#    use __str__ method to display string class representation instead of memory address
 
 # USING 3D GEOMETRY:
 #    POSITIVE X - FRONT
@@ -17,7 +17,8 @@ class Cube:
     
     def __init__(self, cube_str: str):
         self.cube_str = cube_str
-        # Rubik's cube dimension - 3x3x3
+        
+        # Rubik's cube is a 3x3x3
         self.cube = [[[Brick() for _ in range(3)] for _ in range(3)] for _ in range(3)]
         
     def __str__(self):
