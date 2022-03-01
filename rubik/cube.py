@@ -11,7 +11,7 @@ ADJACENT_EDGES = {
 }
 
 
-class Cube2D:
+class Cube:
     def __init__(self, cube_str: str):
         self.faces = {
             face: [
