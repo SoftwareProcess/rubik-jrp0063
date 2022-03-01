@@ -8,8 +8,8 @@ ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 
 def _solve(parms):
     
-    #if (cube_result := _check(parms)).get('status') != 'ok':
-        #return cube_result
+    if (cube_result := _check(parms)).get('status') != 'ok':
+        return cube_result
     
     result = {}
     rotations = parms.get('rotate')

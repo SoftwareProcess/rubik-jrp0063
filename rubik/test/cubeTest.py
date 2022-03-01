@@ -7,3 +7,7 @@ class CubeTest(unittest.TestCase):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         test_cube = Cube(cube_str)
         self.assertEqual(cube_str, str(test_cube))
+        
+    @unittest.skip('cube rotate incomplete')
+    def test_cube_02_cuberotate_F(self):
+        pass
