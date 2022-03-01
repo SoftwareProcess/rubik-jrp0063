@@ -16,12 +16,12 @@ from copy import deepcopy
 
 # USING PYTHON DICTIONARY FORMAT
 FACES = {
-    'f': ('front', 'px'),
-    'b': ('back', 'nx'),
-    'r': ('right', 'py'),
-    'l': ('left', 'ny'),
-    'u': ('up', 'pz'),
-    'd': ('down', 'nz')
+    'f': ('front', '+x'),
+    'b': ('back', '-x'),
+    'r': ('right', '+y'),
+    'l': ('left', '-y'),
+    'u': ('up', '+z'),
+    'd': ('down', '-z')
     }
 
 class Cube:
@@ -58,10 +58,10 @@ class Cube:
         
     def __str__(self) -> str:
         return (
-            "".join(str(cuboid.pos_y) for row in self.front() for cuboid in row)
-            + "".join(str(cuboid.pos_x) for row in self.right() for cuboid in row)
-            + "".join(str(cuboid.neg_y) for row in self.back() for cuboid in row)
-            + "".join(str(cuboid.neg_x) for row in self.left() for cuboid in row)
+            "".join(str(cuboid.pos_x) for row in self.front() for cuboid in row)
+            + "".join(str(cuboid.neg_x) for row in self.back() for cuboid in row)
+            + "".join(str(cuboid.pos_y) for row in self.right() for cuboid in row)
+            + "".join(str(cuboid.neg_y) for row in self.left() for cuboid in row)
             + "".join(str(cuboid.pos_z) for row in self.up() for cuboid in row)
             + "".join(str(cuboid.neg_z) for row in self.down() for cuboid in row)
         )
@@ -95,9 +95,9 @@ class Cube:
                         
     def is_solved(self) -> bool:
         return (
-            len(set(str(cuboid.pos_y) for row in self.front() for cuboid in row))
-            + len(set(str(cuboid.pos_x) for row in self.right() for cuboid in row))
-            + len(set(str(cuboid.neg_y) for row in self.back() for cuboid in row))
+            len(set(str(cuboid.pos_x) for row in self.front() for cuboid in row))
+            + len(set(str(cuboid.neg_x) for row in self.back() for cuboid in row))
+            + len(set(str(cuboid.pos_y) for row in self.right() for cuboid in row))
             + len(set(str(cuboid.neg_x) for row in self.left() for cuboid in row))
             + len(set(str(cuboid.pos_z) for row in self.up() for cuboid in row))
             + len(set(str(cuboid.neg_z) for row in self.down() for cuboid in row))
@@ -110,9 +110,9 @@ class Cube:
         mid = 3 // 2
         invalid_colors = {}
 
-        front, back = self.cube[mid][3-1][mid].pos_y, self.cube[mid][0][mid].neg_y
+        front, back = self.cube[mid][3-1][mid].pos_x, self.cube[mid][0][mid].neg_x
         invalid_colors[front], invalid_colors[back] = back, front
-        left, right = self.cube[mid][mid][0].neg_x, self.cube[mid][mid][3-1].pos_x
+        left, right = self.cube[mid][mid][0].neg_y, self.cube[mid][mid][3-1].pos_y
         invalid_colors[left], invalid_colors[right] = right, left
         up, down = self.cube[3-1][mid][mid].pos_z, self.cube[0][mid][mid].neg_z
         invalid_colors[up], invalid_colors[down] = down, up
@@ -127,16 +127,16 @@ class Cube:
         return True
 
     def front(self, offset: int = 0):
-        return self.xz_plane(3 - 1 - offset)[::-1]
-
-    def right(self, offset: int = 0):
-        return [row[::-1] for row in self.yz_plane(3 - 1 - offset)[::-1]]
+        return self.xy_plane(3 - 1 - offset)[::-1]
 
     def back(self, offset: int = 0):
-        return [row[::-1] for row in self.xz_plane(0 + offset)[::-1]]
+        return [row[::-1] for row in self.xy_plane(0 + offset)[::-1]]
+
+    def right(self, offset: int = 0):
+        return [row[::-1] for row in self.xz_plane(3 - 1 - offset)[::-1]]
 
     def left(self, offset: int = 0):
-        return self.yz_plane(0 + offset)[::-1]
+        return self.xz_plane(0 + offset)[::-1]
 
     def up(self, offset: int = 0):
         return self.xy_plane(3 - 1 - offset)
@@ -165,7 +165,7 @@ class Brick:
         self.neg_z = ''
         
     def rotate(self, normal: str, clockwise: bool) -> 'Brick':
-        clockwise = clockwise if normal[0] == "p" else not clockwise
+        clockwise = clockwise if normal[0] == "+" else not clockwise
         normal = normal[1]
         if normal == "x":
             if clockwise:
