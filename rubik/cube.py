@@ -1,4 +1,9 @@
-import math
+
+# NOTES:
+#    : str is a parameter annotation
+#    -> is a return value annotation
+#    unused loop variables can be replaced with '_'
+#    use __str__ method to display string class representation instead of memory address
 
 # USING 3D GEOMETRY:
 #    POSITIVE X - FRONT
@@ -12,42 +17,11 @@ class Cube:
     
     def __init__(self, cube_str: str):
         
-        # cube dimensions (e.g.3x3)
-        self.n = int(math.sqrt(len(cube_str) // 6))
+        # Rubik's cube dimension - 3x3x3
+        self.cube = [[[Brick() for _ in range(3)] for _ in range(3)] for _ in range(3)]
         
-    def xy_plane(self):
-        pass
-    
-    def yz_plane(self):
-        pass
-        
-    def zx_plane(self):
-        pass
-        
-    # POS X
-    def front(self):
-        pass
-    
-    # NEG X
-    def back(self):
-        pass
-    
-    # POS Y
-    def right(self):
-        pass
-    
-    # NEG Y
-    def left(self):
-        pass
-    
-    # POS Z
-    def up(self):
-        pass
-    
-    # NEG Z
-    def down(self):
-        pass
-    
+    def __str__(self):
+        return f'Cube({self.__init__(cube_str)})'
 
 # smaller cubes making up big cube
 class Brick:
@@ -59,3 +33,8 @@ class Brick:
         self.neg_y = ''
         self.pos_z = ''
         self.neg_z = ''
+        
+    def rotate(self):
+        
+    
+    
