@@ -4,8 +4,8 @@ import rubik.solve as solve
 class SolveTest(unittest.TestCase):
     
     def test_solve_01_emptycube(self):
-        parm = {'op': 'solve'}
-        result = solve._solve(parm)
+        parms = {'op': 'solve'}
+        result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status')
         self.assertNotEqual('ok', status)
@@ -28,7 +28,9 @@ class SolveTest(unittest.TestCase):
     
     @unittest.skip('cube rotate incomplete')
     def test_solve_06_rotate_missing(self):
-        pass
+        parms = {'op':'solve',
+                'rotate':'',
+                'cube':'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
     
     @unittest.skip('cube rotate incomplete')
     def test_solve_07_rotate_invalidchars(self):
