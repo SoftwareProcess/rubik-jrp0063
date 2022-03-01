@@ -7,7 +7,7 @@ class Cube:
     
     
     def __init__(self, cube_str: str):
-        self.cube_str = cube_str
+        #self.cube_str = cube_str
         self.faces = {
             face: [
                 [cube_str[offset + 0], cube_str[offset + 1], cube_str[offset + 2]],
@@ -24,5 +24,5 @@ class Cube:
     def show(self):
         print(self.cube_str)
         
-testcube = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
-testcube.show()
+#testcube = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
+#testcube.show()
