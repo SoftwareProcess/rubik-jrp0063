@@ -129,19 +129,19 @@ class Cube:
     def front(self, offset: int = 0):
         return self.xy_plane(3 - 1 - offset)[::-1]
 
-    def back(self, offset: int = 0):
+    def back(self, offset: int = 18):
         return [row[::-1] for row in self.xy_plane(0 + offset)[::-1]]
 
-    def right(self, offset: int = 0):
+    def right(self, offset: int = 9):
         return [row[::-1] for row in self.xz_plane(3 - 1 - offset)[::-1]]
 
-    def left(self, offset: int = 0):
+    def left(self, offset: int = 27):
         return self.xz_plane(0 + offset)[::-1]
 
-    def up(self, offset: int = 0):
+    def up(self, offset: int = 36):
         return self.xy_plane(3 - 1 - offset)
 
-    def down(self, offset: int = 0):
+    def down(self, offset: int = 45):
         return self.xy_plane(0 + offset)[::-1]
 
     def xy_plane(self, z):
