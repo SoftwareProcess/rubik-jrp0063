@@ -35,6 +35,6 @@ class Brick:
         self.neg_z = ''
         
     def rotate(self):
-        
+        pass
     
     
