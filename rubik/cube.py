@@ -20,7 +20,7 @@ class Cube:
         # Rubik's cube dimension - 3x3x3
         self.cube = [[[Brick() for _ in range(3)] for _ in range(3)] for _ in range(3)]
         
-    def __str__(self):
+    def __str__(self, cube_str):
         return f'Cube({self.__init__(cube_str)})'
 
 # smaller cubes making up big cube
