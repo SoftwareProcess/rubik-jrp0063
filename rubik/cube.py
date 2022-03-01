@@ -16,12 +16,12 @@
 class Cube:
     
     def __init__(self, cube_str: str):
-        
+        self.cube_str = cube_str
         # Rubik's cube dimension - 3x3x3
         self.cube = [[[Brick() for _ in range(3)] for _ in range(3)] for _ in range(3)]
         
-    def __str__(self, cube_str):
-        return f'Cube({self.__init__(cube_str)})'
+    def __str__(self):
+        return f'Cube({self.cube_str})'
 
 # smaller cubes making up big cube
 class Brick:
