@@ -10,26 +10,31 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertNotEqual('ok', status)
     
-    @unittest.skip
+    @unittest.skip('cube model incomplete')
     def test_solve_02_badcube(self):
         pass
     
-    
+    @unittest.skip('cube rotate incomplete')
     def test_solve_03_rotate_notstring(self):
         pass
     
+    @unittest.skip('cube rotate incomplete')
     def test_solve_04_rotate_notletter(self):
         pass
     
+    @unittest.skip('cube rotate incomplete')
     def test_solve_05_rotate_empty(self):
         pass
     
+    @unittest.skip('cube rotate incomplete')
     def test_solve_06_rotate_missing(self):
         pass
     
+    @unittest.skip('cube rotate incomplete')
     def test_solve_07_rotate_invalidchars(self):
         pass
     
+    @unittest.skip('cube rotate incomplete')
     def test_solve_08_rotate_valid(self):
         pass
         
