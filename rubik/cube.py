@@ -165,7 +165,7 @@ class Brick:
         self.neg_z = ''
         
     def rotate(self, normal: str, clockwise: bool) -> 'Brick':
-        clockwise = clockwise if normal[0] == "+" else not clockwise
+        clockwise = clockwise if normal[0] == "p" else not clockwise
         normal = normal[1]
         if normal == "x":
             if clockwise:
