@@ -21,7 +21,7 @@ class Cube:
         self.cube = [[[Brick() for _ in range(3)] for _ in range(3)] for _ in range(3)]
         
     def __str__(self):
-        return f'Cube({self.cube_str})'
+        return f'{self.cube_str}'
 
 # smaller cubes making up big cube
 class Brick:
