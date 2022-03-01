@@ -169,19 +169,37 @@ class Brick:
         normal = normal[1]
         if normal == "x":
             if clockwise:
-                self.pos_z, self.neg_y, self.neg_z, self.pos_y = self.pos_y, self.pos_z, self.neg_y, self.neg_z
+                self.pos_z = self.pos_y
+                self.neg_y = self.pos_z
+                self.neg_z = self.neg_y
+                self.pos_y = self.neg_z
             else:
-                self.pos_z, self.neg_y, self.neg_z, self.pos_y = self.neg_y, self.neg_z, self.pos_y, self.pos_z
+                self.pos_z = self.neg_y
+                self.neg_y = self.neg_z
+                self.neg_z = self.pos_y
+                self.pos_y = self.pos_z
         elif normal == "y":
             if clockwise:
-                self.pos_z, self.neg_x, self.neg_z, self.pos_x = self.neg_x, self.neg_z, self.pos_x, self.pos_z
+                self.pos_z = self.neg_x
+                self.neg_x = self.neg_z
+                self.neg_z = self.pos_x
+                self.pos_x = self.pos_z
             else:
-                self.pos_z, self.neg_x, self.neg_z, self.pos_x = self.pos_x, self.pos_z, self.neg_x, self.neg_z
+                self.pos_z = self.pos_x
+                self.neg_x = self.pos_z
+                self.neg_z = self.neg_x
+                self.pos_x = self.neg_z
         elif normal == "z":
             if clockwise:
-                self.neg_y, self.pos_x, self.pos_y, self.neg_x = self.neg_x, self.neg_y, self.pos_x, self.pos_y
+                self.neg_y = self.neg_x
+                self.pos_x = self.neg_y
+                self.pos_y = self.pos_x
+                self.neg_x = self.pos_y
             else:
-                self.neg_y, self.pos_x, self.pos_y, self.neg_x = self.pos_x, self.pos_y, self.neg_x, self.neg_y
+                self.neg_y = self.pos_x
+                self.pos_x = self.pos_y
+                self.pos_y = self.neg_x
+                self.neg_x = self.neg_y
         return self
     
     def replace(self, other: "Brick") -> None:
