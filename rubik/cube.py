@@ -5,5 +5,5 @@ SIDES = ('front', 'right', 'back', 'left', 'up', 'down')
 
 class Cube:
     
-    def __init__(self, cube_str: str):
+    def __init__(self, cube_str):
         pass
