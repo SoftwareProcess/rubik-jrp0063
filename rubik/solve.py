@@ -3,5 +3,5 @@ import rubik.check as check
 
 def _solve(parms):
     result = {}
-    if (result := check(parms)).get('status') != 'ok':
-        return result
+    if (cube_result := check(parms)).get('status') != 'ok':
+        return cube_result
