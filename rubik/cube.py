@@ -43,7 +43,7 @@ class Cube:
     
     def __str__(self):
         result = ''.join(
-            f'{f[0][0]}{f[0][1]}{f[0][2]}'
+            f'{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}'
             for f in (self.faces[face] for face in FACE_NAMES)
         )
         return result
@@ -91,8 +91,8 @@ class Cube:
                 self[d] = temp
     
 # testing
-c = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
-print(c.__str__())
+#c = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
+#print(c.__str__())
 #print(c.__repr__())
 
 
