@@ -62,7 +62,7 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube')
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
     
-    #@unittest.skip('error messages incomplete')
+    @unittest.skip('error messages incomplete')
     def test_solve_07_rotate_invalidchars(self):
         parm = {'op': 'solve',
                 'rotate': 'x',
