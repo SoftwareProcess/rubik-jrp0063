@@ -9,7 +9,6 @@ ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 def _solve(parms):
     
     result = {}
-    
     rotations = parms.get('rotate')
     
     # test_solve_01_emptycube
