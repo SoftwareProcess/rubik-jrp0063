@@ -25,10 +25,6 @@ def _solve(parms):
         rotations = 'F'
     
     #
-    if not isinstance(cube, str):
-        result['status'] = '4'
-    
-    #
     elif not isinstance(rotations, str):
         result['status'] = '1'
     
