@@ -3,6 +3,7 @@ import rubik.solve as solve
 
 class SolveTest(unittest.TestCase):
     
+    #@unittest.skip('cube build incomplete')
     def test_solve_01_emptycube(self):
         parm = {'op': 'solve'}
         result = solve._solve(parm)
@@ -10,7 +11,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertNotEqual('ok', status)
     
-    #@unittest.skip('error messages incomplete')
+    #@unittest.skip('cube build incomplete')
     def test_solve_02_badcube(self):
         parm = {'op': 'solve',
                 'cube': 9}
