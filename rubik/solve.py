@@ -15,14 +15,14 @@ def _solve(parms):
     if (cube_result := _check(parms)).get('status') != 'ok':
         return cube_result
     
-    # test_solve_06_rotate_missing
-    if rotations is None:
-        rotations = 'F'
-    
     # test_solve_05_rotate_empty
-    elif ''.__eq__(rotations):
+    if ''.__eq__(rotations):
         rotations = 'F'
     
+    # test_solve_06_rotate_missing
+    elif rotations is None:
+        rotations = 'F'
+
     #
     if not isinstance(rotations, str):
         result['status'] = '1'
