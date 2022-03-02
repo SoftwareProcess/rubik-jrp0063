@@ -7,16 +7,15 @@ from rubik.cube import Cube
 ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 
 def _solve(parms):
-    
-    if (cube_result := _check(parms)).get('status') != 'ok':
-        return cube_result
-    
+
     result = {}
     rotations = parms.get('rotate')
-    # rotate defaults to 'F' if missing
+    
+    # test_solve_06_rotate_missing
     if rotations is None:
         rotations = 'F'
     
+    # test_solve_05_rotate_empty
     elif ''.__eq__(rotations):
         rotations = 'F'
     
