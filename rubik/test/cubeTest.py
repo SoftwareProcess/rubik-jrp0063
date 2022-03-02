@@ -23,8 +23,3 @@ class CubeTest(unittest.TestCase):
         cube.rotate('f')
         self.assertEqual(str(cube), 'gggggggggyrryrryrrbbbbbbbbboowoowoowwwwwwwrrroooyyyyyy')
         
-    def test_cube_04_motion_cc(self):
-        pass
-    
-    def test_cube_05_motion_ccw(self):
-        pass

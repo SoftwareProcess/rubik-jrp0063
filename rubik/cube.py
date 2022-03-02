@@ -16,6 +16,14 @@
 
 FACE_NAMES = ("front", "right", "back", "left", "up", "down")
 OPERATIONS = {name[0]: name for name in FACE_NAMES}
+ADJACENT_EDGES = {
+    FACE_NAMES[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
+    FACE_NAMES[1]: ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
+    FACE_NAMES[2]: ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),
+    FACE_NAMES[3]: ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
+    FACE_NAMES[4]: ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),
+    FACE_NAMES[5]: ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35)),
+}
 
 class Cube:
     
@@ -32,13 +40,50 @@ class Cube:
     
     def rotate(self, rotation: str) -> None:
         # upper case - clockwise, lower case - counterclockwise
-        motion = rotation.isupper()
+        turn_cw = rotation.isupper()
+        self._rotate_face(OPERATIONS[rotation.lower()], turn_cw)
+        self._rotate_edges(OPERATIONS[rotation.lower()], turn_cw)
+    
+    def _rotate_face(self, face_name: str, turn_cw: bool):
+        offset = FACE_NAMES.index(face_name) * 9
+        for x in range(0, 1):
+            for y in range(x, 2 - x):
+                temp = self[offset + (x * 3 + y)]
+                if turn_cw == True:
+                    self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
+                    self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
+                    self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
+                    self[offset + (y * 3 + (2 - x))] = temp
+                else:
+                    self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
+                    self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
+                    self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
+                    self[offset + ((2 - y) * 3 + x)] = temp
+                    
+    def _rotate_edges(self, face_name: str, turn_cw: bool):
+        for a, b, c, d in zip(*ADJACENT_EDGES[face_name]):
+            temp = self[a]
+            if turn_cw:
+                self[a] = self[d]
+                self[d] = self[c]
+                self[c] = self[b]
+                self[b] = temp
+            else:
+                self[a] = self[b]
+                self[b] = self[c]
+                self[c] = self[d]
+                self[d] = temp
     
     def __str__(self):
-        return f'{self.cube_str}'
+        result = "".join(
+            f"{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}"
+            for f in (self.faces[face] for face in FACE_NAMES)
+        )
+        return result
     
-    def _test(self):
-        return self.faces
-
-c = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
-print(c._test())
+    def __repr__(self) -> str:
+        result = "\n".join(
+            face + "\n" + "\n".join(", ".join(row) for row in self.faces[face]) + "\n" for face in FACE_NAMES
+        )
+        return result
+        
