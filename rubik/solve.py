@@ -12,8 +12,7 @@ def _solve(parms):
     rotations = parms.get('rotate')
     
     # test_solve_01_emptycube
-    if (cube_result := _check(parms)).get('status') != 'ok':
-        return cube_result
+    
     
     # test_solve_06_rotate_missing
     if rotations is None:
@@ -22,6 +21,9 @@ def _solve(parms):
     # test_solve_05_rotate_empty
     elif ''.__eq__(rotations):
         rotations = 'F'
+    
+    #
+    
     
     #
     if not isinstance(rotations, str):
