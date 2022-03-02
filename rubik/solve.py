@@ -24,7 +24,7 @@ def _solve(parms):
         rotations = 'F'
     
     #
-    elif not isinstance(rotations, str):
+    if not isinstance(rotations, str):
         result['status'] = '1'
     
     #
