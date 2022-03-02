@@ -9,10 +9,12 @@ ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 def _solve(parms):
     
     result = {}
+    cube = Cube(parms.get('cube'))
     rotations = parms.get('rotate')
     
     # test_solve_01_emptycube
-    
+    if (cube_result := _check(parms)).get('status') != 'ok':
+        return cube_result
     
     # test_solve_06_rotate_missing
     if rotations is None:
@@ -23,10 +25,11 @@ def _solve(parms):
         rotations = 'F'
     
     #
-    
+    if not isinstance(cube, str):
+        result['status'] = '4'
     
     #
-    if not isinstance(rotations, str):
+    elif not isinstance(rotations, str):
         result['status'] = '1'
     
     #
@@ -38,7 +41,6 @@ def _solve(parms):
         result['status'] = 'error: invalid characters'
     
     else:
-        cube = Cube(parms.get('cube'))
         for rotation in rotations:
             cube.rotate(rotation)
         result['status'] = 'ok'
