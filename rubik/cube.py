@@ -1,18 +1,15 @@
 
 # NOTES:
+#    __init__(self [,...])          instance = MyClass(arg1, arg2)    called on instance creation
+#    __getitem__(self, key)         self[key]                         accessing an item using an index
+#    __setitem__(self, key, val)    self[key] = val                   assigning to an item using an index
+#    __str__(self)                  str()                             produce human readable output 
+#    __repr__(self)                 repr()                            produce machine readable output
+#
 #    a leading underscore is used to indicate a private method/attribute
-#    use __str__ method to display string class representation instead of memory address
-#    unused loop variables can be replaced with '_'
+#    unused loop variables can be replaced with an underscore
 #    : str is a parameter annotation
 #    -> is a return value annotation
-
-# CUBE ORIENTATION:
-#    POSITIVE X - FRONT
-#    NEGATIVE X - BACK
-#    POSITIVE Y - RIGHT
-#    NEGATIVE Y - LEFT
-#    POSITIVE Z - UP
-#    NEGATIVE Z - DOWN
 
 FACE_NAMES = ("front", "right", "back", "left", "up", "down")
 OPERATIONS = {name[0]: name for name in FACE_NAMES}
@@ -38,11 +35,20 @@ class Cube:
             for face, offset in zip(FACE_NAMES, (0, 9, 18, 27, 36, 45))
         }
     
-    def __getitem__(self, item: int) -> str:
-        return self.faces[FACE_NAMES[item // 9]][item % 9 // 3][item % 3]
+    def __getitem__(self, key) -> str:
+        return self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3]
 
-    def __setitem__(self, key: int, value: str) -> None:
+    def __setitem__(self, key, value):
         self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3] = value
+    
+    def __str__(self):
+        result = "".join(
+            f"{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}"
+            for f in (self.faces[face] for face in FACE_NAMES)
+        )
+        return result
+    
+    def __repr__(self):
     
     def rotate(self, rotation: str) -> None:
         # upper case - clockwise, lower case - counterclockwise
@@ -80,9 +86,3 @@ class Cube:
                 self[c] = self[d]
                 self[d] = temp
     
-    def __str__(self):
-        result = "".join(
-            f"{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}"
-            for f in (self.faces[face] for face in FACE_NAMES)
-        )
-        return result
