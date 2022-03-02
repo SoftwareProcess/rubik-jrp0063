@@ -75,9 +75,7 @@ class Cube:
                 self[d] = temp
     
     def __str__(self):
-        result = "\n".join(
-            face + "\n" + "\n".join(", ".join(row) for row in self.faces[face]) + "\n" for face in FACE_NAMES
-        )
         return result
+
 
         
