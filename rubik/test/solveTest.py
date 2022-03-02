@@ -20,16 +20,6 @@ class SolveTest(unittest.TestCase):
         self.assertNotEqual('ok', status)
     
     #@unittest.skip('error messages incomplete')
-    def test_solve_03_rotate_notstring(self):
-        parm = {'op': 'solve',
-                'rotate': 7,
-                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
-        result = solve._solve(parm)
-        self.assertIn('status', result)
-        status = result.get('status')
-        self.assertNotEqual('ok', status)
-    
-    #@unittest.skip('error messages incomplete')
     def test_solve_04_rotate_notletter(self):
         parm = {'op': 'solve',
                 'rotate': '9',
