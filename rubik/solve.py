@@ -16,7 +16,7 @@ def _solve(parms):
     # rotate defaults to 'F' if missing
     if rotations is None:
         rotations = 'F'
-    elif rotations is "":
+    elif rotations is '':
         rotations = 'F'
     
     #
