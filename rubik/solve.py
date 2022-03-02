@@ -14,6 +14,8 @@ def _solve(parms):
     result = {}
     rotations = parms.get('rotate')
     # rotate defaults to 'F' if missing
+    if rotations is None:
+        rotations = 'F'
     if rotations is '':
         rotations = 'F'
     
