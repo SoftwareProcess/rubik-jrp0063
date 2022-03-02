@@ -16,7 +16,7 @@ class CubeTest(unittest.TestCase):
         cube.rotate('F')
         self.assertEqual(str(cube), 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
         
-    @unittest.skip('cube rotate incomplete')
+    #@unittest.skip('cube rotate incomplete')
     def test_cube_03_cuberotate_f(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
