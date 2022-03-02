@@ -30,9 +30,9 @@ def _solve(parms):
     elif not rotations.isalpha():
         result['status'] = '2'
     
-    #
+    # test_solve_07_rotate_invalidchars
     elif not all(rotations in ROTATION_CHARACTERS for rotation in rotations):
-       result['status'] = '3'
+        result['status'] = 'error: invalid characters'
     
     else:
         cube = Cube(parms.get('cube'))
