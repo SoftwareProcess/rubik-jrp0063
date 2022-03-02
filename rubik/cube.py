@@ -1,13 +1,12 @@
-from colorama.ansi import Back
-from tkinter.constants import LEFT
 
 # NOTES:
+#    a leading underscore is used to indicate a private method/attribute
 #    use __str__ method to display string class representation instead of memory address
 #    unused loop variables can be replaced with '_'
 #    : str is a parameter annotation
 #    -> is a return value annotation
 
-# USING 3D GEOMETRY:
+# CUBE ORIENTATION:
 #    POSITIVE X - FRONT
 #    NEGATIVE X - BACK
 #    POSITIVE Y - RIGHT
