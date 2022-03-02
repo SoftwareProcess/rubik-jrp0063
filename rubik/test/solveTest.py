@@ -1,11 +1,11 @@
 import unittest
-import rubik.solve as solve
+from rubik.solve import solve
 
 class SolveTest(unittest.TestCase):
     
     def test_solve_01_emptycube(self):
         parm = {'op': 'solve'}
-        result = solve._solve(parm)
+        result = solve.solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
         self.assertNotEqual('ok', status)
