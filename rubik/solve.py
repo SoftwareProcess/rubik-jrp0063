@@ -14,18 +14,18 @@ def _solve(parms):
     result = {}
     rotations = parms.get('rotate')
     # rotate defaults to 'F' if missing
-    if rotations is '':
+    if rotations is None:
         rotations = 'F'
     
     #
     if not isinstance(rotations, str):
-        result['status'] = ''
+        result['status'] = '1'
     #
     elif not rotations.isalpha():
-        result['status'] = ''
+        result['status'] = '2'
     #
     elif not all(rotations in ROTATION_CHARACTERS for rotation in rotations):
-        result['status'] = ''
+        result['status'] = '3'
     else:
         cube = Cube(parms.get('cube'))
         for rotation in rotations:
