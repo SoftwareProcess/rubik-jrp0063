@@ -49,6 +49,7 @@ class Cube:
         return result
     
     def __repr__(self):
+        pass
     
     def rotate(self, rotation: str) -> None:
         # upper case - clockwise, lower case - counterclockwise
