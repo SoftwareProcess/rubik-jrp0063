@@ -38,6 +38,12 @@ class Cube:
             for face, offset in zip(FACE_NAMES, (0, 9, 18, 27, 36, 45))
         }
     
+    def __getitem__(self, item: int) -> str:
+        return self.faces[FACE_NAMES[item // 9]][item % 9 // 3][item % 3]
+
+    def __setitem__(self, key: int, value: str) -> None:
+        self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3] = value
+    
     def rotate(self, rotation: str) -> None:
         # upper case - clockwise, lower case - counterclockwise
         turn_cw = rotation.isupper()
