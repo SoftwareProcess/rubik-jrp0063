@@ -39,7 +39,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertNotEqual('ok', status)
     
-    @unittest.skip('cube rotate incomplete')
+    #@unittest.skip('cube rotate incomplete')
     def test_solve_05_rotate_empty(self):
         parm = {'op': 'solve',
                 'rotate': '',

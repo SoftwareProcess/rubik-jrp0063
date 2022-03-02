@@ -11,7 +11,7 @@
 #    : str is a parameter annotation
 #    -> is a return value annotation
 
-FACE_NAMES = ("front", "right", "back", "left", "up", "down")
+FACE_NAMES = ('front', 'right', 'back', 'left', 'up', 'down')
 OPERATIONS = {name[0]: name for name in FACE_NAMES}
 ADJACENT_EDGES = {
     FACE_NAMES[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
@@ -24,7 +24,7 @@ ADJACENT_EDGES = {
 
 class Cube:
     
-    def __init__(self, cube_str: str):
+    def __init__(self, cube_str):
         self.cube_str = cube_str
         self.faces = {
             face: [
@@ -35,21 +35,24 @@ class Cube:
             for face, offset in zip(FACE_NAMES, (0, 9, 18, 27, 36, 45))
         }
     
-    def __getitem__(self, key) -> str:
+    def __getitem__(self, key):
         return self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3]
 
     def __setitem__(self, key, value):
         self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3] = value
     
     def __str__(self):
-        result = "".join(
-            f"{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}"
+        result = ''.join(
+            f'{f[0][0]}{f[0][1]}{f[0][2]}'
             for f in (self.faces[face] for face in FACE_NAMES)
         )
         return result
     
     def __repr__(self):
-        pass
+        result = '\n'.join(
+            face + '\n' + '\n'.join(', '.join(row) for row in self.faces[face]) + '\n' for face in FACE_NAMES
+        )
+        return result
     
     def rotate(self, rotation: str) -> None:
         # upper case - clockwise, lower case - counterclockwise
@@ -86,4 +89,11 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = temp
+    
+# testing
+c = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
+print(c.__str__())
+#print(c.__repr__())
+
+
     
