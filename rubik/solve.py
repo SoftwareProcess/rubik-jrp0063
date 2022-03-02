@@ -16,11 +16,10 @@ def _solve(parms):
     # rotate defaults to 'F' if missing
     if rotations is None:
         rotations = 'F'
-    if rotations is '':
+    elif rotations is "":
         rotations = 'F'
-    
     #
-    if not isinstance(rotations, str):
+    elif not isinstance(rotations, str):
         result['status'] = '1'
     #
     elif not rotations.isalpha():
