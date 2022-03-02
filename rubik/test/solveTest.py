@@ -22,7 +22,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip('error messages incomplete')
     def test_solve_03_rotate_notstring(self):
         parm = {'op': 'solve',
-                'rotate': 9,
+                'rotate': 7,
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
         result = solve._solve(parm)
         self.assertIn('status', result)
