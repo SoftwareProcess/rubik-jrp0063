@@ -22,13 +22,9 @@ def _solve(parms):
     # test_solve_06_rotate_missing
     elif rotations is None:
         rotations = 'F'
-
-    #
-    if not isinstance(rotations, str):
-        result['status'] = '1'
     
     #
-    elif not rotations.isalpha():
+    if not rotations.isalpha():
         result['status'] = '2'
     
     # test_solve_07_rotate_invalidchars
