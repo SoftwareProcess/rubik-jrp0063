@@ -24,6 +24,14 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube')
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
     
+    def test_check_03_Error_NotAString(self):
+        parm = {'op':'solve',
+                'cube': F}
+        result = check._check(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertNotEqual(status, 'ok')
+    
     def test_solve_04_rotate_notletter(self):
         parm = {'op': 'solve',
                 'rotate': '9',

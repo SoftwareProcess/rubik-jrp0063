@@ -24,13 +24,16 @@ def _solve(parms):
     elif ''.__eq__(encodedRotations):
         encodedRotations = 'F'
     
+    if not isinstance(encodedRotations, str):
+        result['status'] = 'error: rotate not a string'
+    
     # test_solve_04_rotate_notletter
-    if not encodedRotations.isalpha():
-        result['status'] = 'error: rotation characters must be alphabetical'
+    elif not encodedRotations.isalpha():
+        result['status'] = 'error: rotate must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
     elif not all(encodedRotations in ROTATION_CHARACTERS for motion in encodedRotations):
-        result['status'] = 'error: invalid rotation characters'
+        result['status'] = 'error: invalid rotate commands'
     
     else:
         result['status'] = 'ok'
