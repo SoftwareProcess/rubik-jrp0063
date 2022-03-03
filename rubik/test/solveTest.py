@@ -27,7 +27,7 @@ class SolveTest(unittest.TestCase):
     def test_check_03_Error_NotAString(self):
         parm = {'op':'solve',
                 'cube': 9}
-        result = check._check(parm)
+        result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
         self.assertNotEqual(status, 'ok')
