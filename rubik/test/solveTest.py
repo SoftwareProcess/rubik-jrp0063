@@ -48,7 +48,7 @@ class SolveTest(unittest.TestCase):
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
-        self.assertNotEqual(status, 'error: invalid rotation characters')
+        self.assertEqual(status, 'error: invalid rotation characters')
     
     def test_solve_08_rotate_valid(self):
         parm = {'op': 'solve',
