@@ -9,31 +9,31 @@ ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 def _solve(parms):
     
     result = {}
-    rotations = parms.get('rotate')
+    encodedRotations = parms.get('rotate')
     
     # import checkTest cases
     if (check_result := _check(parms)).get('status') != 'ok':
         return check_result
     
     # test_solve_05_rotate_empty
-    if ''.__eq__(rotations):
-        rotations = 'F'
+    if ''.__eq__(encodedRotations):
+        encodedRotations = 'F'
     
     # test_solve_06_rotate_missing
-    elif rotations is None:
-        rotations = 'F'
+    elif encodedRotations is None:
+        encodedRotations = 'F'
     
     # test_solve_04_rotate_notletter
-    if not rotations.isalpha():
+    if not encodedRotations.isalpha():
         result['status'] = 'error: rotation characters must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
-    elif not all(rotations in ROTATION_CHARACTERS for rotation in rotations):
+    elif not all(encodedRotations in ROTATION_CHARACTERS for rotation in encodedRotations):
         result['status'] = 'error: invalid rotation characters'
     
     else:
         cube = Cube(parms.get('cube'))
-        for rotation in rotations:
+        for rotation in encodedRotations:
             cube.rotate(rotation)
         result['status'] = 'ok'
         result['cube'] = str(cube)
