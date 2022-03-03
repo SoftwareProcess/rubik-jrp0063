@@ -11,9 +11,9 @@ def _solve(parms):
     result = {}
     rotations = parms.get('rotate')
     
-    # test_solve_01_emptycube
-    if (cube_result := _check(parms)).get('status') != 'ok':
-        return cube_result
+    # import checkTest cases
+    if (check_result := _check(parms)).get('status') != 'ok':
+        return check_result
     
     # test_solve_05_rotate_empty
     if ''.__eq__(rotations):
@@ -23,13 +23,13 @@ def _solve(parms):
     elif rotations is None:
         rotations = 'F'
     
-    #
+    # test_solve_04_rotate_notletter
     if not rotations.isalpha():
-        result['status'] = '2'
+        result['status'] = 'error: rotation characters must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
     elif not all(rotations in ROTATION_CHARACTERS for rotation in rotations):
-        result['status'] = 'error: invalid characters'
+        result['status'] = 'error: invalid rotation characters'
     
     else:
         cube = Cube(parms.get('cube'))
