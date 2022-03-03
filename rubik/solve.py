@@ -33,15 +33,15 @@ def _solve(parms):
         result['status'] = 'error: must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
-    elif not all(encodedRotations in ROTATION_CHARACTERS for motion in encodedRotations):
+    elif not all(encodedRotations in ROTATION_CHARACTERS for direction in encodedRotations):
         result['status'] = 'error: invalid rotation characters'
     
     else:
         result['status'] = 'ok'
         
         cube = Cube(parms.get('cube'))
-        for motion in encodedRotations:
-            cube.rotate(motion)
+        for direction in encodedRotations:
+            cube.rotate(direction)
         result['cube'] = str(cube)
     
     return result
