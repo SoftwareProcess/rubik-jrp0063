@@ -26,15 +26,15 @@ def _solve(parms):
     
     # test_solve_03_rotate_notastring
     if not isinstance(encodedRotations, str):
-        result['status'] = 'error: rotate not a string'
+        result['status'] = 'error: not a string'
     
     # test_solve_04_rotate_notletter
     elif not encodedRotations.isalpha():
-        result['status'] = 'error: rotate must be alphabetical'
+        result['status'] = 'error: must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
     elif not all(encodedRotations in ROTATION_CHARACTERS for motion in encodedRotations):
-        result['status'] = 'error: invalid rotate commands'
+        result['status'] = 'error: invalid motion command'
     
     else:
         result['status'] = 'ok'
