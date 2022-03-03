@@ -12,7 +12,8 @@ def _solve(parms):
     encodedRotations = parms.get('rotate')
     
     # import checkTest cases to check for cube errors
-    if (check_result = _check(parms)).get('status') != 'ok':
+    check_result = _check(parms)
+    if (check_result).get('status') != 'ok':
         return check_result
     
     # test_solve_05_rotate_empty
