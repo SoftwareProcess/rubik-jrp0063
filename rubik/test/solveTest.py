@@ -24,7 +24,7 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube')
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
     
-    def test_check_03_Error_NotAString(self):
+    def test_solve_03_rotate_notastring(self):
         parm = {'op':'solve',
                 'cube': 9}
         result = solve._solve(parm)
