@@ -48,12 +48,6 @@ class Cube:
         )
         return result
     
-    def __repr__(self):
-        result = '\n'.join(
-            face + '\n' + '\n'.join(', '.join(row) for row in self.faces[face]) + '\n' for face in FACE_NAMES
-        )
-        return result
-    
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
