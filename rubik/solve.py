@@ -34,7 +34,7 @@ def _solve(parms):
     
     # test_solve_07_rotate_invalidchars
     elif not all(encodedRotations in ROTATION_CHARACTERS for motion in encodedRotations):
-        result['status'] = 'error: invalid motion command'
+        result['status'] = 'error: invalid rotation characters'
     
     else:
         result['status'] = 'ok'
