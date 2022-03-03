@@ -24,7 +24,7 @@ def _solve(parms):
     elif ''.__eq__(encodedRotations):
         encodedRotations = 'F'
     
-    # 
+    # test_solve_03_rotate_notastring
     if not isinstance(encodedRotations, str):
         result['status'] = 'error: rotate not a string'
     

@@ -30,7 +30,7 @@ class SolveTest(unittest.TestCase):
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
-        self.assertNotEqual(status, 'ok')
+        self.assertEqual(status, 'error: rotate not a string')
     
     def test_solve_04_rotate_notletter(self):
         parm = {'op': 'solve',
