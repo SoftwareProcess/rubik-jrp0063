@@ -39,7 +39,7 @@ class SolveTest(unittest.TestCase):
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
-        self.assertNotEqual('ok', status)
+        self.assertEqual(status, 'error: must be alphabetical')
     
     def test_solve_07_rotate_invalidrotationchars(self):
         parm = {'op': 'solve',
