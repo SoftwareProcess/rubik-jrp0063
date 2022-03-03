@@ -54,18 +54,18 @@ class Cube:
         )
         return result
     
-    def rotate(self, rotation: str) -> None:
+    def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
-        motion = rotation.isupper()
-        self._rotate_face(OPERATIONS[rotation.lower()], motion)
-        self._rotate_edges(OPERATIONS[rotation.lower()], motion)
+        direction = rotation.isupper()
+        self._rotate_face(OPERATIONS[rotation.lower()], direction)
+        self._rotate_edges(OPERATIONS[rotation.lower()], direction)
     
-    def _rotate_face(self, face_name: str, motion: bool):
+    def _rotate_face(self, face_name, direction):
         offset = FACE_NAMES.index(face_name) * 9
         for x in range(0, 1):
             for y in range(x, 2 - x):
                 temp = self[offset + (x * 3 + y)]
-                if motion == True:
+                if direction == True:
                     self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                     self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                     self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
@@ -76,10 +76,10 @@ class Cube:
                     self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
                     self[offset + ((2 - y) * 3 + x)] = temp
                     
-    def _rotate_edges(self, face_name: str, motion: bool):
+    def _rotate_edges(self, face_name, direction):
         for a, b, c, d in zip(*ADJACENT_EDGES[face_name]):
             temp = self[a]
-            if motion:
+            if direction:
                 self[a] = self[d]
                 self[d] = self[c]
                 self[c] = self[b]
@@ -89,11 +89,4 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = temp
-    
-# testing
-#c = Cube('gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy')
-#print(c.__str__())
-#print(c.__repr__())
-
-
     
