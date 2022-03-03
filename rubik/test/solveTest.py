@@ -41,7 +41,7 @@ class SolveTest(unittest.TestCase):
 
     
     # @unittest.skip('error messages incomplete')
-    def test_solve_07_rotate_invalidchars(self):
+    def test_solve_07_rotate_invalidrotationchars(self):
         parm = {'op': 'solve',
                 'rotate': 'x',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}

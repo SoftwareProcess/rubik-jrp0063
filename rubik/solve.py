@@ -16,12 +16,12 @@ def _solve(parms):
     if (check_result).get('status') != 'ok':
         return check_result
     
-    # test_solve_05_rotate_empty
-    if ''.__eq__(encodedRotations):
-        encodedRotations = 'F'
-    
     # test_solve_06_rotate_missing
-    elif encodedRotations is None:
+    if encodedRotations is None:
+        encodedRotations = 'F'
+        
+    # test_solve_05_rotate_empty
+    elif ''.__eq__(encodedRotations):
         encodedRotations = 'F'
     
     # test_solve_04_rotate_notletter
