@@ -40,8 +40,8 @@ def _solve(parms):
         result['status'] = 'ok'
         
         cube = Cube(parms.get('cube'))
-        for direction in encodedRotations:
-            cube.rotate(direction)
+        for rotation in encodedRotations:
+            cube.rotate(rotation)
         result['cube'] = str(cube)
     
     return result
