@@ -51,10 +51,10 @@ class Cube:
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
         self.rotate_face(rotation, direction)
-        self.rotate_edges(rotation, direction)
+        self.rotate_edge(rotation, direction)
         
     def rotate_face(self, rotation, direction):
-        offset = JUST_ABBR.index(rotation.lower()) * 9
+        offset = OFFSETS[rotation.lower()]
         for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
@@ -69,7 +69,7 @@ class Cube:
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
-    def rotate_edges(self, rotation, direction):
+    def rotate_edge(self, rotation, direction):
             for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
                 temp = self[a]
                 if direction == True:
