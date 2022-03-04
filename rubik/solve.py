@@ -34,7 +34,7 @@ def _solve(parms):
     
     # test_solve_07_rotate_invalidchars
     elif not all(_ in ROTATION_CHARACTERS for _ in encodedRotations):
-        result['status'] = 'error: invalid rotation characters'
+        result['status'] = 'error: invalid rotation character'
     
     else:
         result['status'] = 'ok'
