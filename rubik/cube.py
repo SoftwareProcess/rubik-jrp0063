@@ -7,9 +7,10 @@
 
 # JONATHON FIX THIS IT'S UGLY
 ORIENTATIONS = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
-OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
-JUST_ABBR = list(ORIENTATIONS.keys())
 JUST_NAMES = list(ORIENTATIONS.values())
+JUST_ABBR = list(ORIENTATIONS.keys())
+OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
+CUBE_COMPONENTS = zip(ORIENTATIONS.values(), OFFSETS.values())
 
 ADJACENTS = {
     'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
@@ -29,7 +30,7 @@ class Cube:
                 [cube_str[offset + 3], cube_str[offset + 4], cube_str[offset + 5]],
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
-            for colors, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
+            for colors, offset in CUBE_COMPONENTS
         }
             
     def __setitem__(self, key, val):
