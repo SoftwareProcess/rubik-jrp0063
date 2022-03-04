@@ -63,11 +63,11 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = temp
-                        else:
-                            self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
-                            self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
-                            self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
-                            self[offset + ((2 - y) * 3 + x)] = temp
+                    else:
+                        self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
+                        self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
+                        self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
+                        self[offset + ((2 - y) * 3 + x)] = temp
                     
     def _rotate_edges(self, name, direction):
         for a, b, c, d in zip(*EDGES[name]):
