@@ -35,7 +35,7 @@ class Cube:
         }
             
     def __setitem__(self, key, val):
-        self.faces[NAMES[key // 9]][key % 9 // 3][key % 3] = val
+        self.faces[JUST_NAMES[key // 9]][key % 9 // 3][key % 3] = val
         
     def __getitem__(self, key):
         return self.faces[JUST_NAMES[key // 9]][key % 9 // 3][key % 3]
