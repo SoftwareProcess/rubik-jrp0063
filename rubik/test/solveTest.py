@@ -63,7 +63,7 @@ class SolveTest(unittest.TestCase):
         
     def test_solve_09_rotate_valid_all(self):
         parm = {'op': 'solve',
-                'rotate': 'FRBLUDfrblud',
+                'rotate': 'FRUBLDfrubld',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
         result = solve._solve(parm)
         self.assertIn('status', result)
