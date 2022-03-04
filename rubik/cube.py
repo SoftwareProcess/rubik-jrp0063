@@ -51,34 +51,34 @@ class Cube:
         offset = OFFSETS[rotation.lower()]
         for x in range(0, 1):
                 for y in range(x, 2 - x):
-                    temp = self[offset + (x * 3 + y)]
+                    z = self[offset + (x * 3 + y)]
                     # CLOCKWISE
                     if direction == True:
                         self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
-                        self[offset + (y * 3 + (2 - x))] = temp
+                        self[offset + (y * 3 + (2 - x))] = z
                     # COUNTER CLOCKWISE
                     else:
                         self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
-                        self[offset + ((2 - y) * 3 + x)] = temp
+                        self[offset + ((2 - y) * 3 + x)] = z
                     
     def rotate_adjacents(self, rotation, direction):
             adjacents = zip(*ADJACENTS[rotation.lower()])
             for a, b, c, d in adjacents:
-                temp = self[a]
+                e = self[a]
                 # CLOCKWISE
                 if direction == True:
                     self[a] = self[d]
                     self[d] = self[c]
                     self[c] = self[b]
-                    self[b] = temp
+                    self[b] = e
                 # COUNTER CLOCKWISE
                 else:
                     self[a] = self[b]
                     self[b] = self[c]
                     self[c] = self[d]
-                    self[d] = temp
+                    self[d] = e
         
