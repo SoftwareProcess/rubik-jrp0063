@@ -10,16 +10,10 @@ ORIENTATIONS = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up',
 JUST_NAMES = list(ORIENTATIONS.values())
 JUST_ABBR = list(ORIENTATIONS.keys())
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
-CUBE_COMPONENTS = zip(ORIENTATIONS.values(), OFFSETS.values())
 
-ADJACENTS = {
-    'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
-    'r': ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
-    'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),
-    'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
-    'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),
-    'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35)),
-}
+ADJACENTS = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   'r': ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
+                'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
+                'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
 class Cube:
     def __init__(self, cube_str):
@@ -30,7 +24,7 @@ class Cube:
                 [cube_str[offset + 3], cube_str[offset + 4], cube_str[offset + 5]],
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
-            for colors, offset in CUBE_COMPONENTS
+            for colors, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
         }
             
     def __setitem__(self, key, val):
