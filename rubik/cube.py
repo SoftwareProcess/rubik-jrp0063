@@ -37,11 +37,7 @@ class Cube:
             for name, offset in zip(NAMES.values(), OFFSETS.values())
         }
             
-    def __setitem__(self, key, val):
-        self.faces[JUST_NAMES[key // 9]][key % 9 // 3][key % 3] = val
-        
-    def __getitem__(self, key):
-        return self.faces[JUST_NAMES[key // 9]][key % 9 // 3][key % 3]
+
         
     def __str__(self):
         result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.faces[j] for j in NAMES.values()))
