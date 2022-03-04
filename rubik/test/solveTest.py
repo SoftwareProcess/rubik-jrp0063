@@ -52,7 +52,7 @@ class SolveTest(unittest.TestCase):
     
     def test_solve_08_rotate_valid(self):
         parm = {'op': 'solve',
-                'rotate': 'F',
+                'rotate': 'FRBLUDfrblud',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
         result = solve._solve(parm)
         self.assertIn('status', result)
@@ -61,3 +61,13 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube')
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
         
+    def test_solve_09_rotate_valid_all(self):
+        parm = {'op': 'solve',
+                'rotate': 'F',
+                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        cube = result.get('cube')
+        self.assertEqual(cube, 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
