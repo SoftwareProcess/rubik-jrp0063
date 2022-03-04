@@ -4,58 +4,53 @@
 #    __getitem__(self, key)         self[key]                         accessing an item using an index
 #    __setitem__(self, key, val)    self[key] = val                   assigning to an item using an index
 #    __str__(self)                  str()                             produce human readable output 
-#    __repr__(self)                 repr()                            produce machine readable output
 #
 #    a leading underscore is used to indicate a private method/attribute
 #    unused loop variables can be replaced with an underscore
 #    : str is a parameter annotation
 #    -> is a return value annotation
 
-FACE_NAMES = ('front', 'right', 'back', 'left', 'up', 'down')
-OPERATIONS = {name[0]: name for name in FACE_NAMES}
-ADJACENT_EDGES = {
-    FACE_NAMES[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
-    FACE_NAMES[1]: ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
-    FACE_NAMES[2]: ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),
-    FACE_NAMES[3]: ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
-    FACE_NAMES[4]: ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),
-    FACE_NAMES[5]: ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35)),
+NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
+OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
+EDGES = {
+    list(NAMES)[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
+    list(NAMES)[1]: ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
+    list(NAMES)[2]: ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),
+    list(NAMES)[3]: ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
+    list(NAMES)[4]: ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),
+    list(NAMES)[5]: ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))
 }
 
 class Cube:
-    
     def __init__(self, cube_str):
-        self.cube_str = cube_str
+        
         self.faces = {
-            face: [
+            name: [
                 [cube_str[offset + 0], cube_str[offset + 1], cube_str[offset + 2]],
                 [cube_str[offset + 3], cube_str[offset + 4], cube_str[offset + 5]],
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
-            for face, offset in zip(FACE_NAMES, (0, 9, 18, 27, 36, 45))
+            for name, offset in zip(NAMES.values(), OFFSETS.values())
         }
-    
+            
+    def __setitem__(self, key, val):
+        self.faces[NAMES[key // 9]][key % 9 // 3][key % 3] = val
+        
     def __getitem__(self, key):
-        return self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3]
-
-    def __setitem__(self, key, value):
-        self.faces[FACE_NAMES[key // 9]][key % 9 // 3][key % 3] = value
-    
+        return self.faces[NAMES[key // 9]][key % 9 // 3][key % 3]
+        
     def __str__(self):
-        result = ''.join(
-            f'{f[0][0]}{f[0][1]}{f[0][2]}{f[1][0]}{f[1][1]}{f[1][2]}{f[2][0]}{f[2][1]}{f[2][2]}'
-            for f in (self.faces[face] for face in FACE_NAMES)
-        )
+        result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.faces[j] for j in NAMES.values()))
         return result
-    
+        
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
-        self._rotate_face(OPERATIONS[rotation.lower()], direction)
-        self._rotate_edges(OPERATIONS[rotation.lower()], direction)
-    
-    def _rotate_face(self, face_name, direction):
-        offset = FACE_NAMES.index(face_name) * 9
+        self._rotate_face(NAMES[rotation.lower()], direction)
+        self._rotate_edges(NAMES[rotation.lower()], direction)
+        
+    def _rotate_face(self, name, direction):
+        offset = OFFSETS[name]
         for x in range(0, 1):
             for y in range(x, 2 - x):
                 temp = self[offset + (x * 3 + y)]
@@ -70,8 +65,8 @@ class Cube:
                     self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
                     self[offset + ((2 - y) * 3 + x)] = temp
                     
-    def _rotate_edges(self, face_name, direction):
-        for a, b, c, d in zip(*ADJACENT_EDGES[face_name]):
+    def _rotate_edges(self, name, direction):
+        for a, b, c, d in zip(*EDGES[name]):
             temp = self[a]
             if direction:
                 self[a] = self[d]
@@ -83,4 +78,4 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = temp
-    
+        
