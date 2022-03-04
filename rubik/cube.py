@@ -6,10 +6,10 @@
 #    __str__(self)                  str()                             produce human readable output 
 
 # JONATHON FIX THIS IT'S UGLY
-SIDES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
+ORIENTATIONS = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
-JUST_ABBR = list(SIDES.keys())
-JUST_NAMES = list(SIDES.values())
+JUST_ABBR = list(ORIENTATIONS.keys())
+JUST_NAMES = list(ORIENTATIONS.values())
 
 ADJACENTS = {
     'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
@@ -29,7 +29,7 @@ class Cube:
                 [cube_str[offset + 3], cube_str[offset + 4], cube_str[offset + 5]],
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
-            for name, offset in zip(SIDES.values(), OFFSETS.values())
+            for name, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
         }
             
     def __setitem__(self, key, val):
@@ -39,7 +39,7 @@ class Cube:
         return self.faces[JUST_NAMES[key // 9]][key % 9 // 3][key % 3]
         
     def __str__(self):
-        result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.faces[j] for j in SIDES.values()))
+        result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.faces[j] for j in ORIENTATIONS.values()))
         return result
         
     def rotate(self, rotation):
@@ -53,11 +53,13 @@ class Cube:
         for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
+                    # CLOCKWISE
                     if direction == True:
                         self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = temp
+                    # COUNTER CLOCKWISE
                     else:
                         self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
@@ -67,11 +69,13 @@ class Cube:
     def rotate_edge(self, rotation, direction):
             for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
                 temp = self[a]
+                # CLOCKWISE
                 if direction == True:
                     self[a] = self[d]
                     self[d] = self[c]
                     self[c] = self[b]
                     self[b] = temp
+                # COUNTER CLOCKWISE
                 else:
                     self[a] = self[b]
                     self[b] = self[c]
