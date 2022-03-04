@@ -66,7 +66,8 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
     def rotate_adjacents(self, rotation, direction):
-            for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
+            adjacents = zip(*ADJACENTS[rotation.lower()])
+            for a, b, c, d in adjacents:
                 temp = self[a]
                 # CLOCKWISE
                 if direction == True:
