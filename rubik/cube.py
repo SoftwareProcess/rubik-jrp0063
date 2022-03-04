@@ -24,12 +24,12 @@ class Cube:
     def __init__(self, cube_str):
         
         self.cube_build = {
-            name: [
+            colors: [
                 [cube_str[offset + 0], cube_str[offset + 1], cube_str[offset + 2]],
                 [cube_str[offset + 3], cube_str[offset + 4], cube_str[offset + 5]],
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
-            for name, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
+            for colors, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
         }
             
     def __setitem__(self, key, val):
@@ -39,8 +39,7 @@ class Cube:
         return self.cube_build[JUST_NAMES[key // 9]][key % 9 // 3][key % 3]
         
     def __str__(self):
-        result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.cube_build[j] for j in ORIENTATIONS.values()))
-        return result
+        return ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.cube_build[j] for j in ORIENTATIONS.values()))
         
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
