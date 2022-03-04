@@ -58,7 +58,7 @@ class Cube:
             for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
-                    if direction == False:
+                    if direction == True:
                         self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
@@ -73,7 +73,7 @@ class Cube:
         for i in name.lower():
             for a, b, c, d in zip(*EDGES[i]):
                 temp = self[a]
-                if direction == False:
+                if direction == True:
                     self[a] = self[d]
                     self[d] = self[c]
                     self[c] = self[b]
