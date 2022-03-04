@@ -14,7 +14,7 @@
 NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 JUST_ABBR = list(NAMES.keys())
 JUST_NAMES = list(NAMES.values())
-OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
+OFFSETS = {'F': 0, 'f': 0, 'R': 9, 'r': 9, 'B': 18, 'b': 18, 'L': 27, 'l': 27, 'U': 36, 'u': 36, 'D': 45, 'd': 45}
 
 ADJACENTS = {
     list(NAMES)[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
