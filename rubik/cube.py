@@ -50,8 +50,8 @@ class Cube:
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
-        self._rotate_face(rotation, direction)
-        self._rotate_edges(rotation, direction)
+        self.rotate_face(rotation, direction)
+        self.rotate_edges(rotation, direction)
         
     def rotate_face(self, rotation, direction):
         offset = JUST_ABBR.index(rotation.lower()) * 9
