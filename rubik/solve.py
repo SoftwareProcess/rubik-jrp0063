@@ -33,7 +33,7 @@ def _solve(parms):
         result['status'] = 'error: must be alphabetical'
     
     # test_solve_07_rotate_invalidchars
-    elif not all(i in ROTATION_CHARACTERS for i in encodedRotations):
+    elif not all(_ in ROTATION_CHARACTERS for _ in encodedRotations):
         result['status'] = 'error: invalid rotation characters'
     
     else:
