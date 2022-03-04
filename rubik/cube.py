@@ -73,7 +73,7 @@ class Cube:
         for i in name:
             for a, b, c, d in zip(*EDGES[i]):
                 temp = self[a]
-                if direction == TRUE:
+                if direction == True:
                     self[a] = self[d]
                     self[d] = self[c]
                     self[c] = self[b]
