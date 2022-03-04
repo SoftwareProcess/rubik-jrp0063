@@ -53,20 +53,21 @@ class Cube:
         self._rotate_edges(rotation.lower(), direction)
         
     def _rotate_face(self, name, direction):
-        offset = OFFSETS[name]
-        for x in range(0, 1):
-            for y in range(x, 2 - x):
-                temp = self[offset + (x * 3 + y)]
-                if direction == True:
-                    self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
-                    self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
-                    self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
-                    self[offset + (y * 3 + (2 - x))] = temp
-                else:
-                    self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
-                    self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
-                    self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
-                    self[offset + ((2 - y) * 3 + x)] = temp
+        for _ in name:
+            offset = OFFSETS[name]
+            for x in range(0, 1):
+                for y in range(x, 2 - x):
+                    temp = self[offset + (x * 3 + y)]
+                    if direction == True:
+                        self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
+                        self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
+                        self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
+                        self[offset + (y * 3 + (2 - x))] = temp
+                        else:
+                            self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
+                            self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
+                            self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
+                            self[offset + ((2 - y) * 3 + x)] = temp
                     
     def _rotate_edges(self, name, direction):
         for a, b, c, d in zip(*EDGES[name]):
