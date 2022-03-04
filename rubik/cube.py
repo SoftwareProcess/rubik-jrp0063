@@ -46,7 +46,7 @@ class Cube:
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
         self.rotate_face(rotation, direction)
-        self.rotate_edge(rotation, direction)
+        self.rotate_adjacents(rotation, direction)
         
     def rotate_face(self, rotation, direction):
         offset = OFFSETS[rotation.lower()]
@@ -66,7 +66,7 @@ class Cube:
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
-    def rotate_edge(self, rotation, direction):
+    def rotate_adjacents(self, rotation, direction):
             for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
                 temp = self[a]
                 # CLOCKWISE
