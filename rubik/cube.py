@@ -10,9 +10,11 @@
 #    : str is a parameter annotation
 #    -> is a return value annotation
 
+# JONATHON FIX THIS IT'S UGLY
 NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 JUST_NAMES = list(NAMES.values())
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
+
 EDGES = {
     list(NAMES)[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
     list(NAMES)[1]: ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),

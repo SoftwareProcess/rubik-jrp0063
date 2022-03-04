@@ -20,3 +20,15 @@ class CubeTest(unittest.TestCase):
         cube.rotate('f')
         self.assertEqual(str(cube), 'gggggggggyrryrryrrbbbbbbbbboowoowoowwwwwwwrrroooyyyyyy')
         
+    def test_cube_0_cuberotate_(self):
+        cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
+        cube = Cube(cube_str)
+        cube.rotate('R')
+        self.assertEqual(str(cube), 'ggyggyggyrrrrrrrrrwbbwbbwbbooooooooowwgwwgwwgyybyybyyb')
+        
+    def test_cube_0_cuberotate_(self):
+        cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
+        cube = Cube(cube_str)
+        cube.rotate('')
+        self.assertEqual(str(cube), '')
+        
