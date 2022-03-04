@@ -53,8 +53,8 @@ class Cube:
         self._rotate_edges(rotation.lower(), direction)
         
     def _rotate_face(self, name, direction):
-        for _ in name:
-            offset = OFFSETS[name]
+        for i in name:
+            offset = OFFSETS[i]
             for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
