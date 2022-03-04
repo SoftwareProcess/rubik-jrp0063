@@ -7,19 +7,22 @@ class CubeTest(unittest.TestCase):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
         self.assertEqual(cube_str, str(cube))
-        
+    
+    #@unittest.skip
     def test_cube_02_cuberotate_F(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
         cube.rotate('F')
         self.assertEqual(str(cube), 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
-        
+    
+    #@unittest.skip
     def test_cube_03_cuberotate_f(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
         cube.rotate('f')
         self.assertEqual(str(cube), 'gggggggggyrryrryrrbbbbbbbbboowoowoowwwwwwwrrroooyyyyyy')
-        
+    
+    #@unittest.skip
     def test_cube_04_cuberotate_R(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
@@ -75,17 +78,17 @@ class CubeTest(unittest.TestCase):
         cube.rotate('u')
         self.assertEqual(str(cube), 'ooogggggggggrrrrrrrrrbbbbbbbbboooooowwwwwwwwwyyyyyyyyy')
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_12_cuberotate_D(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
         cube.rotate('D')
-        self.assertEqual(str(cube), '')
+        self.assertEqual(str(cube), 'ggggggooorrrrrrgggbbbbbbrrroooooobbbwwwwwwwwwyyyyyyyyy')
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_13_cuberotate_d(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
         cube.rotate('d')
-        self.assertEqual(str(cube), '')
+        self.assertEqual(str(cube), 'ggggggrrrrrrrrrbbbbbbbbbooooooooogggwwwwwwwwwyyyyyyyyy')
         
