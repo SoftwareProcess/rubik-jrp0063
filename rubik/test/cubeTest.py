@@ -8,7 +8,7 @@ class CubeTest(unittest.TestCase):
         cube = Cube(cube_str)
         self.assertEqual(cube_str, str(cube))
     
-    @unittest.skip
+    #@unittest.skip
     def test_cube_02_rotate_F(self):
         cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
         cube = Cube(cube_str)
