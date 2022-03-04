@@ -48,7 +48,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'error: must be alphabetical')
     
     #@unittest.skip
-    def test_solve_07_rotate_invalidrotationchar(self):
+    def test_solve_05_rotate_invalidrotationchar(self):
         parm = {'op': 'solve',
                 'rotate': 'x',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
@@ -58,7 +58,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'error: invalid rotation character')
     
     #@unittest.skip
-    def test_solve_08_rotate_valid(self):
+    def test_solve_06_rotate_valid(self):
         parm = {'op': 'solve',
                 'rotate': 'F',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
@@ -70,7 +70,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
         
     #@unittest.skip    
-    def test_solve_09_rotate_valid_all(self):
+    def test_solve_07_rotate_valid_all(self):
         parm = {'op': 'solve',
                 'rotate': 'FRUBLDfrubld',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
