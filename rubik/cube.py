@@ -46,8 +46,8 @@ class Cube:
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
-        self._rotate_face(NAMES[rotation.lower()], direction)
-        self._rotate_edges(NAMES[rotation.lower()], direction)
+        self._rotate_face(rotation.lower(), direction)
+        self._rotate_edges(rotation.lower(), direction)
         
     def _rotate_face(self, name, direction):
         offset = OFFSETS[name]
