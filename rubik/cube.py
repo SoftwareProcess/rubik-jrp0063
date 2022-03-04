@@ -70,7 +70,7 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
     def rotate_edge(self, rotation, direction):
-            for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
+            for a, b, c, d in zip(*ADJACENTS[rotation]):
                 temp = self[a]
                 if direction == True:
                     self[a] = self[d]
