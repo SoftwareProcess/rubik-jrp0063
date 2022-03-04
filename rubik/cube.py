@@ -4,13 +4,16 @@
 #    __setitem__(self, key, val)    self[key] = val                   assigning to an item using an index
 #    __getitem__(self, key)         self[key]                         accessing an item using an index
 #    __str__(self)                  str()                             produce human readable output 
+#    The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed iterator is paired together, and then the second item in each passed iterator are paired together etc.
+#    If you do not know how many arguments that will be passed into your function, add a * before the parameter name in the function definition.
 
 # JONATHON FIX THIS IT'S UGLY
 ORIENTATIONS = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
 JUST_NAMES = list(ORIENTATIONS.values())
-JUST_ABBR = list(ORIENTATIONS.keys())
+JUST_ABBR = list(ORIENTATIONS.keys()) # not used but might come in handy
 
+# blocks attached to the sides of each orientation
 CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   'r': ((44, 41, 38), (18, 21, 24), (53, 50, 47), (8, 5, 2)),
                 'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
@@ -55,12 +58,14 @@ class Cube:
                     z = self[offset + (x * 3 + y)]
                     # CLOCKWISE
                     if direction == True:
+                        # move colors around
                         self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = z
                     # COUNTER CLOCKWISE
                     else:
+                        # move colors around
                         self[offset + (x * 3 + y)] = self[offset + (y * 3 + (2 - x))]
                         self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
@@ -68,19 +73,21 @@ class Cube:
                     
     # rotate blocks connected to selected face                
     def rotate_connected(self, rotation, direction):
-            connected = zip(*CONNECTED[rotation.lower()])
-            for a, b, c, d in connected:
-                e = self[a]
-                # CLOCKWISE
-                if direction == True:
-                    self[a] = self[d]
-                    self[d] = self[c]
-                    self[c] = self[b]
-                    self[b] = e
-                # COUNTER CLOCKWISE
-                else:
-                    self[a] = self[b]
-                    self[b] = self[c]
-                    self[c] = self[d]
-                    self[d] = e
+        connected = zip(*CONNECTED[rotation.lower()])
+        for a, b, c, d in connected:
+            e = self[a]
+            # CLOCKWISE
+            if direction == True:
+                # move colors around
+                self[a] = self[d]
+                self[d] = self[c]
+                self[c] = self[b]
+                self[b] = e
+            # COUNTER CLOCKWISE
+            else:
+                # move colors around
+                self[a] = self[b]
+                self[b] = self[c]
+                self[c] = self[d]
+                self[d] = e
         
