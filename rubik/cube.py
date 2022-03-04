@@ -14,7 +14,7 @@
 NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 JUST_ABBR = list(NAMES.keys())
 JUST_NAMES = list(NAMES.values())
-OFFSETS = {'F': 0, 'f': 0, 'R': 9, 'r': 9, 'B': 18, 'b': 18, 'L': 27, 'l': 27, 'U': 36, 'u': 36, 'D': 45, 'd': 45}
+OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
 
 ADJACENTS = {
     list(NAMES)[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
@@ -54,7 +54,7 @@ class Cube:
         self.rotate_edge(rotation, direction)
         
     def rotate_face(self, rotation, direction):
-        offset = OFFSETS[rotation]
+        offset = OFFSETS[rotation.lower()]
         for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
@@ -70,7 +70,7 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
     def rotate_edge(self, rotation, direction):
-            for a, b, c, d in zip(*ADJACENTS[rotation]):
+            for a, b, c, d in zip(*ADJACENTS[rotation.lower()]):
                 temp = self[a]
                 if direction == True:
                     self[a] = self[d]
