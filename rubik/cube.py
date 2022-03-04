@@ -11,6 +11,7 @@
 #    -> is a return value annotation
 
 NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
+JUST_NAMES = list(NAMES.values())
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
 EDGES = {
     list(NAMES)[0]: ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),
@@ -37,7 +38,7 @@ class Cube:
         self.faces[NAMES[key // 9]][key % 9 // 3][key % 3] = val
         
     def __getitem__(self, key):
-        return self.faces[NAMES.values()[key // 9]][key % 9 // 3][key % 3]
+        return self.faces[JUST_NAMES.values()[key // 9]][key % 9 // 3][key % 3]
         
     def __str__(self):
         result = ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.faces[j] for j in NAMES.values()))
