@@ -49,16 +49,16 @@ class Cube:
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
         direction = rotation.isupper()
-        self._rotate_face(rotation.lower(), direction)
-        self._rotate_edges(rotation.lower(), direction)
+        self._rotate_face(rotation, direction)
+        self._rotate_edges(rotation, direction)
         
     def _rotate_face(self, name, direction):
-        for i in name:
+        for i in name.lower():
             offset = OFFSETS[i]
             for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
-                    if direction == True:
+                    if direction == False:
                         self[offset + (x * 3 + y)] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + (y * 3 + (2 - x))]
@@ -70,10 +70,10 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
     def _rotate_edges(self, name, direction):
-        for i in name:
+        for i in name.lower():
             for a, b, c, d in zip(*EDGES[i]):
                 temp = self[a]
-                if direction == True:
+                if direction == False:
                     self[a] = self[d]
                     self[d] = self[c]
                     self[c] = self[b]
