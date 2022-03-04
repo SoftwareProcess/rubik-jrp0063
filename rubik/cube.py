@@ -12,6 +12,7 @@
 
 # JONATHON FIX THIS IT'S UGLY
 NAMES = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
+JUST_ABBR = list(NAMES.keys())
 JUST_NAMES = list(NAMES.values())
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
 
@@ -53,9 +54,8 @@ class Cube:
         self._rotate_edges(rotation, direction)
         
     def _rotate_face(self, name, direction):
-        for i in name.lower():
-            offset = OFFSETS[i]
-            for x in range(0, 1):
+        offset = JUST_ABBR.index(name) * 9
+        for x in range(0, 1):
                 for y in range(x, 2 - x):
                     temp = self[offset + (x * 3 + y)]
                     if direction == True:
@@ -70,8 +70,7 @@ class Cube:
                         self[offset + ((2 - y) * 3 + x)] = temp
                     
     def _rotate_edges(self, name, direction):
-        for i in name.lower():
-            for a, b, c, d in zip(*ADJACENTS[i]):
+            for a, b, c, d in zip(*ADJACENTS[name]):
                 temp = self[a]
                 if direction == True:
                     self[a] = self[d]
