@@ -46,3 +46,14 @@ def _solve(parms):
     
     return result
             
+# CENTERS w/ cube numbering beginning at 0:
+#     4    front
+#    13    right
+#    22    back    
+#    31    left
+#    40    up        
+#    49    down
+            
+def solveDaisy(self):
+    return
+
