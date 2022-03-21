@@ -92,30 +92,30 @@ class Cube:
                 self[c] = self[d]
                 self[d] = e
                 
-    # CENTERS w/ cube numbering beginning at 0:
-#     4    front
-#    13    right
-#    22    back    
-#    31    left
-#    40    up        
-#    49    down            
+    # CENTERS(w/ cube numbering beginning at 0):
+    #     4    front
+    #    13    right
+    #    22    back    
+    #    31    left
+    #    40    up        
+    #    49    down            
     
-    def crossCheck(self):
+    def isDaisy(self):
         
-        colorDict = {'u': self[40], 'd': self[49]}
-        upCenter = self[40]
-        downCross = {'d': [self[46], self[50], self[52], self[48]]}
-        upCross = [self[37], self[41], self[43], self[39]]
-        
-        
-        if all(sticker == upCenter for sticker in upCross):
+        up_cross = [self[37], self[41], self[43], self[39]]
+        down_cross = [self[46], self[50], self[52], self[48]]
+
+        if all(x == self[49] for x in up_cross):
             return True
+        else:
+            return False
+            
         
         
-        
-cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
+# gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy        
+cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb'
 cube = Cube(cube_str)
-print(cube.crossCheck())
+print(cube.isDaisy())
     
         
     
