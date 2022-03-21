@@ -91,4 +91,31 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = e
+                
+    # CENTERS w/ cube numbering beginning at 0:
+#     4    front
+#    13    right
+#    22    back    
+#    31    left
+#    40    up        
+#    49    down            
+    
+    def crossCheck(self):
         
+        colorDict = {'u': self[40], 'd': self[49]}
+        upCenter = self[40]
+        downCross = {'d': [self[46], self[50], self[52], self[48]]}
+        upCross = [self[37], self[41], self[43], self[39]]
+        
+        
+        if all(sticker == upCenter for sticker in upCross):
+            return True
+        
+        
+        
+cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'
+cube = Cube(cube_str)
+print(cube.crossCheck())
+    
+        
+    

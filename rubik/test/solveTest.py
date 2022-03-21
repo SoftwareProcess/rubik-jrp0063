@@ -82,5 +82,3 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(cube, 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
     #@unittest.skip
-    def test_solve_08_determine_topyellow(self):
-        return
