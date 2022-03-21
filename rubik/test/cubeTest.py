@@ -105,3 +105,8 @@ class CubeTest(unittest.TestCase):
         cube = Cube(cube_str)
         self.assertEqual(cube.isDaisy(), True)
         
+    def test_cube_16_daisy_false(self):
+        cube_str = 'wbrwogyyobwgrbwbgyroybrybgorggogogrbgbwoyroywrrwbwwyyo'
+        cube = Cube(cube_str)
+        self.assertEqual(cube.isDaisy(), False)
+        
