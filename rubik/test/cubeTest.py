@@ -98,5 +98,5 @@ class CubeTest(unittest.TestCase):
         cube = Cube(cube_str)
         for rotation in 'FRUBLDfrubld':
             cube.rotate(rotation)
-        self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
+        self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrr')
         
