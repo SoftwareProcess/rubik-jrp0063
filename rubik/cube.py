@@ -105,7 +105,7 @@ class Cube:
         if all(x == self[49] for x in up_cross):
             return 'no'
         else:
-            for x in 5:
+            for x in range(5):
             # top front petal
                 if self[43] != self[49]:
                     # front edges
