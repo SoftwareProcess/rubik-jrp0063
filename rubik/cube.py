@@ -101,7 +101,7 @@ class Cube:
         if daisy_solved:
             return
         else:
-            while not daisy_solved:
+            for x in range(10):
             # top front petal
                 if self[43] != self[49]:
                     # front edges
@@ -236,6 +236,4 @@ class Cube:
                 else:
                     # prepare for next petal
                     self.rotate('U')
-                    
-                daisy_solved = all(x == self[49] for x in up_cross)
     
