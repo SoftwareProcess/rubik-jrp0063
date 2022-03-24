@@ -103,7 +103,7 @@ class Cube:
     def makeDaisy(self):
         up_cross = [self[43], self[39], self[37], self[41]]
         if all(x == self[49] for x in up_cross):
-            return ''
+            return 'no'
         else:
             for x in up_cross:
             # top front petal
