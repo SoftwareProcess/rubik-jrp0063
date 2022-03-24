@@ -108,6 +108,7 @@ class CubeTest(unittest.TestCase):
         petal_color = [test[49], test[49], test[49], test[49]]
         petals = [test[43], test[39], test[37], test[41]]
         self.assertEqual(petal_color, petals)
+        self.assertEqual(str(cube), 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr')
         
     def test_cube_16_daisy_unsolved(self):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
