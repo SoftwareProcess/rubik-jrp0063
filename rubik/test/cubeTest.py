@@ -104,6 +104,6 @@ class CubeTest(unittest.TestCase):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
         cube.makeDaisy()
-        self.assertEqual(str(cube), 2)
+        self.assertEqual(str(cube), 'test')
         
         
