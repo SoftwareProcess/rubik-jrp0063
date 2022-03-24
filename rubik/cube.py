@@ -90,20 +90,15 @@ class Cube:
                 self[a] = self[b]
                 self[b] = self[c]
                 self[c] = self[d]
-                self[d] = e
-                
-    # CENTERS(w/ cube numbering beginning at 0):
-    #     4    front
-    #    13    right
-    #    22    back    
-    #    31    left
-    #    40    up        
-    #    49    down            
+                self[d] = e     
     
+    # solve daisy on top of cube
     def makeDaisy(self):
+        # petals
         up_cross = [self[43], self[39], self[37], self[41]]
+        # petal color is self[49]
         if all(x == self[49] for x in up_cross):
-            return 'no'
+            return
         else:
             for x in range(5):
             # top front petal
@@ -235,21 +230,9 @@ class Cube:
                     # error
                     else:
                         return 'Error'
+                    # prepare for next petal
                     self.rotate('U')
                 else:
+                    # prepare for next petal
                     self.rotate('U')
-
-#cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy' # solved
-#cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb' # daisy
-#cube_str = 'woroyrgybywwyrboggbgbrwwrgwwogbobrworyoygrowbybygbrgoy' # daisy top petal 14 B
-#cube_str = 'yobgwoyybygwbbywbbobggywywrrogrgwwwgwygworrgooroorrbbr' # daisy top petal 30 b
-#cube_str = 'yobgwoyybygrbbbwbbygowybrwggogygwwwgwybyorrgooroorrrrw' # daisy top petal 52 BB
-#cube_str = 'wgobogrroyboyywworbwborbygbrrbowywgwyryygwrrggbgwbyoog' # daisy top petal 23 uL
-#cube_str = 'orogbogbwwrygrwbywbwoggrrorgwyyoyyyoworrygbbbywrowbgbg' # scrambled
-#cube_str = 'wbgrbbgggwowyrowryrrbggrborrgoyobyyoywbwywbwoyyrowggbo' # scrambled daisy solved
-
-#cube = Cube(cube_str)
-#print(cube.makeDaisy())
-
-        
     
