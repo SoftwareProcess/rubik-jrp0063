@@ -236,6 +236,8 @@ class Cube:
                     else:
                         return 'Error'
                     self.rotate('U')
+                else:
+                    self.rotate('U')
 
 #cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy' # solved
 #cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb' # daisy
@@ -248,6 +250,9 @@ class Cube:
 
 #cube = Cube(cube_str)
 #print(cube.makeDaisy())
-    
+
+if __name__ == "__main__":
+    cube = Cube('boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy')
+    print(cube.makeDaisy())
         
     
