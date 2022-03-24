@@ -100,7 +100,16 @@ class CubeTest(unittest.TestCase):
             cube.rotate(rotation)
         self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
-    def test_cube_15_daisy_unsolved(self):
+    def test_cube_15_daisy_solved(self):
+        cube_str = 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr'
+        cube = Cube(cube_str)
+        cube.makeDaisy()
+        test = str(cube)
+        petal_color = [test[49], test[49], test[49], test[49]]
+        petals = [test[43], test[39], test[37], test[41]]
+        self.assertEqual(petal_color, petals)
+        
+    def test_cube_16_daisy_unsolved(self):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
         cube.makeDaisy()
@@ -108,5 +117,6 @@ class CubeTest(unittest.TestCase):
         petal_color = [test[49], test[49], test[49], test[49]]
         petals = [test[43], test[39], test[37], test[41]]
         self.assertEqual(petal_color, petals)
+        
         
         
