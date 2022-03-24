@@ -105,7 +105,7 @@ class CubeTest(unittest.TestCase):
         cube = Cube(cube_str)
         cube.makeDaisy()
         test = str(cube)
-        petal_color = test[49]
+        petal_color = [test[49], test[49], test[49], test[49]]
         petals = [test[43], test[39], test[37], test[41]]
         self.assertEqual(petal_color, petals)
         
