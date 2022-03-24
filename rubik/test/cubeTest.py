@@ -129,5 +129,14 @@ class CubeTest(unittest.TestCase):
         cross = test[46]
         self.assertEqual(test_color, cross)
         
+    def test_cube_18_bottomcross_solve_unsolved(self):
+        cube_str = 'brrrorrbybogybogrwogryrogbbyboggbwgwbwywywywwgorywgoyo'
+        cube = Cube(cube_str)
+        cube.makeBottomCross()
+        test = str(cube)
+        test_cross = [test[49], test[49], test[49], test[49]]
+        bottom_cross = [test[46], test[50], test[52], test[48]]
+        self.assertEqual(test_cross, bottom_cross)
+        
         
         
