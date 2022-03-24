@@ -96,8 +96,9 @@ class Cube:
     def makeDaisy(self):
         # petals
         up_cross = [self[43], self[39], self[37], self[41]]
+        daisy_solved = all(x == self[49] for x in up_cross)
         # petal color is self[49]
-        if all(x == self[49] for x in up_cross):
+        if daisy_solved:
             return
         else:
             while all(x == self[49] for x in up_cross) == False:
