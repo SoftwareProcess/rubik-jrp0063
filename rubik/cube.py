@@ -105,7 +105,7 @@ class Cube:
         if all(x == self[49] for x in up_cross):
             return 'no'
         else:
-            for x in up_cross:
+            for x in 5:
             # top front petal
                 if self[43] != self[49]:
                     # front edges
@@ -251,8 +251,5 @@ class Cube:
 #cube = Cube(cube_str)
 #print(cube.makeDaisy())
 
-if __name__ == "__main__":
-    cube = Cube('boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy')
-    print(cube.makeDaisy())
         
     
