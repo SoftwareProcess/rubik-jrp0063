@@ -101,7 +101,7 @@ class Cube:
         if daisy_solved:
             return
         else:
-            for x in range(10):
+            for x in range(5):
             # top front petal
                 if self[43] != self[49]:
                     # front edges
