@@ -100,22 +100,154 @@ class Cube:
     #    40    up        
     #    49    down            
     
-    def isDaisy(self):
-        
-        up_cross = [self[37], self[41], self[43], self[39]]
-        down_cross = [self[46], self[50], self[52], self[48]]
-
+    def makeDaisy(self):
+        up_cross = [self[43], self[39], self[37], self[41]]
         if all(x == self[49] for x in up_cross):
-            return True
+            return
         else:
-            return False
-            
-        
-        
-# gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy        
-cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb'
+            for x in up_cross:
+            # top front petal
+                if self[43] != self[49]:
+                    # front edges
+                    if self[12] == self[49]:
+                        self.rotate('f')
+                    elif self[46] == self[49]:
+                        self.rotate('f')
+                        self.rotate('f')
+                    elif self[32] == self[49]:
+                        self.rotate('F')
+                    # front middles
+                    elif self[1] == self[49]:
+                        self.rotate('F')
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[5] == self[49]:
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[7] == self[49]:
+                        self.rotate('F')
+                        self.rotate('U')
+                        self.rotate('l')
+                        self.rotate('u')
+                    elif self[3] == self[49]:
+                        self.rotate('U')
+                        self.rotate('l')
+                        self.rotate('u')
+                    # right edges
+                    elif self[21] == self[49]:
+                        self.rotate('u')
+                        self.rotate('r')
+                        self.rotate('U')
+                    elif self[50] == self[49]:
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('R')
+                        self.rotate('U')
+                    # right middles
+                    elif self[10] == self[49]:
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('u')
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[14] == self[49]:
+                        self.rotate('r')
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('u')
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[16] == self[49]:
+                        self.rotate('r')
+                        self.rotate('r')
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('u')
+                        self.rotate('u')
+                        self.rotate('R')
+                        self.rotate('U')
+                    # back edges
+                    elif self[30] == self[49]:
+                        self.rotate('b')
+                        self.rotate('U')
+                        self.rotate('U')
+                    elif self[52] == self[49]:
+                        self.rotate('b')
+                        self.rotate('b')
+                        self.rotate('U')
+                        self.rotate('U')
+                    # back middles
+                    elif self[19] == self[49]:
+                        self.rotate('U')
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('U')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[23] == self[49]:
+                        self.rotate('b')
+                        self.rotate('U')
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('U')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[25] == self[49]:
+                        self.rotate('b')
+                        self.rotate('b')
+                        self.rotate('U')
+                        self.rotate('U')
+                        self.rotate('F')
+                        self.rotate('U')
+                        self.rotate('R')
+                        self.rotate('U')
+                    # left edges
+                    elif self[48] == self[49]:
+                        self.rotate('U')
+                        self.rotate('l')
+                        self.rotate('l')
+                        self.rotate('u')
+                    # left middles
+                    elif self[28] == self[49]:
+                        self.rotate('u')
+                        self.rotate('F')
+                        self.rotate('R')
+                        self.rotate('U')
+                    elif self[34] == self[49]:
+                        self.rotate('l')
+                        self.rotate('l')
+                        self.rotate('u')
+                        self.rotate('F')
+                        self.rotate('R')
+                        self.rotate('U')
+                    # last resort
+                    elif self[39] == self[49]:
+                        self.rotate('u')
+                    elif self[37] == self[49]:
+                        self.rotate('U')
+                        self.rotate('U')
+                    elif self[41] == self[49]:
+                        self.rotate('U')
+                    # error
+                    else:
+                        return 'Error'
+                    self.rotate('U')
+
+#cube_str = 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy' # solved
+#cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb' # daisy
+#cube_str = 'woroyrgybywwyrboggbgbrwwrgwwogbobrworyoygrowbybygbrgoy' # daisy top petal 14 B
+#cube_str = 'yobgwoyybygwbbywbbobggywywrrogrgwwwgwygworrgooroorrbbr' # daisy top petal 30 b
+#cube_str = 'yobgwoyybygrbbbwbbygowybrwggogygwwwgwybyorrgooroorrrrw' # daisy top petal 52 BB
+#cube_str = 'wgobogrroyboyywworbwborbygbrrbowywgwyryygwrrggbgwbyoog' # daisy top petal 23 uL
+#cube_str = 'orogbogbwwrygrwbywbwoggrrorgwyyoyyyoworrygbbbywrowbgbg' # scrambled
+cube_str = 'wbgrbbgggwowyrowryrrbggrborrgoyobyyoywbwywbwoyyrowggbo' # scrambled daisy solved
+
 cube = Cube(cube_str)
-print(cube.isDaisy())
+print(cube.makeDaisy())
     
         
     

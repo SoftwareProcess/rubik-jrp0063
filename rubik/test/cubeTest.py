@@ -100,13 +100,12 @@ class CubeTest(unittest.TestCase):
             cube.rotate(rotation)
         self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
-    def test_cube_15_daisy_true(self):
-        cube_str = 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb'
+    def test_cube_15_daisy_made(self):
+        cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
-        self.assertEqual(cube.isDaisy(), True)
+        cube.makeDaisy()
+        check = [self[43], self[39], self[37], self[41]]
+        kcehc = [self[49], self[49], self[49], self[49]]
+        self.assertEqual(check, kcehc)
         
-    def test_cube_16_daisy_false(self):
-        cube_str = 'wbrwogyyobwgrbwbgyroybrybgorggogogrbgbwoyroywrrwbwwyyo'
-        cube = Cube(cube_str)
-        self.assertEqual(cube.isDaisy(), False)
         
