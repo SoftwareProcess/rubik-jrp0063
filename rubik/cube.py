@@ -244,10 +244,10 @@ class Cube:
 #cube_str = 'yobgwoyybygrbbbwbbygowybrwggogygwwwgwybyorrgooroorrrrw' # daisy top petal 52 BB
 #cube_str = 'wgobogrroyboyywworbwborbygbrrbowywgwyryygwrrggbgwbyoog' # daisy top petal 23 uL
 #cube_str = 'orogbogbwwrygrwbywbwoggrrorgwyyoyyyoworrygbbbywrowbgbg' # scrambled
-cube_str = 'wbgrbbgggwowyrowryrrbggrborrgoyobyyoywbwywbwoyyrowggbo' # scrambled daisy solved
+#cube_str = 'wbgrbbgggwowyrowryrrbggrborrgoyobyyoywbwywbwoyyrowggbo' # scrambled daisy solved
 
-cube = Cube(cube_str)
-print(cube.makeDaisy())
+#cube = Cube(cube_str)
+#print(cube.makeDaisy())
     
         
     
