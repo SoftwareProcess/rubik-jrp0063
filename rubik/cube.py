@@ -92,6 +92,19 @@ class Cube:
                 self[c] = self[d]
                 self[d] = e     
     
+    def makeBottomCross(self):
+        self.makeDaisy()
+        if self[1] != self[4]:
+            while True:
+                self.rotate('U')
+                if self[1] == self[4]:
+                    break
+            self.rotate('F')
+            self.rotate('F')
+        else:
+            self.rotate('F')
+            self.rotate('F')
+    
     # solve daisy on top of cube
     def makeDaisy(self):
         # petals

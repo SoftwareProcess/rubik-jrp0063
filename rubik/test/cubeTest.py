@@ -100,7 +100,7 @@ class CubeTest(unittest.TestCase):
             cube.rotate(rotation)
         self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
-    def test_cube_15_daisy_solved(self):
+    def test_cube_15_daisy_solve_solved(self):
         cube_str = 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr'
         cube = Cube(cube_str)
         cube.makeDaisy()
@@ -111,14 +111,23 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(str(cube), 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr')
         
     #@unittest.skip    
-    def test_cube_16_daisy_unsolved(self):
+    def test_cube_16_daisy_solve_unsolved(self):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
         cube.makeDaisy()
         test = str(cube)
-        petal_color = [test[49], test[49], test[49], test[49]]
+        test_color = [test[49], test[49], test[49], test[49]]
         petals = [test[43], test[39], test[37], test[41]]
-        self.assertEqual(petal_color, petals)
+        self.assertEqual(test_color, petals)
+        
+    def test_cube_17_bottomcross_solve_frontpetal(self):
+        cube_str = 'brrrorrbybogybogrwogryrogbbyboggbwgwbwywywywwgorywgoyo'
+        cube = Cube(cube_str)
+        cube.makeBottomCross()
+        test = str(cube)
+        test_color = test[49]
+        cross = test[46]
+        self.assertEqual(test_color, cross)
         
         
         
