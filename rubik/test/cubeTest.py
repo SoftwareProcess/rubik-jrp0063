@@ -127,7 +127,7 @@ class CubeTest(unittest.TestCase):
         test = str(cube)
         test_color = test[49]
         cross = test[46]
-        self.assertEqual(test_color, cross)
+        self.assertEqual('testfail', cross)
         
         
         
