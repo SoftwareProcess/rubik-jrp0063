@@ -182,6 +182,7 @@ class Cube:
                         SOLUTION += 'ff'
                     elif self[32] == self[49]:
                         self.rotate('F')
+                        SOLUTION += 'F'
                     # front middles
                     elif self[1] == self[49]:
                         self.rotate('F')
@@ -210,11 +211,13 @@ class Cube:
                         self.rotate('u')
                         self.rotate('r')
                         self.rotate('U')
+                        SOLUTION += 'urU'
                     elif self[50] == self[49]:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'uRRU'
                     # right middles
                     elif self[10] == self[49]:
                         self.rotate('U')
@@ -223,6 +226,7 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'UFuuRU'
                     elif self[14] == self[49]:
                         self.rotate('r')
                         self.rotate('U')
@@ -231,6 +235,7 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'rUFuuRU'
                     elif self[16] == self[49]:
                         self.rotate('r')
                         self.rotate('r')
@@ -240,16 +245,19 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'rrUFuuRU'
                     # back edges
                     elif self[30] == self[49]:
                         self.rotate('b')
                         self.rotate('U')
                         self.rotate('U')
+                        SOLUTION += 'bUU'
                     elif self[52] == self[49]:
                         self.rotate('b')
                         self.rotate('b')
                         self.rotate('U')
                         self.rotate('U')
+                        SOLUTION += 'bbUU'
                     # back middles
                     elif self[19] == self[49]:
                         self.rotate('U')
@@ -307,7 +315,9 @@ class Cube:
                         return 'Error'
                     # prepare for next petal
                     self.rotate('U')
+                    SOLUTION += 'U'
                 else:
                     # prepare for next petal
                     self.rotate('U')
+                    SOLUTION += 'U'
     
