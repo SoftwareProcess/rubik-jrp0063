@@ -19,11 +19,13 @@ def _solve(parms):
     
     # test_solve_01_rotate_missing
     if encodedRotations is None:
+        result['status'] = 'ok'
         cube.makeBottomCross()
         
     # test_solve_02_rotate_empty
     elif ''.__eq__(encodedRotations):
-        encodedRotations = 'F'
+        result['status'] = 'ok'
+        cube.makeBottomCross()
     
     # test_solve_03_rotate_notastring
     if not isinstance(encodedRotations, str):
