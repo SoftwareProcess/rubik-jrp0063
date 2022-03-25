@@ -108,3 +108,9 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
         self.assertEqual(solution, 'FFURRBBULLfUfUFuRUUuRUUUUUFFUURRUUBBULL')
+        
+    def test(self):
+        parm = {'op': 'solve', 
+                'cube': 'ygrybyogwgroowwrbyworggrorwyybbygbbgbwbbrworywogwooryg'}
+        result = solve._solve(parm)
+        self.assertEqual(result, 'FFURRBBULLfUfUFuRUUuRUUUUUFFUURRUUBBULL')
