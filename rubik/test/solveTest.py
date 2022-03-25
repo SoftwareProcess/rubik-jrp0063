@@ -80,7 +80,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_08_bottom_cross_solution(self):
         parm = {'op': 'solve',
-                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
+                'cube': 'owyoowrbwgybbwwrowwowrrroyroryyywyyyggrgbgbgobrgogbgbb'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
