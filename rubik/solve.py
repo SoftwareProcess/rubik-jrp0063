@@ -28,7 +28,7 @@ def _solve(parms):
         cube.makeBottomCross()
     
     # test_solve_03_rotate_notastring
-    if not isinstance(encodedRotations, str):
+    elif not isinstance(encodedRotations, str):
         result['status'] = 'error: not a string'
     
     # test_solve_04_rotate_notletter
