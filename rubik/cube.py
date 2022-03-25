@@ -175,7 +175,7 @@ class Cube:
                     # front edges
                     if self[12] == self[49]:
                         self.rotate('f')
-                        SOLUTION.append('f')
+                        SOLUTION += 'f'
                     elif self[46] == self[49]:
                         self.rotate('f')
                         self.rotate('f')
