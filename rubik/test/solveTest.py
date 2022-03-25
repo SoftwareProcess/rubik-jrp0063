@@ -8,7 +8,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_01_rotate_missing(self):
         parm = {'op': 'solve',
-                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
+                'cube': 'orogbogbwwrygrwbywbwoggrrorgwyyoyyyoworrygbbbywrowbgbg'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
