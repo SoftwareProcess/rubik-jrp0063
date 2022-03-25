@@ -175,9 +175,11 @@ class Cube:
                     # front edges
                     if self[12] == self[49]:
                         self.rotate('f')
+                        SOLUTION += 'f'
                     elif self[46] == self[49]:
                         self.rotate('f')
                         self.rotate('f')
+                        SOLUTION += 'ff'
                     elif self[32] == self[49]:
                         self.rotate('F')
                     # front middles
@@ -186,19 +188,23 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'FuRU'
                     elif self[5] == self[49]:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'uRU'
                     elif self[7] == self[49]:
                         self.rotate('F')
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('u')
+                        SOLUTION += 'FUlu'
                     elif self[3] == self[49]:
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('u')
+                        SOLUTION += 'Ulu'
                     # right edges
                     elif self[21] == self[49]:
                         self.rotate('u')
