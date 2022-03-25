@@ -14,7 +14,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         solution = result.get('solution')
         self.assertEqual(status, 'ok')
-        self.assertEqual(solution, '')
+        self.assertEqual(solution, 'test')
         
     #@unittest.skip    
     def test_solve_02_rotate_empty(self):
