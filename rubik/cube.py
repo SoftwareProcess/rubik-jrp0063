@@ -266,6 +266,7 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'UUFURU'
                     elif self[23] == self[49]:
                         self.rotate('b')
                         self.rotate('U')
@@ -274,6 +275,7 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'bUUFURU'
                     elif self[25] == self[49]:
                         self.rotate('b')
                         self.rotate('b')
@@ -283,18 +285,21 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'bbUUFURU'
                     # left edges
                     elif self[48] == self[49]:
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('l')
                         self.rotate('u')
+                        SOLUTION += 'Ullu'
                     # left middles
                     elif self[28] == self[49]:
                         self.rotate('u')
                         self.rotate('F')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'uFRU'
                     elif self[34] == self[49]:
                         self.rotate('l')
                         self.rotate('l')
@@ -302,14 +307,18 @@ class Cube:
                         self.rotate('F')
                         self.rotate('R')
                         self.rotate('U')
+                        SOLUTION += 'lluFRU'
                     # last resort
                     elif self[39] == self[49]:
                         self.rotate('u')
+                        SOLUTION += 'u'
                     elif self[37] == self[49]:
                         self.rotate('U')
                         self.rotate('U')
+                        SOLUTION += 'UU'
                     elif self[41] == self[49]:
                         self.rotate('U')
+                        SOLUTION += 'U'
                     # error
                     else:
                         return 'Error'
