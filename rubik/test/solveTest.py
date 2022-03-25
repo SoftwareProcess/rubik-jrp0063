@@ -86,7 +86,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, 'FFURRBBULL')
+        self.assertEqual(solution, '')
         
     #@unittest.skip
     def test_solve_09_bottom_cross_unsolved(self):
@@ -97,5 +97,5 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, '')
+        self.assertEqual(solution, 'FFURRBBULL')
         
