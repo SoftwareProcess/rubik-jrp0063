@@ -87,15 +87,26 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
         self.assertEqual(solution, '')
-    
+        
     #@unittest.skip
-    def test_solve_09_bottom_cross_from_daisy_solution(self):
+    def test_solve_09_bottom_cross_unsolved(self):
         parm = {'op': 'solve',
-                'cube': 'gboygrooywgygogobroogobrwrrrrrbrgbygwwbwywywbwbgowyyyb'}
+                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, 'UFFRRUBBUULL')
+        self.assertEqual(solution, '')
+    
+    #@unittest.skip
+    def test_solve_10_bottom_cross_from_daisy_solution(self):
+        parm = {'op': 'solve',
+                'cube': ''}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
         
