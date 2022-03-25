@@ -95,6 +95,7 @@ class Cube:
                 self[d] = e     
     
     def makeBottomCross(self):
+        global SOLUTION
         bottom_cross = [self[46], self[50], self[52], self[48]]
         bottom_solved = all(x == self[49] for x in bottom_cross)
         if bottom_solved:
@@ -160,6 +161,7 @@ class Cube:
     
     # solve daisy on top of cube
     def makeDaisy(self):
+        global SOLUTION
         # petals
         up_cross = [self[43], self[39], self[37], self[41]]
         daisy_solved = all(x == self[49] for x in up_cross)
