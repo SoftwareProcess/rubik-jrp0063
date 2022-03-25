@@ -102,11 +102,11 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_10_bottom_cross_from_daisy_solution(self):
         parm = {'op': 'solve',
-                'cube': 'wgybbyoororboywwwwogyggbrgrrrgywobwygrwboyoybgwbrrbyog'}
+                'cube': 'gboygrooywgygogobroogobrwrrrrrbrgbygwwbwywywbwbgowyyyb'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, '')
+        self.assertEqual(solution, 'UFFRRUBBUULL')
         
