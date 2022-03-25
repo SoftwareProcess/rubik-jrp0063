@@ -12,7 +12,9 @@ class SolveTest(unittest.TestCase):
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
+        solution = result.get('solution')
         self.assertEqual(status, 'ok')
+        self.assertEqual(solution, '')
         
     #@unittest.skip    
     def test_solve_02_rotate_empty(self):

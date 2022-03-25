@@ -19,6 +19,8 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
                 'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
+SOLUTION = []
+
 class Cube:
     
     # called on instance creation
@@ -103,46 +105,58 @@ class Cube:
             if self[1] != self[4]:
                 while True:
                     self.rotate('U')
+                    SOLUTION += 'U'
                     if self[1] == self[4]:
                         break
                 self.rotate('F')
                 self.rotate('F')
+                SOLUTION += 'FF'
             else:
                 self.rotate('F')
                 self.rotate('F')
+                SOLUTION += 'FF'
             # form cross right
             if self[10] != self[13]:
                 while True:
                     self.rotate('U')
+                    SOLUTION += 'U'
                     if self[10] == self[13]:
                         break
                 self.rotate('R')
                 self.rotate('R')
+                SOLUTION += 'RR'
             else:
                 self.rotate('R')
                 self.rotate('R')
+                SOLUTION += 'RR'
             # form cross back
             if self[19] != self[22]:
                 while True:
                     self.rotate('U')
+                    SOLUTION += 'U'
                     if self[19] == self[22]:
                         break
                 self.rotate('B')
                 self.rotate('B')
+                SOLUTION += 'BB'
             else:
                 self.rotate('B')
                 self.rotate('B')
+                SOLUTION += 'BB'
             # form cross left
             if self[28] != self[31]:
                 while True:
                     self.rotate('U')
+                    SOLUTION += 'U'
                     if self[28] == self[31]:
                         break
                 self.rotate('L')
                 self.rotate('L')
+                SOLUTION += 'LL'
             else:
                 self.rotate('L')
                 self.rotate('L')
+                SOLUTION += 'LL'
     
     # solve daisy on top of cube
     def makeDaisy(self):

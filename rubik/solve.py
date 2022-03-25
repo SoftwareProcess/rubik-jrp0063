@@ -1,4 +1,5 @@
 from rubik.cube import Cube
+from rubik.cube import SOLUTION
 from rubik.check import _check
 
 # NOTES:
@@ -48,4 +49,5 @@ def _solve(parms):
                 cube.rotate(rotation)
     
     result['cube'] = str(cube)
+    result['solution'] = SOLUTION
     return result
