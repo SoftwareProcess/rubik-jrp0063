@@ -106,7 +106,7 @@ class Cube:
             if self[1] != self[4]:
                 while True:
                     self.rotate('U')
-                    SOLUTION.append('U')
+                    SOLUTION += 'U'
                     if self[1] == self[4]:
                         break
                 self.rotate('F')
