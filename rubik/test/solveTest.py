@@ -13,8 +13,6 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status')
         self.assertEqual(status, 'ok')
-        cube = result.get('cube')
-        self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
         
     #@unittest.skip    
     def test_solve_02_rotate_empty(self):
@@ -25,8 +23,6 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status')
         self.assertEqual(status, 'ok')
-        cube = result.get('cube')
-        self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
     
     #@unittest.skip
     def test_solve_03_rotate_notastring(self):
