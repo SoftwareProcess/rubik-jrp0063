@@ -8,17 +8,18 @@ ROTATION_CHARACTERS = set('FfRrBbLlUuDd')
 
 def _solve(parms):
     
-    result = {}
-    encodedRotations = parms.get('rotate')
-    
     # import cube error tests from check
     check_result = _check(parms)
     if (check_result).get('status') != 'ok':
         return check_result
     
+    result = {}
+    encodedRotations = parms.get('rotate')
+    cube = Cube(parms.get('cube'))
+    
     # test_solve_01_rotate_missing
     if encodedRotations is None:
-        encodedRotations = 'F'
+        cube.makeBottomCross()
         
     # test_solve_02_rotate_empty
     elif ''.__eq__(encodedRotations):
@@ -39,7 +40,6 @@ def _solve(parms):
     else:
         result['status'] = 'ok'
         
-        cube = Cube(parms.get('cube'))
         for rotation in encodedRotations:
             cube.rotate(rotation)
         result['cube'] = str(cube)
