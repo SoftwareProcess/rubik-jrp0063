@@ -49,5 +49,5 @@ def _solve(parms):
                 cube.rotate(rotation)
     
     result['cube'] = str(cube)
-    result['solution'] = SOLUTION
+    result['solution'] = ''.join(SOLUTION)
     return result
