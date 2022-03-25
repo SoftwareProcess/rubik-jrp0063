@@ -19,7 +19,7 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
                 'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
-MOVES = []
+SOLUTION = []
 
 class Cube:
     
@@ -95,7 +95,7 @@ class Cube:
                 self[d] = e     
     
     def makeBottomCross(self):
-        global MOVES
+        global SOLUTION
         bottom_cross = [self[46], self[50], self[52], self[48]]
         bottom_solved = all(x == self[49] for x in bottom_cross)
         if bottom_solved:
@@ -106,62 +106,62 @@ class Cube:
             if self[1] != self[4]:
                 while True:
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
                     if self[1] == self[4]:
                         break
                 self.rotate('F')
                 self.rotate('F')
-                MOVES += 'FF'
+                SOLUTION += 'FF'
             else:
                 self.rotate('F')
                 self.rotate('F')
-                MOVES += 'FF'
+                SOLUTION += 'FF'
             # form cross right
             if self[10] != self[13]:
                 while True:
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
                     if self[10] == self[13]:
                         break
                 self.rotate('R')
                 self.rotate('R')
-                MOVES += 'RR'
+                SOLUTION += 'RR'
             else:
                 self.rotate('R')
                 self.rotate('R')
-                MOVES += 'RR'
+                SOLUTION += 'RR'
             # form cross back
             if self[19] != self[22]:
                 while True:
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
                     if self[19] == self[22]:
                         break
                 self.rotate('B')
                 self.rotate('B')
-                MOVES += 'BB'
+                SOLUTION += 'BB'
             else:
                 self.rotate('B')
                 self.rotate('B')
-                MOVES += 'BB'
+                SOLUTION += 'BB'
             # form cross left
             if self[28] != self[31]:
                 while True:
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
                     if self[28] == self[31]:
                         break
                 self.rotate('L')
                 self.rotate('L')
-                MOVES += 'LL'
+                SOLUTION += 'LL'
             else:
                 self.rotate('L')
                 self.rotate('L')
-                MOVES += 'LL'
+                SOLUTION += 'LL'
     
     # solve daisy on top of cube
     def makeDaisy(self):
-        global MOVES
+        global SOLUTION
         # petals
         up_cross = [self[43], self[39], self[37], self[41]]
         daisy_solved = all(x == self[49] for x in up_cross)
@@ -175,49 +175,49 @@ class Cube:
                     # front edges
                     if self[12] == self[49]:
                         self.rotate('f')
-                        MOVES += 'f'
+                        SOLUTION += 'f'
                     elif self[46] == self[49]:
                         self.rotate('f')
                         self.rotate('f')
-                        MOVES += 'ff'
+                        SOLUTION += 'ff'
                     elif self[32] == self[49]:
                         self.rotate('F')
-                        MOVES += 'F'
+                        SOLUTION += 'F'
                     # front middles
                     elif self[1] == self[49]:
                         self.rotate('F')
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'FuRU'
+                        SOLUTION += 'FuRU'
                     elif self[5] == self[49]:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'uRU'
+                        SOLUTION += 'uRU'
                     elif self[7] == self[49]:
                         self.rotate('F')
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('u')
-                        MOVES += 'FUlu'
+                        SOLUTION += 'FUlu'
                     elif self[3] == self[49]:
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('u')
-                        MOVES += 'Ulu'
+                        SOLUTION += 'Ulu'
                     # right edges
                     elif self[21] == self[49]:
                         self.rotate('u')
                         self.rotate('r')
                         self.rotate('U')
-                        MOVES += 'urU'
+                        SOLUTION += 'urU'
                     elif self[50] == self[49]:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'uRRU'
+                        SOLUTION += 'uRRU'
                     # right middles
                     elif self[10] == self[49]:
                         self.rotate('U')
@@ -226,7 +226,7 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'UFuuRU'
+                        SOLUTION += 'UFuuRU'
                     elif self[14] == self[49]:
                         self.rotate('r')
                         self.rotate('U')
@@ -235,7 +235,7 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'rUFuuRU'
+                        SOLUTION += 'rUFuuRU'
                     elif self[16] == self[49]:
                         self.rotate('r')
                         self.rotate('r')
@@ -245,19 +245,19 @@ class Cube:
                         self.rotate('u')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'rrUFuuRU'
+                        SOLUTION += 'rrUFuuRU'
                     # back edges
                     elif self[30] == self[49]:
                         self.rotate('b')
                         self.rotate('U')
                         self.rotate('U')
-                        MOVES += 'bUU'
+                        SOLUTION += 'bUU'
                     elif self[52] == self[49]:
                         self.rotate('b')
                         self.rotate('b')
                         self.rotate('U')
                         self.rotate('U')
-                        MOVES += 'bbUU'
+                        SOLUTION += 'bbUU'
                     # back middles
                     elif self[19] == self[49]:
                         self.rotate('U')
@@ -266,7 +266,7 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'UUFURU'
+                        SOLUTION += 'UUFURU'
                     elif self[23] == self[49]:
                         self.rotate('b')
                         self.rotate('U')
@@ -275,7 +275,7 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'bUUFURU'
+                        SOLUTION += 'bUUFURU'
                     elif self[25] == self[49]:
                         self.rotate('b')
                         self.rotate('b')
@@ -285,21 +285,21 @@ class Cube:
                         self.rotate('U')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'bbUUFURU'
+                        SOLUTION += 'bbUUFURU'
                     # left edges
                     elif self[48] == self[49]:
                         self.rotate('U')
                         self.rotate('l')
                         self.rotate('l')
                         self.rotate('u')
-                        MOVES += 'Ullu'
+                        SOLUTION += 'Ullu'
                     # left middles
                     elif self[28] == self[49]:
                         self.rotate('u')
                         self.rotate('F')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'uFRU'
+                        SOLUTION += 'uFRU'
                     elif self[34] == self[49]:
                         self.rotate('l')
                         self.rotate('l')
@@ -307,26 +307,26 @@ class Cube:
                         self.rotate('F')
                         self.rotate('R')
                         self.rotate('U')
-                        MOVES += 'lluFRU'
+                        SOLUTION += 'lluFRU'
                     # last resort
                     elif self[39] == self[49]:
                         self.rotate('u')
-                        MOVES += 'u'
+                        SOLUTION += 'u'
                     elif self[37] == self[49]:
                         self.rotate('U')
                         self.rotate('U')
-                        MOVES += 'UU'
+                        SOLUTION += 'UU'
                     elif self[41] == self[49]:
                         self.rotate('U')
-                        MOVES += 'U'
+                        SOLUTION += 'U'
                     # error
                     else:
                         return 'Error'
                     # prepare for next petal
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
                 else:
                     # prepare for next petal
                     self.rotate('U')
-                    MOVES += 'U'
+                    SOLUTION += 'U'
     
