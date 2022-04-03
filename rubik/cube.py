@@ -49,9 +49,10 @@ class Cube:
     # rotate selection    
     def rotate(self, rotation):
         # upper case - clockwise, lower case - counterclockwise
-        direction = rotation.isupper()
-        self.rotate_face(rotation, direction)
-        self.rotate_connected(rotation, direction)
+        for rotation in rotation:
+            direction = rotation.isupper()
+            self.rotate_face(rotation, direction)
+            self.rotate_connected(rotation, direction)
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
