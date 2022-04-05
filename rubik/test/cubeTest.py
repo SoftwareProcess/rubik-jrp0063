@@ -100,7 +100,7 @@ class CubeTest(unittest.TestCase):
             cube.rotate(rotation)
         self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
-    @unittest.skip
+    #@unittest.skip
     def test_cube_15_daisy_solve_solved(self):
         cube_str = 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr'
         cube = Cube(cube_str)
