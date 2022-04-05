@@ -117,8 +117,7 @@ class Cube:
                 # left orientation
                 elif offset == 27:
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-                else:
-                    return 'error'
+
                 # face up middle
                 if self[offset + 1] == self[49]:
                     self.rotate(u + F + R + U)
