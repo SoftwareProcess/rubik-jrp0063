@@ -161,4 +161,6 @@ class Cube:
                     SOLUTION += zip(F, F)
                     
                 daisy = [self[37], self[39], self[41], self[43]]
+            return
+            
     
