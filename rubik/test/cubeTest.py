@@ -119,7 +119,8 @@ class CubeTest(unittest.TestCase):
         test_color = [test[49], test[49], test[49], test[49]]
         petals = [test[43], test[39], test[37], test[41]]
         self.assertEqual(test_color, petals)
-        
+    
+    @unittest.skip
     def test_cube_17_bottomcross_solve_solved(self):
         cube_str = 'wgorooborbbgybygbrogwrrgbrroooygbygwgrybyyboyrwwwwwgwy'
         cube = Cube(cube_str)
@@ -128,7 +129,8 @@ class CubeTest(unittest.TestCase):
         test_cross = [test[49], test[49], test[49], test[49]]
         bottom_cross = [test[46], test[50], test[52], test[48]]
         self.assertEqual(test_cross, bottom_cross)
-        
+    
+    @unittest.skip
     def test_cube_18_bottomcross_solve_unsolved(self):
         cube_str = 'brrrorrbybogybogrwogryrogbbyboggbwgwbwywywywwgorywgoyo'
         cube = Cube(cube_str)
