@@ -160,6 +160,10 @@ class Cube:
                     self.rotate(F + F)
                     SOLUTION += zip(F, F)
                     
+                else:
+                    self.rotate(U)
+                    SOLUTION += U
+                    
                 daisy = [self[37], self[39], self[41], self[43]]
             
     
