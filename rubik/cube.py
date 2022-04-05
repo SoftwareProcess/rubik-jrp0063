@@ -95,7 +95,7 @@ class Cube:
                 self[c] = self[d]
                 self[d] = e     
                 
-    def makePetal(self):
+    def makeDaisy(self):
         
         global SOLUTION
         offsets = [0, 9, 18, 27]
@@ -168,7 +168,7 @@ class Cube:
 
 cube_str = 'ogywgwyworwwroowywryogbgrrobbbrrggybybboyowygrbgowrybg'
 cube = Cube(cube_str)
-cube.makePetal()
+cube.makeDaisy()
 
 solution = ''
 for turn in SOLUTION:
