@@ -94,240 +94,86 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = e     
-    
-    def makeBottomCross(self):
+                
+    def makePetal(self):
+        
         global SOLUTION
-        bottom_cross = [self[46], self[50], self[52], self[48]]
-        bottom_solved = all(x == self[49] for x in bottom_cross)
-        if bottom_solved:
-            return
-        else:
-            self.makeDaisy()
-            # form cross front
-            if self[1] != self[4]:
-                while True:
-                    self.rotate('U')
-                    SOLUTION += 'U'
-                    if self[1] == self[4]:
-                        break
-                self.rotate('F')
-                self.rotate('F')
-                SOLUTION += 'FF'
-            else:
-                self.rotate('F')
-                self.rotate('F')
-                SOLUTION += 'FF'
-            # form cross right
-            if self[10] != self[13]:
-                while True:
-                    self.rotate('U')
-                    SOLUTION += 'U'
-                    if self[10] == self[13]:
-                        break
-                self.rotate('R')
-                self.rotate('R')
-                SOLUTION += 'RR'
-            else:
-                self.rotate('R')
-                self.rotate('R')
-                SOLUTION += 'RR'
-            # form cross back
-            if self[19] != self[22]:
-                while True:
-                    self.rotate('U')
-                    SOLUTION += 'U'
-                    if self[19] == self[22]:
-                        break
-                self.rotate('B')
-                self.rotate('B')
-                SOLUTION += 'BB'
-            else:
-                self.rotate('B')
-                self.rotate('B')
-                SOLUTION += 'BB'
-            # form cross left
-            if self[28] != self[31]:
-                while True:
-                    self.rotate('U')
-                    SOLUTION += 'U'
-                    if self[28] == self[31]:
-                        break
-                self.rotate('L')
-                self.rotate('L')
-                SOLUTION += 'LL'
-            else:
-                self.rotate('L')
-                self.rotate('L')
-                SOLUTION += 'LL'
-    
-    # solve daisy on top of cube
-    def makeDaisy(self):
-        global SOLUTION
-        # petals
-        up_cross = [self[43], self[39], self[37], self[41]]
-        daisy_solved = all(x == self[49] for x in up_cross)
-        # petal color is self[49]
-        if daisy_solved:
-            return
-        else:
-            for x in range(5):
-            # top front petal
-                if self[43] != self[49]:
-                    # front edges
-                    if self[12] == self[49]:
-                        self.rotate('f')
-                        SOLUTION += 'f'
-                    elif self[46] == self[49]:
-                        self.rotate('f')
-                        self.rotate('f')
-                        SOLUTION += 'ff'
-                    elif self[32] == self[49]:
-                        self.rotate('F')
-                        SOLUTION += 'F'
-                    # front middles
-                    elif self[1] == self[49]:
-                        self.rotate('F')
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'FuRU'
-                    elif self[5] == self[49]:
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'uRU'
-                    elif self[7] == self[49]:
-                        self.rotate('F')
-                        self.rotate('U')
-                        self.rotate('l')
-                        self.rotate('u')
-                        SOLUTION += 'FUlu'
-                    elif self[3] == self[49]:
-                        self.rotate('U')
-                        self.rotate('l')
-                        self.rotate('u')
-                        SOLUTION += 'Ulu'
-                    # right edges
-                    elif self[21] == self[49]:
-                        self.rotate('u')
-                        self.rotate('r')
-                        self.rotate('U')
-                        SOLUTION += 'urU'
-                    elif self[50] == self[49]:
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'uRRU'
-                    # right middles
-                    elif self[10] == self[49]:
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('u')
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'UFuuRU'
-                    elif self[14] == self[49]:
-                        self.rotate('r')
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('u')
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'rUFuuRU'
-                    elif self[16] == self[49]:
-                        self.rotate('r')
-                        self.rotate('r')
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('u')
-                        self.rotate('u')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'rrUFuuRU'
-                    # back edges
-                    elif self[30] == self[49]:
-                        self.rotate('b')
-                        self.rotate('U')
-                        self.rotate('U')
-                        SOLUTION += 'bUU'
-                    elif self[52] == self[49]:
-                        self.rotate('b')
-                        self.rotate('b')
-                        self.rotate('U')
-                        self.rotate('U')
-                        SOLUTION += 'bbUU'
-                    # back middles
-                    elif self[19] == self[49]:
-                        self.rotate('U')
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('U')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'UUFURU'
-                    elif self[23] == self[49]:
-                        self.rotate('b')
-                        self.rotate('U')
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('U')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'bUUFURU'
-                    elif self[25] == self[49]:
-                        self.rotate('b')
-                        self.rotate('b')
-                        self.rotate('U')
-                        self.rotate('U')
-                        self.rotate('F')
-                        self.rotate('U')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'bbUUFURU'
-                    # left edges
-                    elif self[48] == self[49]:
-                        self.rotate('U')
-                        self.rotate('l')
-                        self.rotate('l')
-                        self.rotate('u')
-                        SOLUTION += 'Ullu'
-                    # left middles
-                    elif self[28] == self[49]:
-                        self.rotate('u')
-                        self.rotate('F')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'uFRU'
-                    elif self[34] == self[49]:
-                        self.rotate('l')
-                        self.rotate('l')
-                        self.rotate('u')
-                        self.rotate('F')
-                        self.rotate('R')
-                        self.rotate('U')
-                        SOLUTION += 'lluFRU'
-                    # last resort
-                    elif self[39] == self[49]:
-                        self.rotate('u')
-                        SOLUTION += 'u'
-                    elif self[37] == self[49]:
-                        self.rotate('U')
-                        self.rotate('U')
-                        SOLUTION += 'UU'
-                    elif self[41] == self[49]:
-                        self.rotate('U')
-                        SOLUTION += 'U'
-                    # error
-                    else:
-                        return 'Error'
-                    # prepare for next petal
-                    self.rotate('U')
-                    SOLUTION += 'U'
+        offsets = [0, 9, 18, 27]
+        daisy = [self[37], self[39], self[41], self[43]]
+        
+        # solved loop
+        while daisy != [self[49], self[49], self[49], self[49]]:
+            # orientation loop
+            for offset in offsets:
+                # front orientation
+                if offset == 0:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                # right orientation
+                elif offset == 9:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                # back orientation
+                elif offset == 18:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                # left orientation
+                elif offset == 27:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                 else:
-                    # prepare for next petal
-                    self.rotate('U')
-                    SOLUTION += 'U'
+                    return 'error'
+                # face up middle
+                if self[offset + 1] == self[49]:
+                    self.rotate(u + F + R + U)
+                    SOLUTION += zip(u, F, R, U) 
+                # face left middle
+                elif self[offset + 3] == self[49]:
+                    self.rotate(U + l + u)
+                    SOLUTION += zip(U, l, u)
+                # face right middle
+                elif self[offset + 5] == self[49]:
+                    self.rotate(u + R + U)
+                    SOLUTION += zip(u, R, U)
+                # face down middle
+                elif self[offset + 7] == self[49]:
+                    self.rotate(U + F + l + u)
+                    SOLUTION += zip(U, F, l, u)
+                # face right adjacent
+                elif self[(offset + 12) % 36] == self[49]:
+                    self.rotate(f)
+                    SOLUTION += f
+                # face left adjacent
+                elif self[(offset + 32) % 36] == self[49]:
+                    self.rotate(F)
+                    SOLUTION += F
+                # front down adjacent
+                elif offset == 0 and self[46] == self[49]:
+                    self.rotate(F + F)
+                    SOLUTION += zip(F, F)
+                # right down adjacent
+                elif offset == 9 and self[50] == self[49]:
+                    self.rotate(F + F)
+                    SOLUTION += zip(F, F)
+                # back down adjacent
+                elif offset == 18 and self[52] == self[49]:
+                    self.rotate(F + F)
+                    SOLUTION += zip(F, F)
+                # left down adjacent
+                elif offset == 27 and self[48] == self[49]:
+                    self.rotate(F + F)
+                    SOLUTION += zip(F, F)
+                    
+                daisy = [self[37], self[39], self[41], self[43]]
+        return cube
+
+#cube_str = 'bywrggowboorrwwyggwoobbyrrwyowoyybgbgbggowobgyrrwryrby'
+#cube_str = 'wgbrroyowyrwyyggrgrwryowwyrgwogwybrgyobbbwbooobobggybr'
+
+cube_str = 'ogywgwyworwwroowywryogbgrrobbbrrggybybboyowygrbgowrybg'
+cube = Cube(cube_str)
+cube.makePetal()
+
+solution = ''
+for turn in SOLUTION:
+    solution += ''.join(turn)
+
+print(cube)
+print(solution)
     
