@@ -100,6 +100,7 @@ class CubeTest(unittest.TestCase):
             cube.rotate(rotation)
         self.assertEqual(str(cube), 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
         
+    @unittest.skip
     def test_cube_15_daisy_solve_solved(self):
         cube_str = 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr'
         cube = Cube(cube_str)
@@ -110,7 +111,7 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(petal_color, petals)
         self.assertEqual(str(cube), 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr')
         
-    #@unittest.skip    
+    @unittest.skip    
     def test_cube_16_daisy_solve_unsolved(self):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
