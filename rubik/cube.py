@@ -161,19 +161,4 @@ class Cube:
                     SOLUTION += zip(F, F)
                     
                 daisy = [self[37], self[39], self[41], self[43]]
-        return cube
-
-#cube_str = 'bywrggowboorrwwyggwoobbyrrwyowoyybgbgbggowobgyrrwryrby'
-#cube_str = 'wgbrroyowyrwyyggrgrwryowwyrgwogwybrgyobbbwbooobobggybr'
-
-cube_str = 'ogywgwyworwwroowywryogbgrrobbbrrggybybboyowygrbgowrybg'
-cube = Cube(cube_str)
-cube.makeDaisy()
-
-solution = ''
-for turn in SOLUTION:
-    solution += ''.join(turn)
-
-print(cube)
-print(solution)
     
