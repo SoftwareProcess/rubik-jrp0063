@@ -234,11 +234,11 @@ class Cube:
             
 #cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
 #cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
-cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
+#cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
 
-cube = Cube(cube_str)
-print(cube.makeDaisy())
-print(cube[49])
-print(cube[43], cube[41], cube[37], cube[39])
-print(''.join(SOLUTION))
+#cube = Cube(cube_str)
+#print(cube.makeDaisy())
+#print(cube[49])
+#print(cube[43], cube[41], cube[37], cube[39])
+#print(''.join(SOLUTION))
     
