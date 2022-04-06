@@ -98,61 +98,86 @@ class Cube:
     def makeDaisy(self):
         
         global SOLUTION
-        offsets = [0, 9, 18, 27]
-        daisy = [self[37], self[39], self[41], self[43]]
+        offset = 0
+        daisy = [self[43], self[41], self[37], self[39]]
+        
         if daisy != [self[49], self[49], self[49], self[49]]:
             # solved loop
             while True:
-                # orientation loop
-                for offset in offsets:
-                    # front orientation
-                    if offset == 0:
-                        F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
-                    # right orientation
-                    elif offset == 9:
-                        F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
-                    # back orientation
-                    elif offset == 18:
-                        F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
-                    # left orientation
-                    elif offset == 27:
-                        F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-                    else:
-                        continue
+                
+                if self[43] != self[49]:
+                    offset = 0
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                elif self[41] != self[49]:
+                    offset = 9
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                elif self[37] != self[49]:
+                    offset = 18
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                elif self[39] != self[49]:
+                    offset = 27
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
 
-                    # face up middle
-                    if self[offset + 1] == self[49]:
-                        self.rotate(f + l)
-                    # face left middle
-                    elif self[offset + 3] == self[49]:
-                        self.rotate(l)
-                    # face right middle
-                    elif self[offset + 5] == self[49]:
-                        self.rotate(F + F + l)
-                    # face down middle
-                    elif self[offset + 7] == self[49]:
-                        self.rotate(F + l)
-                    # face right adjacent
-                    elif self[(offset + 12) % 36] == self[49]:
-                        self.rotate(f)
-                    # face left adjacent
-                    elif self[(offset + 32) % 36] == self[49]:
-                        self.rotate(F)
-                    # front down adjacent
-                    elif offset == 0 and self[46] == self[49]:
+                # face up middle
+                if self[(offset + 1) % 36] == self[49]:
+                    self.rotate(f + U + l + u)
+                # face left middle
+                elif self[(offset + 3) % 36] == self[49]:
+                    self.rotate(U + l + u)
+                # face right middle
+                elif self[(offset + 5) % 36] == self[49]:
+                    self.rotate(u + R + U)
+                # face down middle
+                elif self[(offset + 7) % 36] == self[49]:
+                    self.rotate(f + u + R + U)
+                # face right adjacent
+                elif self[(offset + 12) % 36] == self[49]:
+                    self.rotate(f)
+                # face left adjacent
+                elif self[(offset + 32) % 36] == self[49]:
+                    self.rotate(F)
+                # front down adjacent
+                elif offset == 0:
+                    if self[46] == self[49]:
                         self.rotate(F + F)
-                    # right down adjacent
-                    elif offset == 9 and self[50] == self[49]:
+                    if self[50] == self[49]:
+                        self.rotate(d + F + F)
+                    if self[52] == self[49]:
+                        self.rotate(d + d + F + F)
+                    if self[48] == self[49]:
+                        self.rotate(D + F + F)
+                # right down adjacent
+                elif offset == 9:
+                    if self[46] == self[49]:
+                        self.rotate(D + F + F)
+                    if self[50] == self[49]:
                         self.rotate(F + F)
-                    # back down adjacent
-                    elif offset == 18 and self[52] == self[49]:
+                    if self[52] == self[49]:
+                        self.rotate(d + F + F)
+                    if self[48] == self[49]:
+                        self.rotate(d + d + F + F)
+                # back down adjacent
+                elif offset == 18:
+                    if self[46] == self[49]:
+                        self.rotate(d + d + F + F)
+                    if self[50] == self[49]:
+                        self.rotate(D + F + F)
+                    if self[52] == self[49]:
                         self.rotate(F + F)
-                    # left down adjacent
-                    elif offset == 27 and self[48] == self[49]:
+                    if self[48] == self[49]:
+                        self.rotate(d + F + F)
+                # left down adjacent
+                elif offset == 27:
+                    if self[46] == self[49]:
+                        self.rotate(d + F + F)
+                    if self[50] == self[49]:
+                        self.rotate(d + d + F + F)
+                    if self[52] == self[49]:
+                        self.rotate(D + F + F)
+                    if self[48] == self[49]:
                         self.rotate(F + F)
-                    else:
-                        continue
-                 
+                    
+                daisy = [self[43], self[41], self[37], self[39]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
             
