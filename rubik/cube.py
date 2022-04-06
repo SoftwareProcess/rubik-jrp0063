@@ -100,70 +100,61 @@ class Cube:
         global SOLUTION
         offsets = [0, 9, 18, 27]
         daisy = [self[37], self[39], self[41], self[43]]
-        
-        # solved loop
-        while True:
-            # orientation loop
-            for offset in offsets:
-                # front orientation
-                if offset == 0:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
-                # right orientation
-                elif offset == 9:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
-                # back orientation
-                elif offset == 18:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
-                # left orientation
-                elif offset == 27:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+        if daisy != [self[49], self[49], self[49], self[49]]:
+            # solved loop
+            while True:
+                # orientation loop
+                for offset in offsets:
+                    # front orientation
+                    if offset == 0:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                    # right orientation
+                    elif offset == 9:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                    # back orientation
+                    elif offset == 18:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                    # left orientation
+                    elif offset == 27:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+                    else:
+                        continue
 
-                # face up middle
-                if self[offset + 1] == self[49]:
-                    self.rotate(u + F + R + U)
-                    SOLUTION += zip(u, F, R, U) 
-                # face left middle
-                elif self[offset + 3] == self[49]:
-                    self.rotate(U + l + u)
-                    SOLUTION += zip(U, l, u)
-                # face right middle
-                elif self[offset + 5] == self[49]:
-                    self.rotate(u + R + U)
-                    SOLUTION += zip(u, R, U)
-                # face down middle
-                elif self[offset + 7] == self[49]:
-                    self.rotate(U + F + l + u)
-                    SOLUTION += zip(U, F, l, u)
-                # face right adjacent
-                elif self[(offset + 12) % 36] == self[49]:
-                    self.rotate(f)
-                    SOLUTION += f
-                # face left adjacent
-                elif self[(offset + 32) % 36] == self[49]:
-                    self.rotate(F)
-                    SOLUTION += F
-                # front down adjacent
-                elif offset == 0 and self[46] == self[49]:
-                    self.rotate(F + F)
-                    SOLUTION += zip(F, F)
-                # right down adjacent
-                elif offset == 9 and self[50] == self[49]:
-                    self.rotate(F + F)
-                    SOLUTION += zip(F, F)
-                # back down adjacent
-                elif offset == 18 and self[52] == self[49]:
-                    self.rotate(F + F)
-                    SOLUTION += zip(F, F)
-                # left down adjacent
-                elif offset == 27 and self[48] == self[49]:
-                    self.rotate(F + F)
-                    SOLUTION += zip(F, F)
-                else:
-                    continue
-            
-            print(daisy)        
-            if daisy == [self[49], self[49], self[49], self[49]]:
-                break
+                    # face up middle
+                    if self[offset + 1] == self[49]:
+                        self.rotate(f + l)
+                    # face left middle
+                    elif self[offset + 3] == self[49]:
+                        self.rotate(l)
+                    # face right middle
+                    elif self[offset + 5] == self[49]:
+                        self.rotate(F + F + l)
+                    # face down middle
+                    elif self[offset + 7] == self[49]:
+                        self.rotate(F + l)
+                    # face right adjacent
+                    elif self[(offset + 12) % 36] == self[49]:
+                        self.rotate(f)
+                    # face left adjacent
+                    elif self[(offset + 32) % 36] == self[49]:
+                        self.rotate(F)
+                    # front down adjacent
+                    elif offset == 0 and self[46] == self[49]:
+                        self.rotate(F + F)
+                    # right down adjacent
+                    elif offset == 9 and self[50] == self[49]:
+                        self.rotate(F + F)
+                    # back down adjacent
+                    elif offset == 18 and self[52] == self[49]:
+                        self.rotate(F + F)
+                    # left down adjacent
+                    elif offset == 27 and self[48] == self[49]:
+                        self.rotate(F + F)
+                    else:
+                        continue
+                 
+                if daisy == [self[49], self[49], self[49], self[49]]:
+                    break
             
 cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
 cube = Cube(cube_str)
