@@ -96,29 +96,77 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = e     
+    
+    def makeBottomCross(self):
+        global SOLUTION
+        bottom_cross = [self[46], self[50], self[52], self[48]]
+        # if bottom cross not solved
+        if bottom_cross != [self[49], self[49], self[49], self[49]]:
+            self.makeDaisy()
+            # form cross front
+            if self[1] != self[4]:
+                while True:
+                    self.rotate('U')
+                    if self[1] == self[4]:
+                        break
+                self.rotate('FF')
+            else:
+                self.rotate('FF')
+            # form cross right
+            if self[10] != self[13]:
+                while True:
+                    self.rotate('U')
+                    if self[10] == self[13]:
+                        break
+                self.rotate('RR')
+            else:
+                self.rotate('RR')
+            # form cross back
+            if self[19] != self[22]:
+                while True:
+                    self.rotate('U')
+                    if self[19] == self[22]:
+                        break
+                self.rotate('BB')
+            else:
+                self.rotate('BB')
+            # form cross left
+            if self[28] != self[31]:
+                while True:
+                    self.rotate('U')
+                    if self[28] == self[31]:
+                        break
+                self.rotate('LL')
+            else:
+                self.rotate('LL')
+        else:
+            return
+
                 
     def makeDaisy(self):
         global SOLUTION
-        offset = 0
         daisy = [self[43], self[41], self[37], self[39]]
-        
+        offset = 0
+        # if daisy not solved
         if daisy != [self[49], self[49], self[49], self[49]]:
-            # solved loop
+            # while daisy not solved
             while True:
-                
+                # front orientation
                 if self[43] != self[49]:
                     offset = 0
                     F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                # right orientation
                 elif self[41] != self[49]:
                     offset = 9
                     F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                # back orientation
                 elif self[37] != self[49]:
                     offset = 18
                     F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                # left orientation
                 elif self[39] != self[49]:
                     offset = 27
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
                     self.rotate(f + U + l + u)
@@ -177,19 +225,20 @@ class Cube:
                         self.rotate(D + F + F)
                     if self[48] == self[49]:
                         self.rotate(F + F)
-                    
+                # break condition
                 daisy = [self[43], self[41], self[37], self[39]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
-                
-        return cube
+        else:
+            return
             
 #cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
-cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
+#cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
+cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
 
 cube = Cube(cube_str)
 print(cube.makeDaisy())
 print(cube[49])
 print(cube[43], cube[41], cube[37], cube[39])
-print(SOLUTION)
+print(''.join(SOLUTION))
     
