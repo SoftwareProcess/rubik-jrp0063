@@ -7,7 +7,6 @@
 #    The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed iterator is paired together, and then the second item in each passed iterator are paired together etc.
 #    If you do not know how many arguments that will be passed into your function, add a * before the parameter name in the function definition.
 
-# JONATHON FIX THIS IT'S UGLY
 ORIENTATIONS = {'f': 'front', 'r': 'right', 'b': 'back', 'l': 'left', 'u': 'up', 'd': 'down'}
 OFFSETS = {'f': 0, 'r': 9, 'b': 18, 'l': 27, 'u': 36, 'd': 45}
 JUST_NAMES = list(ORIENTATIONS.values())
@@ -95,7 +94,15 @@ class Cube:
                 self[a] = self[b]
                 self[b] = self[c]
                 self[c] = self[d]
-                self[d] = e     
+                self[d] = e
+                
+    def makeBottomLayer(self):
+        right_trigger = self.rotate('RUr')
+        left_trigger = self.rotate('luL')
+        bottom_layer = [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]
+        # if bottom layer not solved
+        if bottom_layer != [self[49], self[49], self[49], self[49], self[49], self[49], self[49], self[49]]:
+            self.makeBottomCross()
     
     def makeBottomCross(self):
         global SOLUTION
@@ -235,9 +242,10 @@ class Cube:
 #cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
 #cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
 #cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
+#cube_str = 'bowwogbgooowrybyobgwgwroyyoybwgwrgrwrgrrgbowgrybybyybr'
 
 #cube = Cube(cube_str)
-#print(cube.makeDaisy())
+#print(cube.makeBottomCross())
 #print(cube[49])
 #print(cube[43], cube[41], cube[37], cube[39])
 #print(''.join(SOLUTION))
