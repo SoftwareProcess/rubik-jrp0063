@@ -48,11 +48,13 @@ class Cube:
     
     # rotate selection    
     def rotate(self, rotation):
+        global SOLUTION
         # upper case - clockwise, lower case - counterclockwise
         for rotation in rotation:
             direction = rotation.isupper()
             self.rotate_face(rotation, direction)
             self.rotate_connected(rotation, direction)
+            SOLUTION += rotation
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
@@ -96,7 +98,6 @@ class Cube:
                 self[d] = e     
                 
     def makeDaisy(self):
-        
         global SOLUTION
         offset = 0
         daisy = [self[43], self[41], self[37], self[39]]
@@ -180,8 +181,15 @@ class Cube:
                 daisy = [self[43], self[41], self[37], self[39]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
+                
+        return cube
             
-cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
+#cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
+cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
+
 cube = Cube(cube_str)
 print(cube.makeDaisy())
+print(cube[49])
+print(cube[43], cube[41], cube[37], cube[39])
+print(SOLUTION)
     
