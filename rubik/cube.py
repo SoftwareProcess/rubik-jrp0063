@@ -117,8 +117,6 @@ class Cube:
                 # left orientation
                 elif offset == 27:
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-                else:
-                    return 'error'
 
                 # face up middle
                 if self[offset + 1] == self[49]:
@@ -161,12 +159,13 @@ class Cube:
                     self.rotate(F + F)
                     SOLUTION += zip(F, F)
                 else:
-                    return
-                    
+                    continue
+            
+            print(daisy)        
             if daisy == [self[49], self[49], self[49], self[49]]:
                 break
             
 cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
 cube = Cube(cube_str)
-cube.makeDaisy()
+print(cube.makeDaisy())
     

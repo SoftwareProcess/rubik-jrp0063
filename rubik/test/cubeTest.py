@@ -111,7 +111,7 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(petal_color, petals)
         self.assertEqual(str(cube), 'rborbbwbrbrrrrobrgggbggywbooowooyggowwywywbwygoyywgyyr')
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_16_daisy_solve_unsolved(self):
         cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
         cube = Cube(cube_str)
