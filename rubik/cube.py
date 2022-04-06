@@ -102,7 +102,7 @@ class Cube:
         daisy = [self[37], self[39], self[41], self[43]]
         
         # solved loop
-        while daisy != [self[49], self[49], self[49], self[49]]:
+        while True:
             # orientation loop
             for offset in offsets:
                 # front orientation
@@ -117,6 +117,8 @@ class Cube:
                 # left orientation
                 elif offset == 27:
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+                else:
+                    return 'error'
 
                 # face up middle
                 if self[offset + 1] == self[49]:
@@ -158,7 +160,13 @@ class Cube:
                 elif offset == 27 and self[48] == self[49]:
                     self.rotate(F + F)
                     SOLUTION += zip(F, F)
+                else:
+                    return
                     
-            daisy = [self[37], self[39], self[41], self[43]]
+            if daisy == [self[49], self[49], self[49], self[49]]:
+                break
             
+cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
+cube = Cube(cube_str)
+cube.makeDaisy()
     
