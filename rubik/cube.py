@@ -100,12 +100,41 @@ class Cube:
         right_trigger = self.rotate('RUr')
         left_trigger = self.rotate('luL')
         bottom_layer = [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]
+        
         # if bottom layer not solved
         if bottom_layer != [self[49], self[49], self[49], self[49], self[49], self[49], self[49], self[49]]:
             self.makeBottomCross()
+            
+    def bottomCornerToUpFace(self):
+        bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
+        while any(color == self[49] for color in bottom_layer):
+            # front orientation
+            if self[6] or self[8] == self[49]:
+                offset = 0
+                F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+            # right orientation
+            elif self[15] or self[17] == self[49]:
+                offset = 9
+                F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+            # back orientation
+            elif self[24] or self[26] == self[49]:
+                offset = 18
+                F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+            # left orientation
+            elif self[33] or self[35] == self[49]:
+                offset = 27
+                F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+            
+            if self[offset + 6] == self[49]:
+                self.rotate(l + u + L)
+            if self[offset + 8] == self[49]:
+                self.rotate(R + U + r)
+                
+            bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
+            if any(color == self[49] for color in bottom_layer) is False:
+                break
     
     def makeBottomCross(self):
-        global SOLUTION
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
@@ -242,11 +271,12 @@ class Cube:
 #cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
 #cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
 #cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
-#cube_str = 'bowwogbgooowrybyobgwgwroyyoybwgwrgrwrgrrgbowgrybybyybr'
+cube_str = 'bowwogbgooowrybyobgwgwroyyoybwgwrgrwrgrrgbowgrybybyybr'
 
-#cube = Cube(cube_str)
-#print(cube.makeBottomCross())
-#print(cube[49])
-#print(cube[43], cube[41], cube[37], cube[39])
-#print(''.join(SOLUTION))
+cube = Cube(cube_str)
+print(cube.bottomCornerToUpFace())
+print(cube[49])
+print(cube[43], cube[41], cube[37], cube[39])
+print([cube[6], cube[8], cube[15], cube[17], cube[24], cube[26], cube[33], cube[35]])
+print(''.join(SOLUTION))
     
