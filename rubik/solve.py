@@ -29,7 +29,7 @@ def _solve(parms):
         cube.makeBottomCross()
     
     # test_solve_04_rotate_notletter
-    elif not encodedRotations.isalpha():
+    if not encodedRotations.isalpha():
         result['status'] = 'error: must be alphabetical'
     
     # test_solve_05_rotate_invalidchar
