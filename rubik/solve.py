@@ -46,4 +46,4 @@ def _solve(parms):
     result['solution'] = ''.join(SOLUTION)
     return result
     
-    encodedRotations = 0
+    result = {}
