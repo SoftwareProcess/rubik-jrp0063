@@ -49,3 +49,4 @@ def _solve(parms):
     
     result['cube'] = str(cube)
     result['solution'] = ''.join(SOLUTION)
+    return result
