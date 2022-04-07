@@ -45,8 +45,3 @@ def _solve(parms):
     result['cube'] = str(cube)
     result['solution'] = ''.join(SOLUTION)
     return result
-
-    result['cube'] = None
-    result['rotations'] = None
-    result['solution'] = None
-    SOLUTION = None
