@@ -45,4 +45,4 @@ def _solve(parms):
     result['solution'] = ''.join(Cube(cube).solution)
     return result
     
-    parms = None
+    parm = None
