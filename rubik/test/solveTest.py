@@ -5,7 +5,7 @@ class SolveTest(unittest.TestCase):
     
     # CHECK TESTS
     
-    #@unittest.skip
+    @unittest.skip
     def test_solve_01_rotate_missing(self):
         parm = {'op': 'solve',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
