@@ -40,7 +40,7 @@ def _solve(parms):
         
         for rotation in encodedRotations:
             cube.rotate(rotation)
-            result['rotate'] += rotation
+            encodedRotations = None
     
     result['cube'] = str(cube)
     result['solution'] = ''.join(Cube(cube).solution)
