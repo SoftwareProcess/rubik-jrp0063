@@ -264,4 +264,6 @@ class Cube:
                     break
         else:
             return
+        
+    solution = None
     
