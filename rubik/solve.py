@@ -49,3 +49,4 @@ def _solve(parms):
     result['cube'] = None
     result['rotations'] = None
     result['solution'] = None
+    SOLUTION = None
