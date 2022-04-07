@@ -65,7 +65,7 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube')
         self.assertEqual(cube, 'gggggggggwrrwrrwrrbbbbbbbbbooyooyooywwwwwwooorrryyyyyy')
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_solve_07_rotate_valid_all(self):
         parm = {'op': 'solve',
                 'rotate': 'FRUBLDfrubld',
