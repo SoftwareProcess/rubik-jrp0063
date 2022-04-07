@@ -175,8 +175,6 @@ class Cube:
                 self.rotate('LL')
             else:
                 self.rotate('LL')
-        else:
-            return
 
                 
     def makeDaisy(self):
