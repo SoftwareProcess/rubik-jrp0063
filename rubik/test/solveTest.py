@@ -76,7 +76,6 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         cube = result.get('cube')
         self.assertEqual(cube, 'wwgogwwgwwyrbrbbrbyyyybrobyggowobgogoobwwrbooryrgygrry')
-        parm = None
         
     #@unittest.skip
     def test_solve_08_bottom_cross_solved(self):
