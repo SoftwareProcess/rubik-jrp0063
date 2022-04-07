@@ -267,20 +267,4 @@ class Cube:
                     break
         else:
             return
-            
-#cube_str = 'boorbrbgwygbyrwgyrowgrgobbgyyogobwywrbwbyrywgrwogworoy'
-#cube_str = 'yrbrgwrwgwywowgyowbgyobrggbrrbbyyybwgwogobowrgbooryryo'
-#cube_str = 'rwrowbwgywryrgoogbbyrgyoorwbrybbygbbwbrgrwgogoygwowoyy'
-#cube_str = 'bowwogbgooowrybyobgwgwroyyoybwgwrgrwrgrrgbowgrybybyybr'
-cube_str = '8aa8aa8aaMOOMOOMOOa88a88a88MMOMMOMMOpiiipipiiipppipipp'
-
-cube = Cube(cube_str)
-cube.makeBottomCross()
-print(''.join(SOLUTION))
-
-#print(cube.bottomCornerToUpFace())
-#print(cube[49])
-#print(cube[43], cube[41], cube[37], cube[39])
-#print([cube[6], cube[8], cube[15], cube[17], cube[24], cube[26], cube[33], cube[35]])
-#print(''.join(SOLUTION))
     
