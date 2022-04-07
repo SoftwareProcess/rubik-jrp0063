@@ -28,24 +28,23 @@ def _solve(parms):
         result['status'] = 'ok'
         cube.makeBottomCross()
         
-    else:
         # test_solve_03_rotate_notastring
-        if not isinstance(encodedRotations, str):
-            result['status'] = 'error: not a string'
+    elif not isinstance(encodedRotations, str):
+        result['status'] = 'error: not a string'
     
         # test_solve_04_rotate_notletter
-        elif not encodedRotations.isalpha():
-            result['status'] = 'error: must be alphabetical'
+    elif not encodedRotations.isalpha():
+        result['status'] = 'error: must be alphabetical'
     
         # test_solve_05_rotate_invalidchar
-        elif not all(_ in ROTATION_CHARACTERS for _ in encodedRotations):
-            result['status'] = 'error: invalid rotation character'
+    elif not all(_ in ROTATION_CHARACTERS for _ in encodedRotations):
+        result['status'] = 'error: invalid rotation character'
     
-        else:
-            result['status'] = 'ok'
+    else:
+        result['status'] = 'ok'
         
-    for rotation in encodedRotations:
-                cube.rotate(rotation)
+        for rotation in encodedRotations:
+            cube.rotate(rotation)
     
     result['cube'] = str(cube)
     result['solution'] = ''.join(SOLUTION)
