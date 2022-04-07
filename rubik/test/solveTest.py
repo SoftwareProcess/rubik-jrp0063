@@ -56,7 +56,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_06_rotate_valid(self):
         parm = {'op': 'solve',
-                'rotate': 'Fu',
+                'rotate': 'F',
                 'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
         result = solve._solve(parm)
         self.assertIn('status', result)
