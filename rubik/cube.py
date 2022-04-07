@@ -265,5 +265,5 @@ class Cube:
         else:
             return
         
-    solution = None
+    solution = []
     
