@@ -109,19 +109,19 @@ class Cube:
         bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
         while any(color == self[49] for color in bottom_layer):
             # front orientation
-            if self[6] or self[8] == self[49]:
+            if self[6] == self[49] or self[8] == self[49]:
                 offset = 0
                 F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
             # right orientation
-            elif self[15] or self[17] == self[49]:
+            elif self[15] == self[49] or self[17] == self[49]:
                 offset = 9
                 F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
             # back orientation
-            elif self[24] or self[26] == self[49]:
+            elif self[24] == self[49] or self[26] == self[49]:
                 offset = 18
                 F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
             # left orientation
-            elif self[33] or self[35] == self[49]:
+            elif self[33] == self[49] or self[35] == self[49]:
                 offset = 27
                 F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
             
