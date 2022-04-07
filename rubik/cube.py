@@ -18,9 +18,10 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
                 'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
-SOLUTION = []
-
 class Cube:
+    
+    # class variables
+    solution = []
     
     # called on instance creation
     def __init__(self, cube_str):
@@ -47,13 +48,12 @@ class Cube:
     
     # rotate selection    
     def rotate(self, rotation):
-        global SOLUTION
         # upper case - clockwise, lower case - counterclockwise
         for rotation in rotation:
             direction = rotation.isupper()
             self.rotate_face(rotation, direction)
             self.rotate_connected(rotation, direction)
-            SOLUTION += rotation
+            self.solution += rotation
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
@@ -178,7 +178,6 @@ class Cube:
 
                 
     def makeDaisy(self):
-        global SOLUTION
         daisy = [self[43], self[41], self[37], self[39]]
         offset = 0
         # if daisy not solved
