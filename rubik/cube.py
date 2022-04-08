@@ -189,10 +189,10 @@ class Cube:
                     self.rotate('LL')
                 else:
                     self.rotate('LL')
-            # break condition
-            bottom_cross = [self[46], self[50], self[52], self[48]]
-            if bottom_cross == [self[49], self[49], self[49], self[49]]:
-                break
+                # break condition
+                bottom_cross = [self[46], self[50], self[52], self[48]]
+                if bottom_cross == [self[49], self[49], self[49], self[49]]:
+                    break
                 
     def makeDaisy(self):
         daisy = [self[43], self[41], self[37], self[39]]
