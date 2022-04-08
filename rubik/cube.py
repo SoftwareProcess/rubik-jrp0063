@@ -51,7 +51,7 @@ class Cube:
             direction = rotation.isupper()
             self.rotate_face(rotation, direction)
             self.rotate_connected(rotation, direction)
-            self.solution.append(rotation)
+            self.solution += rotation
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
@@ -133,10 +133,10 @@ class Cube:
                 break
     
     def makeBottomCross(self):
+        self.makeDaisy()
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
-            self.makeDaisy()
             # form cross front
             if self[1] != self[4]:
                 while True:
@@ -173,11 +173,12 @@ class Cube:
                 self.rotate('LL')
             else:
                 self.rotate('LL')
+        else:
+            pass
 
                 
     def makeDaisy(self):
         daisy = [self[43], self[41], self[37], self[39]]
-        offset = 0
         # if daisy not solved
         if daisy != [self[49], self[49], self[49], self[49]]:
             # while daisy not solved
@@ -260,4 +261,6 @@ class Cube:
                 daisy = [self[43], self[41], self[37], self[39]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
+        else:
+            pass
     
