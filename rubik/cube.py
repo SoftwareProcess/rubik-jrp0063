@@ -152,47 +152,43 @@ class Cube:
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
-            while True:
-                # form cross front
-                if self[1] != self[4]:
-                    while True:
-                        self.rotate('U')
-                        if self[1] == self[4]:
-                            break
-                    self.rotate('FF')
-                else:
-                    self.rotate('FF')
-                # form cross right
-                if self[10] != self[13]:
-                    while True:
-                        self.rotate('U')
-                        if self[10] == self[13]:
-                            break
-                    self.rotate('RR')
-                else:
-                    self.rotate('RR')
-                # form cross back
-                if self[19] != self[22]:
-                    while True:
-                        self.rotate('U')
-                        if self[19] == self[22]:
-                            break
-                    self.rotate('BB')
-                else:
-                    self.rotate('BB')
-                # form cross left
-                if self[28] != self[31]:
-                    while True:
-                        self.rotate('U')
-                        if self[28] == self[31]:
-                            break
-                    self.rotate('LL')
-                else:
-                    self.rotate('LL')
-                # break condition
-                bottom_cross = [self[46], self[50], self[52], self[48]]
-                if bottom_cross == [self[49], self[49], self[49], self[49]]:
-                    break
+            # form cross front
+            if self[1] != self[4]:
+                while True:
+                    self.rotate('U')
+                    if self[1] == self[4]:
+                        break
+                self.rotate('FF')
+            else:
+                self.rotate('FF')
+            # form cross right
+            if self[10] != self[13]:
+                while True:
+                    self.rotate('U')
+                    if self[10] == self[13]:
+                        break
+                self.rotate('RR')
+            else:
+                self.rotate('RR')
+            # form cross back
+            if self[19] != self[22]:
+                while True:
+                    self.rotate('U')
+                    if self[19] == self[22]:
+                        break
+                self.rotate('BB')
+            else:
+                self.rotate('BB')
+            # form cross left
+            if self[28] != self[31]:
+                while True:
+                    self.rotate('U')
+                    if self[28] == self[31]:
+                        break
+                self.rotate('LL')
+            else:
+                self.rotate('LL')
+
                 
     def makeDaisy(self):
         daisy = [self[43], self[41], self[37], self[39]]
