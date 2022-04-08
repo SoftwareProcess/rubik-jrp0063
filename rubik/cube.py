@@ -132,8 +132,11 @@ class Cube:
             if any(color == self[49] for color in bottom_layer) is False:
                 break
     
-    def makeBottomCross(self):
+    def solveCube(self):
         self.makeDaisy()
+        self.makeBottomCross()
+    
+    def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
