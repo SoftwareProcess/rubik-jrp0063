@@ -1,5 +1,6 @@
 import unittest
 import rubik.solve as solve
+from rubik.cube import Cube
 
 class SolveTest(unittest.TestCase):
     
@@ -98,4 +99,5 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
         self.assertEqual(solution, 'FFURRBBULL')
+        
         
