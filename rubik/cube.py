@@ -45,13 +45,13 @@ class Cube:
         return ''.join(f'{i[0][0]}{i[0][1]}{i[0][2]}{i[1][0]}{i[1][1]}{i[1][2]}{i[2][0]}{i[2][1]}{i[2][2]}' for i in (self.cube_build[j] for j in ORIENTATIONS.values()))
     
     # rotate selection    
-    def rotate(self, rotation):
+    def rotate(self, rotations):
         # upper case - clockwise, lower case - counterclockwise
-        for rotation in rotation:
+        for rotation in rotations:
             direction = rotation.isupper()
             self.rotate_face(rotation, direction)
             self.rotate_connected(rotation, direction)
-            self.solution += rotation
+            self.solution.extend(rotation)
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
