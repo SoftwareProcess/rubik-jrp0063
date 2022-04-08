@@ -53,10 +53,6 @@ class Cube:
             self.rotate_connected(rotation, direction)
             self.solution += rotation
             
-    def solution(self):
-        solution = ''.join(self.solution)
-        return solution
-        
     # rotate selected face    
     def rotate_face(self, rotation, direction):
         offset = OFFSETS[rotation.lower()]
