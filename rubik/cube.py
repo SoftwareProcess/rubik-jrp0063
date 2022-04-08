@@ -142,7 +142,7 @@ class Cube:
         if (all(color == self[4] for color in front_face) and all(color == self[13] for color in right_face) and
             all(color == self[22] for color in back_face) and all(color == self[31] for color in left_face) and
             all(color == self[40] for color in up_face) and all(color == self[49] for color in down_face)):
-            pass
+            return
         else:
             self.makeDaisy()
             self.makeBottomCross()
