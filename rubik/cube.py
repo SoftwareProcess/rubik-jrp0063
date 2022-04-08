@@ -52,6 +52,10 @@ class Cube:
             self.rotate_face(rotation, direction)
             self.rotate_connected(rotation, direction)
             self.solution.append(str(rotation))
+            
+    def solution(self):
+        self.solution = self.solution
+        return self.solution
         
     # rotate selected face    
     def rotate_face(self, rotation, direction):
