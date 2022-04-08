@@ -20,11 +20,9 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
 
 class Cube:
     
-    # class variables
-    solution = []
-    
     # called on instance creation
     def __init__(self, cube_str):
+        self.solution = []
         self.cube_build = {
             colors: [
                 [cube_str[offset + 0], cube_str[offset + 1], cube_str[offset + 2]],
