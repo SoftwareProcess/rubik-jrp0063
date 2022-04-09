@@ -98,7 +98,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, 'UUUFFURRBBULL')
+        self.assertEqual(solution, 'UUFFRRBBLL')
         
         
         
