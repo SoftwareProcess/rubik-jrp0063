@@ -144,10 +144,11 @@ class Cube:
             any(color != self[22] for color in back_face) or any(color != self[31] for color in left_face) or
             any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
             
-            if any(color != self[49] for color in [self[37], self[39], self[41], self[43]]):
-                self.makeDaisy()
-            
             if any(color != self[49] for color in [self[46], self[48], self[50], self[52]]):
+                self.makeBottomCross()
+            
+            elif any(color != self[49] for color in [self[37], self[39], self[41], self[43]]):
+                self.makeDaisy()
                 self.makeBottomCross()
     
     def makeBottomCross(self):

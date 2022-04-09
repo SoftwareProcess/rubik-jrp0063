@@ -1,6 +1,5 @@
 import unittest
 import rubik.solve as solve
-from rubik.cube import Cube
 
 class SolveTest(unittest.TestCase):
     
