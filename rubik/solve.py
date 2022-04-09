@@ -16,7 +16,6 @@ def _solve(parms):
     result = {}
     encodedRotations = parms.get('rotate')
     cube = Cube(parms.get('cube'))
-    rotate = []
     
     # test_solve_01_rotate_missing
     if encodedRotations is None:
@@ -38,12 +37,11 @@ def _solve(parms):
     
     else:
         result['status'] = 'ok'
-        
+        rotate = encodedRotations
         for rotation in encodedRotations:
-            rotate += rotation
             cube.rotate(rotation)
     
     result['cube'] = str(cube)
-    result['rotate'] = rotate
+    result['rotate'] = ''.join(rotate)
     result['solution'] = ''.join(cube.solution)
     return result

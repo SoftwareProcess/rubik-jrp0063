@@ -146,13 +146,9 @@ class Cube:
             
             if any(color != self[49] for color in [self[37], self[39], self[41], self[43]]):
                 self.makeDaisy()
-            else:
-                pass
             
             if any(color != self[49] for color in [self[46], self[48], self[50], self[52]]):
                 self.makeBottomCross()
-            else:
-                pass
     
     def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
