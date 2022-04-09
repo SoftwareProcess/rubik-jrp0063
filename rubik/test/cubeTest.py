@@ -141,3 +141,12 @@ class CubeTest(unittest.TestCase):
         bottom_cross = [test[46], test[50], test[52], test[48]]
         self.assertEqual(test_cross, bottom_cross)
         
+    def test_cube_19_bottomcross_solve_fromdaisy(self):
+        cube_str = 'xxLxLLxLLEUUUEEUEExLLxxLxxLUEEEUUEUUttttPtPtPPPPPtPtPt'
+        cube = Cube(cube_str)
+        cube.solveCube()
+        test = str(cube)
+        test_cross = [test[49], test[49], test[49], test[49]]
+        bottom_cross = [test[46], test[50], test[52], test[48]]
+        self.assertEqual(test_cross, bottom_cross)
+        
