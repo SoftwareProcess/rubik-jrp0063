@@ -164,7 +164,7 @@ class Cube:
                         if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
                             while True:
                                 self.rotate('U')
-                                if self[(offset + 0) % 36] == self[(offset + 31) % 36]:
+                                if self[(offset + 29) % 36] == self[(offset + 31) % 36]:
                                     break
                             self.rotate(F + U + f)
                         else:
