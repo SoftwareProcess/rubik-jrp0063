@@ -192,6 +192,10 @@ class Cube:
             if self[38] == self[49]:
                 self.rotate('ruuR')
             
+            bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
+            if any(color == self[49] for color in bottom_corners):
+                self.bottomCornerToUpFace()
+            
             up_face_corners = [self[36], self[38], self[42], self[44]]
             if any(color == self[49] for color in up_face_corners) is False:
                 break
