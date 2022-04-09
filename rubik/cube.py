@@ -95,13 +95,7 @@ class Cube:
                 self[d] = e
                 
     def makeBottomLayer(self):
-        right_trigger = self.rotate('RUr')
-        left_trigger = self.rotate('luL')
-        bottom_layer = [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]
-        
-        # if bottom layer not solved
-        if bottom_layer != [self[49], self[49], self[49], self[49], self[49], self[49], self[49], self[49]]:
-            self.makeBottomCross()
+        return
             
     def bottomCornerToUpFace(self):
         bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
@@ -144,12 +138,17 @@ class Cube:
             any(color != self[22] for color in back_face) or any(color != self[31] for color in left_face) or
             any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
             
-            if any(color != self[49] for color in [self[46], self[48], self[50], self[52]]):
+            if all(color != self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
+                self.makeBottomLayer()
+            
+            elif all(color != self[49] for color in [self[46], self[48], self[50], self[52]]):
                 self.makeBottomCross()
+                self.makeBottomLayer()
             
             elif any(color != self[49] for color in [self[37], self[39], self[41], self[43]]):
                 self.makeDaisy()
                 self.makeBottomCross()
+                self.makeBottomLayer()
     
     def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
