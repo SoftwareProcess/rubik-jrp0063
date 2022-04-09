@@ -137,7 +137,6 @@ class Cube:
     
     def topCornerToDownFace(self):
         top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
-        offsets = [0, 9, 18, 27]
         if any(color == self[49] for color in top_corners):
             while True:
                 if self[0] == self[49] or self[2] == self[49]:
@@ -175,6 +174,9 @@ class Cube:
                         self.rotate(F + U + f)
                     else:
                         self.rotate(F + U + f)
+                        
+                self.bottomCornerToUpFace()
+                self.upFaceToTopCorner()
                     
                 top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]        
                 if any(color == self[49] for color in top_corners) is False:
