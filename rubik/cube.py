@@ -138,36 +138,41 @@ class Cube:
     def topCornerToDownFace(self):
         top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
         offsets = [0, 9, 18, 27]
-        while any(color == self[49] for color in top_corners):
-            for offset in offsets:
-                if offset == 0:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
-                elif offset == 9:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
-                elif offset == 18:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
-                elif offset == 27:
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-                    
-                if self[offset + 2] == self[49]:
-                    if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
-                        while True:
-                            self.rotate('U')
-                            if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
-                                break
-                        self.rotate(f + u + F)
-                    else:
-                        self.rotate(f + u + F)
+        if any(color == self[49] for color in top_corners):
+            while True:
+                for offset in offsets:
+                    if offset == 0:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                    elif offset == 9:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                    elif offset == 18:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                    elif offset == 27:
+                        F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                         
-                if self[offset + 0] == self[49]:
-                    if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
-                        while True:
-                            self.rotate('U')
-                            if self[(offset + 0) % 36] == self[(offset + 31) % 36]:
-                                break
-                        self.rotate(F + U + f)
-                    else:
-                        self.rotate(F + U + f)
+                    if self[offset + 2] == self[49]:
+                        if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
+                            while True:
+                                self.rotate('U')
+                                if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
+                                    break
+                            self.rotate(f + u + F)
+                        else:
+                            self.rotate(f + u + F)
+                            
+                    if self[offset + 0] == self[49]:
+                        if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
+                            while True:
+                                self.rotate('U')
+                                if self[(offset + 0) % 36] == self[(offset + 31) % 36]:
+                                    break
+                            self.rotate(F + U + f)
+                        else:
+                            self.rotate(F + U + f)
+                    
+                    top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]        
+                    if any(color == self[49] for color in top_corners) is False:
+                        break
             
     
     def upFaceToTopCorner(self):
