@@ -138,14 +138,16 @@ class Cube:
             any(color != self[22] for color in back_face) or any(color != self[31] for color in left_face) or
             any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
             
-            if all(color != self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
+            if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
+                return
+            
+            elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
                 self.makeBottomLayer()
             
-            elif all(color != self[49] for color in [self[46], self[48], self[50], self[52]]):
+            elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
                 self.makeBottomCross()
                 self.makeBottomLayer()
-            
-            elif any(color != self[49] for color in [self[37], self[39], self[41], self[43]]):
+            else:
                 self.makeDaisy()
                 self.makeBottomCross()
                 self.makeBottomLayer()
@@ -276,3 +278,8 @@ class Cube:
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
+
+cube_str = '2255aHaaaH2a5555555G2GH2HHHGGGH2a222HaGHGaaGGxxxxxxxxx'
+cube = Cube(cube_str)
+cube.solveCube()
+print(cube)
