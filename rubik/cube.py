@@ -170,9 +170,9 @@ class Cube:
                         else:
                             self.rotate(F + U + f)
                     
-                    top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]        
-                    if any(color == self[49] for color in top_corners) is False:
-                        break
+                top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]        
+                if any(color == self[49] for color in top_corners) is False:
+                    break
             
     
     def upFaceToTopCorner(self):
