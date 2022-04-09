@@ -45,5 +45,3 @@ def _solve(parms):
     result['rotate'] = encodedRotations
     result['solution'] = ''.join(cube.solution)
     return result
-
-    result = {}
