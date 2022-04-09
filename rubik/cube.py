@@ -93,13 +93,102 @@ class Cube:
                 self[b] = self[c]
                 self[c] = self[d]
                 self[d] = e
+    
+    def solveCube(self):
+        front_face = [self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8]]
+        right_face = [self[9], self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
+        back_face = [self[18], self[19], self[20], self[21], self[22], self[23], self[24], self[25], self[26]]
+        left_face = [self[27], self[28], self[29], self[30], self[31], self[32], self[33], self[34], self[35]]
+        up_face = [self[36], self[37], self[38], self[39], self[40], self[41], self[42], self[43], self[44]]
+        down_face = [self[45], self[46], self[47], self[48], self[49], self[50], self[51], self[52], self[53]]
+        
+        if (any(color != self[4] for color in front_face) or any(color != self[13] for color in right_face) or
+            any(color != self[22] for color in back_face) or any(color != self[31] for color in left_face) or
+            any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
+            
+            if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
+                return
+            
+            elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
+                self.makeDownFace()
+            
+            elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
+                self.makeBottomCross()
+                self.makeDownFace()
                 
-    def makeBottomLayer(self):
-        return
+            else:
+                self.makeDaisy()
+                self.makeBottomCross()
+                self.makeDownFace()
+                
+    def makeDownFace(self):
+        
+        bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
+        if any(color == self[49] for color in bottom_corners):
+            self.bottomCornerToUpFace()
+            
+        up_face_corners = [self[36], self[38], self[42], self[44]]
+        if any(color == self[49] for color in up_face_corners):
+            self.upFaceToTopCorner()
+            
+        top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
+        if any(color == self[49] for color in top_corners):
+            self.topCornerToDownFace()
+    
+    def topCornerToDownFace(self):
+        top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
+        offsets = [0, 9, 18, 27]
+        while any(color == self[49] for color in top_corners):
+            for offset in offsets:
+                if offset == 0:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                elif offset == 9:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+                elif offset == 18:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+                elif offset == 27:
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+                    
+                if self[offset + 2] == self[49]:
+                    if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
+                        while True:
+                            self.rotate('U')
+                            if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
+                                break
+                        self.rotate(f + u + F)
+                    else:
+                        self.rotate(f + u + F)
+                        
+                if self[offset + 0] == self[49]:
+                    if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
+                        while True:
+                            self.rotate('U')
+                            if self[(offset + 0) % 36] == self[(offset + 31) % 36]:
+                                break
+                        self.rotate(F + U + f)
+                    else:
+                        self.rotate(F + U + f)
+            
+    
+    def upFaceToTopCorner(self):
+        up_face_corners = [self[36], self[38], self[42], self[44]]
+        while any(color == self[49] for color in up_face_corners):
+            if self[42] == self[49]:
+                self.rotate('luLluL')
+            if self[44] == self[49]:
+                self.rotate('RUrRUr')
+            if self[36] == self[49]:
+                self.rotate('LUlLUl')
+            if self[38] == self[49]:
+                self.rotate('ruRruR')
+            
+            up_face_corners = [self[36], self[38], self[42], self[44]]
+            if any(color == self[49] for color in up_face_corners) is False:
+                break
             
     def bottomCornerToUpFace(self):
-        bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
-        while any(color == self[49] for color in bottom_layer):
+        bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
+        while any(color == self[49] for color in bottom_corners):
             # front orientation
             if self[6] == self[49] or self[8] == self[49]:
                 offset = 0
@@ -122,35 +211,9 @@ class Cube:
             if self[offset + 8] == self[49]:
                 self.rotate(R + U + r)
                 
-            bottom_layer = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
-            if any(color == self[49] for color in bottom_layer) is False:
+            bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
+            if any(color == self[49] for color in bottom_corners) is False:
                 break
-    
-    def solveCube(self):
-        front_face = [self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8]]
-        right_face = [self[9], self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
-        back_face = [self[18], self[19], self[20], self[21], self[22], self[23], self[24], self[25], self[26]]
-        left_face = [self[27], self[28], self[29], self[30], self[31], self[32], self[33], self[34], self[35]]
-        up_face = [self[36], self[37], self[38], self[39], self[40], self[41], self[42], self[43], self[44]]
-        down_face = [self[45], self[46], self[47], self[48], self[49], self[50], self[51], self[52], self[53]]
-        
-        if (any(color != self[4] for color in front_face) or any(color != self[13] for color in right_face) or
-            any(color != self[22] for color in back_face) or any(color != self[31] for color in left_face) or
-            any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
-            
-            if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
-                return
-            
-            elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
-                self.makeBottomLayer()
-            
-            elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
-                self.makeBottomCross()
-                self.makeBottomLayer()
-            else:
-                self.makeDaisy()
-                self.makeBottomCross()
-                self.makeBottomLayer()
     
     def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
@@ -278,8 +341,3 @@ class Cube:
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
-
-cube_str = '2255aHaaaH2a5555555G2GH2HHHGGGH2a222HaGHGaaGGxxxxxxxxx'
-cube = Cube(cube_str)
-cube.solveCube()
-print(cube)

@@ -8,8 +8,9 @@
 #cube = '2255aHaaaH2a5555555G2GH2HHHGGGH2a222HaGHGaaGGxxxxxxxxx'    shouldSolveBottomOnSolvedCube
 #cube = '2255aHaaaH2a5555555G2GH2HHHGGGH2a222HaGHGaaGGxxxxxxxxx'    shouldSolveBottomOnSolvedBottom
 #cube = 'GRQQRRpRpGGQGpQQpwwpwpwRtwptwRQGwtGQGwGGQQtpRRtwtttRtp'    shouldSolveBottomOnDownFaceDaisy
+#cube = 'oioiOpiMciMMOMMpiMcocOioOpcMoOOppiOoOiipoopMpMcOcccpco'    shouldSolveBottomWithMisalignedDaisy
 
-cube = 'GRQQRRpRpGGQGpQQpwwpwpwRtwptwRQGwtGQGwGGQQtpRRtwtttRtp'
+cube = 'oioiOpiMciMMOMMpiMcocOioOpcMoOOppiOoOiipoopMpMcOcccpco'
 
 # if bottom layer solved
 if all(color == cube[49] for color in [cube[45], cube[46], cube[47], cube[48], cube[50], cube[51], cube[52], cube[53]]):
