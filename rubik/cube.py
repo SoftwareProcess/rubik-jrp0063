@@ -145,8 +145,6 @@ class Cube:
             any(color != self[40] for color in up_face) or any(color != self[49] for color in down_face)):
             self.makeDaisy()
             self.makeBottomCross()
-        else:
-            pass
     
     def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
