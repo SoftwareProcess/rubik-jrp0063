@@ -167,9 +167,8 @@ class CubeTest(unittest.TestCase):
         cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
         cube = Cube(cube_str)
         cube.solveCube()
-        test = str(cube)
-        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
-        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
+        actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
     @unittest.skip    
@@ -177,9 +176,8 @@ class CubeTest(unittest.TestCase):
         cube_str = 'ybrgrooywwrybgrogbgobbooorgwgrgbyrygrwowywbwgwbbowryyy'
         cube = Cube(cube_str)
         cube.solveCube()
-        test = str(cube)
-        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
-        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
+        actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
     @unittest.skip    
@@ -187,9 +185,8 @@ class CubeTest(unittest.TestCase):
         cube_str = 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'
         cube = Cube(cube_str)
         cube.solveCube()
-        test = str(cube)
-        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
-        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
+        actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
     #@unittest.skip    
@@ -197,8 +194,7 @@ class CubeTest(unittest.TestCase):
         cube_str = 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'
         cube = Cube(cube_str)
         cube.solveCube()
-        test = str(cube)
-        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
-        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
+        actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
