@@ -151,9 +151,19 @@ class CubeTest(unittest.TestCase):
         bottom_cross = [test[46], test[50], test[52], test[48]]
         self.assertEqual(test_cross, bottom_cross)
         
-    #@unittest.skip    
-    def test_cube_20_downface_solve_scrambled(self):
-        cube_str = 'rwyrgoyrgogbwowoyyobrgbboowgogyrwbybyrwbyywbbrgwowrrgg'
+    @unittest.skip    
+    def test_cube_20_downface_solve_from_solved(self):
+        cube_str = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        cube = Cube(cube_str)
+        cube.solveCube()
+        test = str(cube)
+        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
+        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        self.assertEqual(solved, actual)
+    
+    @unittest.skip    
+    def test_cube_21_downface_solve_from_scrambled(self):
+        cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
         cube = Cube(cube_str)
         cube.solveCube()
         test = str(cube)
@@ -162,8 +172,28 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(solved, actual)
         
     @unittest.skip    
-    def test_cube_20_downface_solve_fromdaisy(self):
-        cube_str = 'rogogrwyywrogobogrbbwrbbyowggbyrbbybrwywywywoorgowyrgg'
+    def test_cube_22_downface_solve_from_updaisy(self):
+        cube_str = 'ybrgrooywwrybgrogbgobbooorgwgrgbyrygrwowywbwgwbbowryyy'
+        cube = Cube(cube_str)
+        cube.solveCube()
+        test = str(cube)
+        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
+        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        self.assertEqual(solved, actual)
+        
+    @unittest.skip    
+    def test_cube_23_downface_solve_from_downcross(self):
+        cube_str = 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'
+        cube = Cube(cube_str)
+        cube.solveCube()
+        test = str(cube)
+        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
+        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        self.assertEqual(solved, actual)
+        
+    @unittest.skip    
+    def test_cube_24_downface_solve_from_downface(self):
+        cube_str = 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'
         cube = Cube(cube_str)
         cube.solveCube()
         test = str(cube)
