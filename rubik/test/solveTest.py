@@ -88,7 +88,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertEqual(solution, '')
         
-    @unittest.skip
+    #@unittest.skip
     def test_solve_09_bottom_cross_fromdaisy(self):
         parm = {'op': 'solve',
                 'cube': 'xxLxLLxLLEUUUEEUEExLLxxLxxLUEEEUUEUUttttPtPtPPPPPtPtPt'} 
