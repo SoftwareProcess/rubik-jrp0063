@@ -152,7 +152,7 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(test_cross, bottom_cross)
         
     #@unittest.skip    
-    def test_cube_20_downface_solve_unsolved(self):
+    def test_cube_20_downface_solve_scrambled(self):
         cube_str = 'rwyrgoyrgogbwowoyyobrgbboowgogyrwbybyrwbyywbbrgwowrrgg'
         cube = Cube(cube_str)
         cube.solveCube()
