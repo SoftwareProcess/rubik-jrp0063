@@ -13,7 +13,6 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status')
         self.assertEqual(status, 'ok')
-        return
         
     #@unittest.skip    
     def test_solve_02_rotate_empty(self):
@@ -81,7 +80,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_08_solve_from_solved(self):
         parm = {'op': 'solve',
-                'cube': 'gggggggggrrrrrrrrrbbbbbbbbbooooooooowwwwwwwwwyyyyyyyyy'}
+                'cube': 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
@@ -91,17 +90,45 @@ class SolveTest(unittest.TestCase):
         
     #@unittest.skip
     def test_solve_09_solve_from_scrambled(self):
-        return
+        parm = {'op': 'solve',
+                'cube': 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
         
     #@unittest.skip
     def test_solve_10_solve_from_updaisy(self):
-        return
+        parm = {'op': 'solve',
+                'cube': 'ybrgrooywwrybgrogbgobbooorgwgrgbyrygrwowywbwgwbbowryyy'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
 
     #@unittest.skip
     def test_solve_11_solve_from_downcross(self):
-        return
+        parm = {'op': 'solve',
+                'cube': 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
         
     #@unittest.skip
     def test_solve_10_solve_from_downface(self):
-        return
+        parm = {'op': 'solve',
+                'cube': 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
     
