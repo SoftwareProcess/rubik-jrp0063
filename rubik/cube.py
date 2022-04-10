@@ -157,9 +157,13 @@ class Cube:
                         
                 if self[offset + 2] == self[49]:
                     if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
+                        loop = 0
                         while True:
                             self.rotate('U')
                             if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
+                                break
+                            loop += 1
+                            if loop > 4:
                                 break
                         self.rotate(f + u + F)
                     else:
