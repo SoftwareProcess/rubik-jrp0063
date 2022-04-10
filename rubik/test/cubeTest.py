@@ -152,12 +152,12 @@ class CubeTest(unittest.TestCase):
         self.assertEqual(test_cross, bottom_cross)
         
     #@unittest.skip    
-    def test_cube_20_bottomcorner_to_upface(self):
+    def test_cube_20_downface_solved(self):
         cube_str = 'xxLxLLxLLEUUUEEUEExLLxxLxxLUEEEUUEUUttttPtPtPPPPPtPtPt'
         cube = Cube(cube_str)
-        cube.bottomCornerToUpFace()
-        test_cube = str(cube)
-        test_solved = [test_cube[49], test_cube[49], test_cube[49], test_cube[49]]
-        test_actual = [test_cube[36], test_cube[38], test_cube[42], test_cube[44]]
-        self.assertEqual(test_solved, test_actual)
+        cube.solveCube()
+        test = str(cube)
+        solved = [test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49], test[49]]
+        actual = [test[45], test[46], test[47], test[48], test[49], test[50], test[51], test[52], test[53]]
+        self.assertEqual(solved, actual)
         
