@@ -164,7 +164,7 @@ class Cube:
                                 break
                             loop += 1
                             if loop > 4:
-                                self.rotate('FRBLUD')
+                                break
                         self.rotate(f + u + F)
                     else:
                         self.rotate(f + u + F)
@@ -178,7 +178,7 @@ class Cube:
                                 break
                             loop += 1
                             if loop > 4:
-                                self.rotate('FRBLUD')
+                                break
                         self.rotate(F + U + f)
                     else:
                         self.rotate(F + U + f)
