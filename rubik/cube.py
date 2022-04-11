@@ -94,6 +94,7 @@ class Cube:
                 self[c] = self[d]
                 self[d] = e
     
+    # solve cube according to iteration
     def solveCube(self):
         front_face =    [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
         right_face =    [self[9],  self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
@@ -102,6 +103,7 @@ class Cube:
         up_face =       [self[36], self[37], self[38], self[39], self[40], self[41], self[42], self[43], self[44]]
         down_face =     [self[45], self[46], self[47], self[48], self[49], self[50], self[51], self[52], self[53]]
         
+        # if solved
         if (all(color == self[4] for color in front_face) and all(color == self[13] for color in right_face) and
             all(color == self[22] for color in back_face) and all(color == self[31] for color in left_face) and
             all(color == self[40] for color in up_face) and all(color == self[49] for color in down_face)):
@@ -110,22 +112,27 @@ class Cube:
         
         else:
             
+            # if down face already solved
             if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
                 return
             
+            # if bottom cross already solved
             elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
                 self.makeDownFace()
             
+            # if up daisy already solved
             elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
                 self.makeBottomCross()
                 self.makeDownFace()
                 
+            # if scrambled
             else:
                 self.makeDaisy()
                 self.makeBottomCross()
                 self.makeDownFace()
                 
     def makeDownFace(self):
+        # form down face from other formations
         while all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]) is False:
             bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
             if any(color == self[49] for color in bottom_corners):
@@ -140,6 +147,7 @@ class Cube:
                 self.topCornerToDownFace()
     
     def topCornerToDownFace(self):
+        # move top corners to down face
         top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
         if any(color == self[49] for color in top_corners):
             while True:
@@ -185,6 +193,7 @@ class Cube:
             
     
     def upFaceToTopCorner(self):
+        # move up face corners to top corners
         up_face_corners = [self[36], self[38], self[42], self[44]]
         while any(color == self[49] for color in up_face_corners):
             if self[42] == self[49]:
@@ -205,6 +214,7 @@ class Cube:
                 break
             
     def bottomCornerToUpFace(self):
+        # move bottom corners to up face
         bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
         while any(color == self[49] for color in bottom_corners):
             # front orientation
