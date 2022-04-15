@@ -73,7 +73,7 @@ class Cube:
                         self[offset + (y * 3 + (2 - x))] = self[offset + ((2 - x) * 3 + (2 - y))]
                         self[offset + ((2 - x) * 3 + (2 - y))] = self[offset + ((2 - y) * 3 + x)]
                         self[offset + ((2 - y) * 3 + x)] = z
-                    
+    
     # rotate blocks connected to selected face                
     def rotate_connected(self, rotation, direction):
         connected = zip(*CONNECTED[rotation.lower()])
@@ -284,7 +284,6 @@ class Cube:
             else:
                 self.rotate('LL')
 
-                
     def makeDaisy(self):
         daisy = [self[37], self[39], self[41], self[43]]
         # if daisy not solved
