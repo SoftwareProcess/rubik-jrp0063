@@ -18,6 +18,12 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
                 'b': ((38, 37, 36), (27, 30, 33), (51, 52, 53), (17, 14, 11)),  'l': ((36, 39, 42), (0, 3, 6), (45, 48, 51), (26, 23, 20)),
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
+# rotation orientations for looping
+FRONT = {'offset': 0, 'F': 'F', 'f': 'f', 'R': 'R', 'r': 'r', 'B': 'B', 'b': 'b', 'L': 'L', 'l': 'l'}
+RIGHT = {'offset': 9, 'F': 'R', 'f': 'r', 'R': 'B', 'r': 'b', 'B': 'L', 'b': 'l', 'L': 'F', 'l': 'f'}
+BACK = {'offset': 18, 'F': 'B', 'f': 'b', 'R': 'L', 'r': 'l', 'B': 'F', 'b': 'f', 'L': 'R', 'l': 'r'}
+LEFT = {'offset': 27, 'F': 'L', 'f': 'l', 'R': 'F', 'r': 'f', 'B': 'R', 'b': 'r', 'L': 'B', 'l': 'b'}
+
 class Cube:
     
     # called on instance creation
@@ -292,7 +298,7 @@ class Cube:
             while True:
                 # front orientation
                 if self[43] != self[49]:
-                    offset = 0
+                    offset = FRONT.get('offset')
                     F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
                 # right orientation
                 elif self[41] != self[49]:
