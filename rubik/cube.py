@@ -302,16 +302,16 @@ class Cube:
                     F, f, R, l = ORIENT_F.get('F'), ORIENT_F.get('f'), ORIENT_F.get('R'), ORIENT_F.get('l')
                 # right orientation
                 elif self[41] != self[49]:
-                    offset = RIGHT.get('offset')
-                    F, f, R, l = RIGHT.get('F'), RIGHT.get('f'), RIGHT.get('R'), RIGHT.get('l')
+                    offset = ORIENT_R.get('offset')
+                    F, f, R, l = ORIENT_R.get('F'), ORIENT_R.get('f'), ORIENT_R.get('R'), ORIENT_R.get('l')
                 # back orientation
                 elif self[37] != self[49]:
-                    offset = BACK.get('offset')
-                    F, f, R, l = BACK.get('F'), BACK.get('f'), BACK.get('R'), BACK.get('l')
+                    offset = ORIENT_B.get('offset')
+                    F, f, R, l = ORIENT_B.get('F'), ORIENT_B.get('f'), ORIENT_B.get('R'), ORIENT_B.get('l')
                 # left orientation
                 elif self[39] != self[49]:
-                    offset = LEFT.get('offset')
-                    F, f, R, l = LEFT.get('F'), LEFT.get('f'), LEFT.get('R'), LEFT.get('l')
+                    offset = ORIENT_L.get('offset')
+                    F, f, R, l = ORIENT_L.get('F'), ORIENT_L.get('f'), ORIENT_L.get('R'), ORIENT_L.get('l')
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
                     self.rotate(f + 'U' + l + 'u')
