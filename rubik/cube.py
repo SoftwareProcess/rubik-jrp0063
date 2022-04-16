@@ -302,15 +302,15 @@ class Cube:
                     F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
                 # right orientation
                 elif self[41] != self[49]:
-                    offset = 9
+                    offset = RIGHT.get('offset')
                     F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
                 # back orientation
                 elif self[37] != self[49]:
-                    offset = 18
+                    offset = BACK.get('offset')
                     F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
                 # left orientation
                 elif self[39] != self[49]:
-                    offset = 27
+                    offset = LEFT.get('offset')
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
