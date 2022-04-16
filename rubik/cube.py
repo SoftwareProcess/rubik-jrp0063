@@ -299,7 +299,7 @@ class Cube:
                 # front orientation
                 if self[43] != self[49]:
                     offset = FRONT.get('offset')
-                    F, f, R, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                    F, f, R, l, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
                 # right orientation
                 elif self[41] != self[49]:
                     offset = RIGHT.get('offset')
@@ -320,10 +320,10 @@ class Cube:
                     self.rotate('U' + l + 'u')
                 # face right middle
                 elif self[(offset + 5) % 36] == self[49]:
-                    self.rotate(u + R + U)
+                    self.rotate('u' + R + 'U')
                 # face down middle
                 elif self[(offset + 7) % 36] == self[49]:
-                    self.rotate(f + u + R + U)
+                    self.rotate(f + 'u' + R + 'U')
                 # face right adjacent
                 elif self[(offset + 12) % 36] == self[49]:
                     self.rotate(f)
@@ -335,39 +335,39 @@ class Cube:
                     if self[46] == self[49]:
                         self.rotate(F + F)
                     if self[50] == self[49]:
-                        self.rotate(d + F + F)
+                        self.rotate('d' + F + F)
                     if self[52] == self[49]:
-                        self.rotate(d + d + F + F)
+                        self.rotate('d' + 'd' + F + F)
                     if self[48] == self[49]:
-                        self.rotate(D + F + F)
+                        self.rotate('D' + F + F)
                 # right down adjacent
                 elif offset == 9:
                     if self[46] == self[49]:
-                        self.rotate(D + F + F)
+                        self.rotate('D' + F + F)
                     if self[50] == self[49]:
                         self.rotate(F + F)
                     if self[52] == self[49]:
-                        self.rotate(d + F + F)
+                        self.rotate('d' + F + F)
                     if self[48] == self[49]:
-                        self.rotate(d + d + F + F)
+                        self.rotate('d' + 'd' + F + F)
                 # back down adjacent
                 elif offset == 18:
                     if self[46] == self[49]:
-                        self.rotate(d + d + F + F)
+                        self.rotate('d' + 'd' + F + F)
                     if self[50] == self[49]:
-                        self.rotate(D + F + F)
+                        self.rotate('D' + F + F)
                     if self[52] == self[49]:
                         self.rotate(F + F)
                     if self[48] == self[49]:
-                        self.rotate(d + F + F)
+                        self.rotate('d' + F + F)
                 # left down adjacent
                 elif offset == 27:
                     if self[46] == self[49]:
-                        self.rotate(d + F + F)
+                        self.rotate('d' + F + F)
                     if self[50] == self[49]:
-                        self.rotate(d + d + F + F)
+                        self.rotate('d' + 'd' + F + F)
                     if self[52] == self[49]:
-                        self.rotate(D + F + F)
+                        self.rotate('D' + F + F)
                     if self[48] == self[49]:
                         self.rotate(F + F)
                 # break condition
