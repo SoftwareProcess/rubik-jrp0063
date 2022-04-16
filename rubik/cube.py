@@ -299,7 +299,7 @@ class Cube:
                 # front orientation
                 if self[43] != self[49]:
                     offset = FRONT.get('offset')
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+                    F, f, R, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
                 # right orientation
                 elif self[41] != self[49]:
                     offset = RIGHT.get('offset')
@@ -314,10 +314,10 @@ class Cube:
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
-                    self.rotate(f + U + l + u)
+                    self.rotate(f + 'U' + l + 'u')
                 # face left middle
                 elif self[(offset + 3) % 36] == self[49]:
-                    self.rotate(U + l + u)
+                    self.rotate('U' + l + 'u')
                 # face right middle
                 elif self[(offset + 5) % 36] == self[49]:
                     self.rotate(u + R + U)
