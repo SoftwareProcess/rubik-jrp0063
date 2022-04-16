@@ -19,10 +19,10 @@ CONNECTED = {   'f': ((42, 43, 44), (9, 12, 15), (47, 46, 45), (35, 32, 29)),   
                 'u': ((20, 19, 18), (11, 10, 9), (2, 1, 0), (29, 28, 27)),      'd': ((6, 7, 8), (15, 16, 17), (24, 25, 26), (33, 34, 35))}
 
 # rotation orientations for looping
-FRONT = {'offset': 0, 'F': 'F', 'f': 'f', 'R': 'R', 'r': 'r', 'B': 'B', 'b': 'b', 'L': 'L', 'l': 'l'}
-RIGHT = {'offset': 9, 'F': 'R', 'f': 'r', 'R': 'B', 'r': 'b', 'B': 'L', 'b': 'l', 'L': 'F', 'l': 'f'}
-BACK = {'offset': 18, 'F': 'B', 'f': 'b', 'R': 'L', 'r': 'l', 'B': 'F', 'b': 'f', 'L': 'R', 'l': 'r'}
-LEFT = {'offset': 27, 'F': 'L', 'f': 'l', 'R': 'F', 'r': 'f', 'B': 'R', 'b': 'r', 'L': 'B', 'l': 'b'}
+ORIENT_F = {'offset': 0, 'F': 'F', 'f': 'f', 'R': 'R', 'r': 'r', 'B': 'B', 'b': 'b', 'L': 'L', 'l': 'l'}
+ORIENT_R = {'offset': 9, 'F': 'R', 'f': 'r', 'R': 'B', 'r': 'b', 'B': 'L', 'b': 'l', 'L': 'F', 'l': 'f'}
+ORIENT_B = {'offset': 18, 'F': 'B', 'f': 'b', 'R': 'L', 'r': 'l', 'B': 'F', 'b': 'f', 'L': 'R', 'l': 'r'}
+ORIENT_L = {'offset': 27, 'F': 'L', 'f': 'l', 'R': 'F', 'r': 'f', 'B': 'R', 'b': 'r', 'L': 'B', 'l': 'b'}
 
 class Cube:
     
@@ -298,8 +298,8 @@ class Cube:
             while True:
                 # front orientation
                 if self[43] != self[49]:
-                    offset = FRONT.get('offset')
-                    F, f, R, l = FRONT.get('F'), FRONT.get('f'), FRONT.get('R'), FRONT.get('l')
+                    offset = ORIENT_F.get('offset')
+                    F, f, R, l = ORIENT_F.get('F'), ORIENT_F.get('f'), ORIENT_F.get('R'), ORIENT_F.get('l')
                 # right orientation
                 elif self[41] != self[49]:
                     offset = RIGHT.get('offset')
