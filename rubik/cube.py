@@ -37,6 +37,25 @@ class Cube:
                 [cube_str[offset + 6], cube_str[offset + 7], cube_str[offset + 8]],
             ]
             for colors, offset in zip(ORIENTATIONS.values(), OFFSETS.values())
+            
+        # useful cube parts
+        self.front_center = self[4]
+        self.right_center = self[13]
+        self.back_center = self[22]
+        self.left_center = self[31]
+        self.up_center = self[40]
+        self.down_center = self[49]
+        self.front_face = [self[0], self[1], self[2], self[3], self[5], self[6], self[7], self[8]]
+        self.right_face = [self[9], self[10], self[11], self[12], self[14], self[15], self[16], self[17]]
+        self.back_face = [self[18], self[19], self[20], self[21], self[23], self[24], self[25], self[26]]
+        self.left_face = [self[27], self[28], self[29], self[30], self[32], self[33], self[34], self[35]]
+        self.up_face = [self[36], self[37], self[38], self[39], self[41], self[42], self[43], self[44]]
+        self.down_face = [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]
+        self.up_daisy = [self[37], self[39], self[41], self[43]]
+        self.down_cross = [self[46], self[48], self[50], self[52]]
+        self.all_corners_bot = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
+        self.all_corners_top = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
+        self.up_corners = [self[36], self[38], self[42], self[44]]
         }
     
     # assigning to an item using an index
