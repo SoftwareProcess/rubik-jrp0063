@@ -28,6 +28,26 @@ class Cube:
     
     # called on instance creation
     def __init__(self, cube_str):
+        
+        # useful cube parts
+        self.front_center = self[4]
+        self.right_center = self[13]
+        self.back_center = self[22]
+        self.left_center = self[31]
+        self.up_center = self[40]
+        self.down_center = self[49]
+        self.front_face = [self[0], self[1], self[2], self[3], self[5], self[6], self[7], self[8]]
+        self.right_face = [self[9], self[10], self[11], self[12], self[14], self[15], self[16], self[17]]
+        self.back_face = [self[18], self[19], self[20], self[21], self[23], self[24], self[25], self[26]]
+        self.left_face = [self[27], self[28], self[29], self[30], self[32], self[33], self[34], self[35]]
+        self.up_face = [self[36], self[37], self[38], self[39], self[41], self[42], self[43], self[44]]
+        self.down_face = [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]
+        self.up_daisy = [self[37], self[39], self[41], self[43]]
+        self.down_cross = [self[46], self[48], self[50], self[52]]
+        self.all_corners_bot = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
+        self.all_corners_top = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
+        self.up_corners = [self[36], self[38], self[42], self[44]]
+        
         self.solution = []
         self.cube_build = {
             colors: [
@@ -102,17 +122,10 @@ class Cube:
     
     # solve cube according to iteration
     def solveCube(self):
-        front_face =    [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
-        right_face =    [self[9],  self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
-        back_face =     [self[18], self[19], self[20], self[21], self[22], self[23], self[24], self[25], self[26]]
-        left_face =     [self[27], self[28], self[29], self[30], self[31], self[32], self[33], self[34], self[35]]
-        up_face =       [self[36], self[37], self[38], self[39], self[40], self[41], self[42], self[43], self[44]]
-        down_face =     [self[45], self[46], self[47], self[48], self[49], self[50], self[51], self[52], self[53]]
-        
         # if solved
-        if (all(color == self[4] for color in front_face) and all(color == self[13] for color in right_face) and
-            all(color == self[22] for color in back_face) and all(color == self[31] for color in left_face) and
-            all(color == self[40] for color in up_face) and all(color == self[49] for color in down_face)):
+        if (all(color == self[4] for color in self.front_face) and all(color == self[13] for color in self.right_face) and
+            all(color == self[22] for color in self.back_face) and all(color == self[31] for color in self.left_face) and
+            all(color == self[40] for color in self.up_face) and all(color == self[49] for color in self.down_face)):
             
             return
         
@@ -156,52 +169,46 @@ class Cube:
         # move top corners to down face
         top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
         if any(color == self[49] for color in top_corners):
-            while True:
-                if self[0] == self[49] or self[2] == self[49]:
-                    offset = 0
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
-                # right orientation
-                elif self[9] == self[49] or self[11] == self[49]:
-                    offset = 9
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
-                # back orientation
-                elif self[18] == self[49] or self[20] == self[49]:
-                    offset = 18
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
-                # left orientation
-                elif self[27] == self[49] or self[29] == self[49]:
-                    offset = 27
-                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
-                        
-                if self[offset + 2] == self[49]:
-                    if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
-                        while True:
-                            self.rotate('U')
-                            if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
-                                break
-                        self.rotate(f + u + F)
-                    else:
-                        self.rotate(f + u + F)
-                        
-                if self[offset + 0] == self[49]:
-                    if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
-                        while True:
-                            self.rotate('U')
-                            if self[(offset + 29) % 36] == self[(offset + 31) % 36]:
-                                break
-                        self.rotate(F + U + f)
-                    else:
-                        self.rotate(F + U + f)
+            if self[0] == self[49] or self[2] == self[49]:
+                offset = 0
+                F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
+            # right orientation
+            elif self[9] == self[49] or self[11] == self[49]:
+                offset = 9
+                F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
+            # back orientation
+            elif self[18] == self[49] or self[20] == self[49]:
+                offset = 18
+                F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
+            # left orientation
+            elif self[27] == self[49] or self[29] == self[49]:
+                offset = 27
+                F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                     
-                top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]        
-                if any(color == self[49] for color in top_corners) is False:
-                    break
+            if self[offset + 2] == self[49]:
+                if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
+                    while True:
+                        self.rotate('U')
+                        if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
+                            break
+                    self.rotate(f + u + F)
+                else:
+                    self.rotate(f + u + F)
+                    
+            if self[offset + 0] == self[49]:
+                if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
+                    while True:
+                        self.rotate('U')
+                        if self[(offset + 29) % 36] == self[(offset + 31) % 36]:
+                            break
+                    self.rotate(F + U + f)
+                else:
+                    self.rotate(F + U + f)
             
-    
     def upFaceToTopCorner(self):
         # move up face corners to top corners
         up_face_corners = [self[36], self[38], self[42], self[44]]
-        while any(color == self[49] for color in up_face_corners):
+        if any(color == self[49] for color in up_face_corners):
             if self[42] == self[49]:
                 self.rotate('luuL')
             if self[44] == self[49]:
@@ -215,14 +222,10 @@ class Cube:
             if any(color == self[49] for color in bottom_corners):
                 self.bottomCornerToUpFace()
             
-            up_face_corners = [self[36], self[38], self[42], self[44]]
-            if any(color == self[49] for color in up_face_corners) is False:
-                break
-            
     def bottomCornerToUpFace(self):
         # move bottom corners to up face
         bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
-        while any(color == self[49] for color in bottom_corners):
+        if any(color == self[49] for color in bottom_corners):
             # front orientation
             if self[6] == self[49] or self[8] == self[49]:
                 offset = 0
@@ -244,10 +247,6 @@ class Cube:
                 self.rotate(l + u + L)
             if self[offset + 8] == self[49]:
                 self.rotate(R + U + r)
-                
-            bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
-            if any(color == self[49] for color in bottom_corners) is False:
-                break
     
     def makeBottomCross(self):
         bottom_cross = [self[46], self[50], self[52], self[48]]
