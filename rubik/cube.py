@@ -102,10 +102,18 @@ class Cube:
     
     # solve cube according to iteration
     def solveCube(self):
+        
+        front_face =    [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
+        right_face =    [self[9],  self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
+        back_face =     [self[18], self[19], self[20], self[21], self[22], self[23], self[24], self[25], self[26]]
+        left_face =     [self[27], self[28], self[29], self[30], self[31], self[32], self[33], self[34], self[35]]
+        up_face =       [self[36], self[37], self[38], self[39], self[40], self[41], self[42], self[43], self[44]]
+        down_face =     [self[45], self[46], self[47], self[48], self[49], self[50], self[51], self[52], self[53]]
+        
         # if solved
-        if (all(color == self[4] for color in self.front_face) and all(color == self[13] for color in self.right_face) and
-            all(color == self[22] for color in self.back_face) and all(color == self[31] for color in self.left_face) and
-            all(color == self[40] for color in self.up_face) and all(color == self[49] for color in self.down_face)):
+        if (all(color == self[4] for color in front_face) and all(color == self[13] for color in right_face) and
+            all(color == self[22] for color in back_face) and all(color == self[31] for color in left_face) and
+            all(color == self[40] for color in up_face) and all(color == self[49] for color in down_face)):
             
             return
         
