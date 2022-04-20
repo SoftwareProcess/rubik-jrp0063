@@ -206,10 +206,6 @@ class Cube:
             if self[38] == self[49]:
                 self.rotate('ruuR')
             
-            bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]    
-            if any(color == self[49] for color in bottom_corners):
-                self.bottomCornerToUpFace()
-            
     def bottomCornerToUpFace(self):
         # move bottom corners to up face
         bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
