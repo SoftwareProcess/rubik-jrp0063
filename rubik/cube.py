@@ -185,13 +185,13 @@ class Cube:
                     
             if self[offset + 0] == self[49] and any(color == self[(offset + 31) % 36] for color in top_corners):
                 if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
-                    while True:
-                        self.rotate('U')
-                        if self[(offset + 29) % 36] == self[(offset + 31) % 36]:
-                            break
                     self.rotate(F + U + f)
-                else:
-                    self.rotate(F + U + f)
+                elif self[(offset + 29) % 36] == self[(offset + 4) % 36]:
+                    self.rotate(u + R + U + r)
+                elif self[(offset + 29) % 36] == self[(offset + 13) % 36]:
+                    self.rotate(u + u + B + U + b)
+                elif self[(offset + 29) % 36] == self[(offset + 22) % 36]:
+                    self.rotate(U + L + U + l)
             
     def upFaceToTopCorner(self):
         # move up face corners to top corners
