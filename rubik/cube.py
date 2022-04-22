@@ -174,14 +174,14 @@ class Cube:
                 F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                     
             if self[offset + 2] == self[49] and any(color == self[(offset + 13) % 36] for color in top_corners):
-                if self[(offset + 9) % 36] != self[(offset + 13) % 36]:
-                    while True:
-                        self.rotate('U')
-                        if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
-                            break
+                if self[(offset + 9) % 36] == self[(offset + 13) % 36]:
                     self.rotate(f + u + F)
-                else:
-                    self.rotate(f + u + F)
+                elif self[(offset + 9) % 36] == self[(offset + 22) % 36]:
+                    self.rotate(u + r + u + R)
+                elif self[(offset + 9) % 36] == self[(offset + 31) % 36]:
+                    self.rotate(u + u + b + u + B)
+                elif self[(offset + 9) % 36] == self[(offset + 4) % 36]:
+                    self.rotate(U + l + u + L)
                     
             if self[offset + 0] == self[49] and any(color == self[(offset + 31) % 36] for color in top_corners):
                 if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
