@@ -184,7 +184,7 @@ class Cube:
                     self.rotate(U + l + u + L)
                     
             if self[offset + 0] == self[49] and any(color == self[(offset + 31) % 36] for color in top_corners):
-                if self[(offset + 29) % 36] != self[(offset + 31) % 36]:
+                if self[(offset + 29) % 36] == self[(offset + 31) % 36]:
                     self.rotate(F + U + f)
                 elif self[(offset + 29) % 36] == self[(offset + 4) % 36]:
                     self.rotate(u + R + U + r)
