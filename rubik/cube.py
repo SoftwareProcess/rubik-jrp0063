@@ -123,15 +123,6 @@ class Cube:
             if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
                 return
             
-            # if bottom cross already solved
-            elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
-                self.makeDownFace()
-            
-            # if up daisy already solved
-            elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
-                self.makeBottomCross()
-                self.makeDownFace()
-                
             # if scrambled
             else:
                 self.makeDaisy()
