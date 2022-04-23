@@ -124,7 +124,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_12_solve_from_downface(self):
         parm = {'op': 'solve',
-                'cube': 'KKKKKKKKKrrrrrrrrrOOOOOOOOOqqqqqqqqqhhhhhhhhhUUUUUUUUU'}
+                'cube': 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
