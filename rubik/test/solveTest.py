@@ -110,7 +110,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertEqual(solution, 'UFFURRUUBBULLLUlluuLuruRluLRUUrULUluFUfuufuF')
 
-    @unittest.skip
+    #@unittest.skip
     def test_solve_11_solve_from_downcross(self):
         parm = {'op': 'solve',
                 'cube': 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'}
@@ -119,7 +119,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, ''.join(cube.solution))
+        self.assertEqual(solution, 'LUlluuLuruRluLRUUrULUluFUfuufuF')
         
     #@unittest.skip
     def test_solve_12_solve_from_downface(self):
