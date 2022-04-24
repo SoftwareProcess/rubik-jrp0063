@@ -198,7 +198,7 @@ class CubeTest(unittest.TestCase):
         actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_25_downface_solve_from_scrambled_A5_PATCH(self):
         cube_str = 'lcecceeTlTgeGeTeTGGggeGggGgclgcglcgclllelTGeGTGcGTcTlT'
         cube = Cube(cube_str)

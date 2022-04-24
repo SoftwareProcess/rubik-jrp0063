@@ -358,6 +358,27 @@ class Cube:
                         self.rotate('D' + F + F)
                     if self[48] == self[49]:
                         self.rotate(F + F)
+                # A5 PATCH - right
+                elif self[(offset + 12) % 36] == self[49]:
+                    self.rotate('u' + 'U' + f + 'u')
+                elif self[(offset + 14) % 36] == self[49]:
+                    self.rotate('u' + 'u' + B + 'U')
+                elif self[(offset + 16) % 36] == self[49]:
+                    self.rotate('u' + r + 'u' + B + 'U')
+                # A5 PATCH - back
+                elif self[(offset + 21) % 36] == self[49]:
+                    self.rotate('u' + 'u' + 'U' + r + 'u')
+                elif self[(offset + 23) % 36] == self[49]:
+                    self.rotate('u' + 'u' + 'u' + L + 'U')
+                elif self[(offset + 25) % 36] == self[49]:
+                    self.rotate('u' + 'u' + b + 'u' + L + 'U')
+                # A5 PATCH - left
+                elif self[(offset + 30) % 36] == self[49]:
+                    self.rotate('U' + 'U' + b + 'u')
+                elif self[(offset + 32) % 36] == self[49]:
+                    self.rotate('U' + 'u' + F + 'U')
+                elif self[(offset + 34) % 36] == self[49]:
+                    self.rotate('U' + l + 'u' + F + 'U')
                 
                 # break condition
                 daisy = [self[37], self[39], self[41], self[43]]
