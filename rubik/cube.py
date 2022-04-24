@@ -155,7 +155,6 @@ class Cube:
                 
             bottom_cross = [self[46], self[50], self[52], self[48]]
             if any(color != self[49] for color in bottom_cross):
-                self.makeDaisy()
                 self.makeBottomCross()
     
     def topCornerToDownFace(self):
@@ -238,6 +237,7 @@ class Cube:
                 self.rotate(R + U + r)
     
     def makeBottomCross(self):
+        self.makeDaisy()
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
