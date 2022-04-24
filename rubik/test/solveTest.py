@@ -135,7 +135,7 @@ class SolveTest(unittest.TestCase):
     @unittest.skip
     def test_solve_13_solve_from_downface(self):
         parm = {'op': 'solve',
-                'cube': '2TTGGqGGTd2I2II2I22qdq2IT2qIGd2TIGTIGGqTqTIqGqdqdddTdd'}
+                'cube': 'NNNH8N88TTpp8pH88ggHT8gpTT8NgggNNNgpgpHHHTHg8HppTTTHNp'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
