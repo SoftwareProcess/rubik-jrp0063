@@ -237,10 +237,10 @@ class Cube:
                 self.rotate(R + U + r)
     
     def makeBottomCross(self):
-        self.makeDaisy()
         bottom_cross = [self[46], self[50], self[52], self[48]]
         # if bottom cross not solved
         if bottom_cross != [self[49], self[49], self[49], self[49]]:
+            self.makeDaisy()
             # form cross front
             if self[1] != self[4]:
                 while True:
