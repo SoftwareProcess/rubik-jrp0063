@@ -360,10 +360,10 @@ class Cube:
                     if self[48] == self[49]:
                         self.rotate(F + F)
                 
+                self.rotate('U')
+                
                 # break condition
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
-                
-                if daisy != [self[49], self[49], self[49], self[49]]:
-                    self.rotate('U')
+            
