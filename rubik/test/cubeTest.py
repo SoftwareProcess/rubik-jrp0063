@@ -200,7 +200,7 @@ class CubeTest(unittest.TestCase):
         
     #@unittest.skip    
     def test_cube_25_downface_solve_from_scrambled_A5_PATCH(self):
-        cube_str = 'NNNH8N88TTpp8pH88ggHT8gpTT8NgggNNNgpgpHHHTHg8HppTTTHNp'
+        cube_str = 'lcecceeTlTgeGeTeTGGggeGggGgclgcglcgclllelTGeGTGcGTcTlT'
         cube = Cube(cube_str)
         cube.solveCube()
         solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
