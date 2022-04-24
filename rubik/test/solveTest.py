@@ -121,7 +121,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertEqual(solution, 'LUlluuLuruRluLRUUrULUluFUfuufuF')
         
-    @unittest.skip
+    #@unittest.skip
     def test_solve_12_solve_from_downface(self):
         parm = {'op': 'solve',
                 'cube': 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'}
@@ -132,7 +132,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertEqual(solution, '')
         
-    #@unittest.skip
+    @unittest.skip
     def test_solve_13_solve_from_scramble(self):
         parm = {'op': 'solve',
                 'cube': 'NNNH8N88TTpp8pH88ggHT8gpTT8NgggNNNgpgpHHHTHg8HppTTTHNp'}
