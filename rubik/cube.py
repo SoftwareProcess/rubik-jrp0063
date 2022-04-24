@@ -363,5 +363,5 @@ class Cube:
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
                 # A5 PATCH
-                front_face = [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
-                elif self[43] == self[49] and 
+                #front_face = [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
+                #elif self[43] == self[49] and 
