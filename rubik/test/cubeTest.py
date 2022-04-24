@@ -269,7 +269,7 @@ class CubeTest(unittest.TestCase):
         
     #@unittest.skip    
     def test_cube_30_middlelayer_solve_from_middlelayer(self):
-        cube_str = ''
+        cube_str = 'rwboooooowwogggggggwwrrrrrrbwgbbbbbborwbwowgryyyyyyyyy'
         cube = Cube(cube_str)
         cube.solveCube()
         middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]

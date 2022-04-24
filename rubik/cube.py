@@ -137,6 +137,9 @@ class Cube:
                 self.makeBottomCross()
                 self.makeDownFace()
                 
+    def makeMiddleLayer(self):
+        return
+                
     def makeDownFace(self):
         # form down face from other formations
         while all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]) is False:
