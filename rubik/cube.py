@@ -322,6 +322,8 @@ class Cube:
                     self.rotate('d' + 'd' + f + 'u' + R + 'U')
                 elif self[(offset + 14) % 36] == self[49]:
                     self.rotate('u' + 'u' + R + 'U')
+                elif self[(offset + 30) % 36] == self[49]:
+                    self.rotate('U' + 'U' + l + 'u')
 
                 # front down adjacent
                 elif offset == 0:
