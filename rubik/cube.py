@@ -299,6 +299,7 @@ class Cube:
                 elif self[39] != self[49]:
                     offset = 27
                     F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
+                
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
                     self.rotate(f + 'U' + l + 'u')
@@ -358,23 +359,7 @@ class Cube:
                     if self[48] == self[49]:
                         self.rotate(F + F)
                 
-
-                
                 # break condition
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
-                else:
-                # A5 PATCH
-                    front_face = [self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8]]
-                    if self[43] == self[49] and any(color == self[49] for color in front_face):
-                        self.rotate('u')
-                    right_face = [self[9], self[10], self[11], self[12], self[13], self[14], self[15], self[16], self[17]]
-                    if self[41] == self[49] and any(color == self[49] for color in right_face):
-                        self.rotate('u')
-                    back_face = [self[18], self[19], self[20], self[21], self[22], self[23], self[24], self[25], self[26]]
-                    if self[37] == self[49] and any(color == self[49] for color in back_face):
-                        self.rotate('u')
-                    left_face = [self[27], self[28], self[29], self[30], self[31], self[32], self[33], self[34], self[35]]
-                    if self[39] == self[49] and any(color == self[49] for color in left_face):
-                        self.rotate('u')
