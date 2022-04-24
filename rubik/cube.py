@@ -125,6 +125,8 @@ class Cube:
             
             # if scrambled
             else:
+                self.makeDaisy()
+                self.makeBottomCross()
                 self.makeDownFace()
                 
     def makeDownFace(self):
@@ -137,7 +139,7 @@ class Cube:
                 
             bottom_cross = [self[46], self[50], self[52], self[48]]
             if bottom_cross != [self[49], self[49], self[49], self[49]]:
-                self.makeBottomCross()
+                self.makeBottomCross
             
             bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
             if any(color == self[49] for color in bottom_corners):
