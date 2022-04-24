@@ -358,8 +358,9 @@ class Cube:
                         self.rotate('D' + F + F)
                     if self[48] == self[49]:
                         self.rotate(F + F)
+                
                 # A5 PATCH - right
-                elif self[(offset + 12) % 36] == self[49]:
+                if self[(offset + 12) % 36] == self[49]:
                     self.rotate('u' + 'U' + f + 'u')
                 elif self[(offset + 14) % 36] == self[49]:
                     self.rotate('u' + 'u' + B + 'U')
