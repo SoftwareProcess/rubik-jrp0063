@@ -125,13 +125,20 @@ class Cube:
             
             # if scrambled
             else:
-                self.makeDaisy()
-                self.makeBottomCross()
                 self.makeDownFace()
                 
     def makeDownFace(self):
         # form down face from other formations
         while all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]) is False:
+            
+            daisy = [self[37], self[39], self[41], self[43]]
+            if any(color != self[49] for color in daisy):
+                self.makeDaisy()
+                
+            bottom_cross = [self[46], self[50], self[52], self[48]]
+            if bottom_cross != [self[49], self[49], self[49], self[49]]:
+                self.makeBottomCross()
+            
             bottom_corners = [self[6], self[8], self[15], self[17], self[24], self[26], self[33], self[35]]
             if any(color == self[49] for color in bottom_corners):
                 self.bottomCornerToUpFace()
