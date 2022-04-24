@@ -318,9 +318,7 @@ class Cube:
                 # face left adjacent
                 elif self[(offset + 32) % 36] == self[49]:
                     self.rotate(F)
-                # A5 FAILURE PATCH
-                elif self[(offset + 25) % 36] == self[49]:
-                    self.rotate('d' + 'd' + f + 'u' + R + 'U')
+
                 # front down adjacent
                 elif offset == 0:
                     if self[46] == self[49]:
@@ -366,3 +364,5 @@ class Cube:
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
+                else:
+                    self.rotate('U')
