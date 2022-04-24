@@ -153,6 +153,10 @@ class Cube:
             top_corners = [self[0], self[2], self[9], self[11], self[18], self[20], self[27], self[29]]
             if any(color == self[49] for color in top_corners):
                 self.topCornerToDownFace()
+                
+            bottom_cross = [self[46], self[50], self[52], self[48]]
+            if any(color != self[49] for color in bottom_cross):
+                self.makeBottomCross()
     
     def topCornerToDownFace(self):
         # move top corners to down face
