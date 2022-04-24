@@ -362,3 +362,5 @@ class Cube:
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
+                else:
+                    self.rotate('U')
