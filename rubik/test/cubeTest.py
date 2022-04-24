@@ -224,7 +224,7 @@ class CubeTest(unittest.TestCase):
     
     #@unittest.skip    
     def test_cube_27_middlelayer_solve_from_updaisy(self):
-        cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
+        cube_str = 'ybrgrooywwrybgrogbgobbooorgwgrgbyrygrwowywbwgwbbowryyy'
         cube = Cube(cube_str)
         cube.solveCube()
         middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]
@@ -239,7 +239,7 @@ class CubeTest(unittest.TestCase):
         
     #@unittest.skip    
     def test_cube_28_middlelayer_solve_from_downcross(self):
-        cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
+        cube_str = 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'
         cube = Cube(cube_str)
         cube.solveCube()
         middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]
@@ -254,7 +254,7 @@ class CubeTest(unittest.TestCase):
         
     #@unittest.skip    
     def test_cube_29_middlelayer_solve_from_downface(self):
-        cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
+        cube_str = 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'
         cube = Cube(cube_str)
         cube.solveCube()
         middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]
@@ -269,7 +269,7 @@ class CubeTest(unittest.TestCase):
         
     #@unittest.skip    
     def test_cube_30_middlelayer_solve_from_middlelayer(self):
-        cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
+        cube_str = ''
         cube = Cube(cube_str)
         cube.solveCube()
         middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]
