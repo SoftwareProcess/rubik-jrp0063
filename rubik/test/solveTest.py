@@ -131,4 +131,15 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
         self.assertEqual(solution, '')
+        
+    #@unittest.skip
+    def test_solve_13_solve_from_downface(self):
+        parm = {'op': 'solve',
+                'cube': '2TTGGqGGTd2I2II2I22qdq2IT2qIGd2TIGTIGGqTqTIqGqdqdddTdd'}
+        result = solve._solve(parm)
+        self.assertIn('status', result)
+        status = result.get('status')
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, '')
     

@@ -37,7 +37,6 @@ def _solve(parms):
     
     else:
         result['status'] = 'ok'
-        rotate = encodedRotations
         for rotation in encodedRotations:
             cube.rotate(rotation)
     
