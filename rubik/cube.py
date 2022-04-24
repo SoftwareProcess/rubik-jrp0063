@@ -285,20 +285,20 @@ class Cube:
             while True:
                 # front orientation
                 if self[43] != self[49]:
-                    offset = ORIENT_F.get('offset')
-                    F, f, R, l = ORIENT_F.get('F'), ORIENT_F.get('f'), ORIENT_F.get('R'), ORIENT_F.get('l')
+                    offset = 0
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd'
                 # right orientation
                 elif self[41] != self[49]:
-                    offset = ORIENT_R.get('offset')
-                    F, f, R, l = ORIENT_R.get('F'), ORIENT_R.get('f'), ORIENT_R.get('R'), ORIENT_R.get('l')
+                    offset = 9
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'R', 'r', 'B', 'b', 'L', 'l', 'F', 'f', 'U', 'u', 'D', 'd'
                 # back orientation
                 elif self[37] != self[49]:
-                    offset = ORIENT_B.get('offset')
-                    F, f, R, l = ORIENT_B.get('F'), ORIENT_B.get('f'), ORIENT_B.get('R'), ORIENT_B.get('l')
+                    offset = 18
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'B', 'b', 'L', 'l', 'F', 'f', 'R', 'r', 'U', 'u', 'D', 'd'
                 # left orientation
                 elif self[39] != self[49]:
-                    offset = ORIENT_L.get('offset')
-                    F, f, R, l = ORIENT_L.get('F'), ORIENT_L.get('f'), ORIENT_L.get('R'), ORIENT_L.get('l')
+                    offset = 27
+                    F, f, R, r, B, b, L, l, U, u, D, d = 'L', 'l', 'F', 'f', 'R', 'r', 'B', 'b', 'U', 'u', 'D', 'd'
                 # face up middle
                 if self[(offset + 1) % 36] == self[49]:
                     self.rotate(f + 'U' + l + 'u')
@@ -317,14 +317,6 @@ class Cube:
                 # face left adjacent
                 elif self[(offset + 32) % 36] == self[49]:
                     self.rotate(F)
-                # A5 FAILURE PATCH
-                elif self[(offset + 25) % 36] == self[49]:
-                    self.rotate('d' + 'd' + f + 'u' + R + 'U')
-                elif self[(offset + 14) % 36] == self[49]:
-                    self.rotate('u' + 'u' + R + 'U')
-                elif self[(offset + 30) % 36] == self[49]:
-                    self.rotate('U' + 'U' + l + 'u')
-
                 # front down adjacent
                 elif offset == 0:
                     if self[46] == self[49]:
@@ -370,4 +362,6 @@ class Cube:
                 daisy = [self[37], self[39], self[41], self[43]]
                 if daisy == [self[49], self[49], self[49], self[49]]:
                     break
-            
+                # A5 PATCH
+                front_face = [self[0],  self[1],  self[2],  self[3],  self[4],  self[5],  self[6],  self[7],  self[8]]
+                elif self[43] == self[49] and 
