@@ -132,7 +132,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertEqual(solution, '')
         
-    #@unittest.skip
+    @unittest.skip
     def test_solve_13_solve_from_scrambled_A5_PATCH(self):
         parm = {'op': 'solve',
                 'cube': 'NNNH8N88TTpp8pH88ggHT8gpTT8NgggNNNgpgpHHHTHg8HppTTTHNp'}
