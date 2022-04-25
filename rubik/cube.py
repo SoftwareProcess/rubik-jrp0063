@@ -171,6 +171,10 @@ class Cube:
                     elif self[39] == self[4]:
                         self.rotate('U' + 'F' + 'U' + 'f')
                 self.makeDownFace()
+            # flipped condition
+            elif self[32] == self[4]:
+                self.rotate('F' + 'U' + 'f')
+                self.makeDownFace()
             else:
                 self.rotate('U')
                 

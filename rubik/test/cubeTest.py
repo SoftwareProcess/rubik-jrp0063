@@ -207,7 +207,7 @@ class CubeTest(unittest.TestCase):
         actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_26_middlelayer_solve_from_scrambled(self):
         cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
         cube = Cube(cube_str)
@@ -222,7 +222,7 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
     
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_27_middlelayer_solve_from_updaisy(self):
         cube_str = 'ybrgrooywwrybgrogbgobbooorgwgrgbyrygrwowywbwgwbbowryyy'
         cube = Cube(cube_str)
@@ -237,7 +237,7 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_28_middlelayer_solve_from_downcross(self):
         cube_str = 'gyrgrbrrygrbrggrgbwgyooooowgyobbyobworroyywbygwbwwwbwy'
         cube = Cube(cube_str)
@@ -252,7 +252,7 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_29_middlelayer_solve_from_downface(self):
         cube_str = 'googrrrrrbrybgbgggbgoyoyoooygrobobbbgrryyyybywwwwwwwww'
         cube = Cube(cube_str)
@@ -267,7 +267,7 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
         
-    @unittest.skip    
+    #@unittest.skip    
     def test_cube_30_middlelayer_solve_from_middlelayer(self):
         cube_str = 'rwboooooowwogggggggwwrrrrrrbwgbbbbbborwbwowgryyyyyyyyy'
         cube = Cube(cube_str)
