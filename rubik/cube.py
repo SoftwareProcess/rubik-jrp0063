@@ -173,7 +173,7 @@ class Cube:
                 # fix down face
                 self.makeDownFace()
             # flipped condition
-            elif (self[5] == self[13]) or (self[12] == self[4]) or (self[14] == self[22]) or (self[21] == self[13]) or (self[23] == self[31]) or (self[30] == self[22]) or (self[32] == self[4]) or (self[3] == self[31]):
+            else:
                 if self[5] == self[13]:
                     self.rotate('R' + 'U' + 'r')
                 elif self[12] == self[4]:
@@ -191,12 +191,6 @@ class Cube:
                 elif self[3] == self[31]:
                     self.rotate('l' + 'u' + 'L')
                 self.makeDownFace()
-            # disrupt
-            elif (self[43] == self[40] or self[1] == self[40]) and (self[41] == self[40] or self[10] == self[40]) and (self[37] == self[40] or self[19] == self[40]) and (self[39] == self[40] or self[28] == self[40]):
-                self.rotate('R' + 'U' + 'r')
-                self.makeDownFace()
-                self.rotate('U')
-            else:
                 self.rotate('U')
                 
     def makeDownFace(self):
