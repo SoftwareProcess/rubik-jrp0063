@@ -135,7 +135,7 @@ class SolveTest(unittest.TestCase):
     #@unittest.skip
     def test_solve_13_solve_from_scrambled_A5_PATCH(self):
         parm = {'op': 'solve',
-                'cube': 'g1g1mk1O91OOmOOk1O9g9m1gmk9Ogmmkk1mgm11kggkOkO9m999k9g'}
+                'cube': 'NNNH8N88TTpp8pH88ggHT8gpTT8NgggNNNgpgpHHHTHg8HppTTTHNp'}
         result = solve._solve(parm)
         self.assertIn('status', result)
         status = result.get('status')
