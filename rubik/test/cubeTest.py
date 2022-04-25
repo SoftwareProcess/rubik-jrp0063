@@ -282,3 +282,18 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
         
+    #@unittest.skip    
+    def test_cube_30_middlelayer_solve_from_dowmface_PRODUCTIONTESTING_POS_1(self):
+        cube_str = 'rwboooooowwogggggggwwrrrrrrbwgbbbbbborwbwowgryyyyyyyyy'
+        cube = Cube(cube_str)
+        cube.solveCube()
+        middleLayer_solved = [cube[4], cube[4], cube[4], cube[13], cube[13], cube[13], cube[22], cube[22], cube[22], cube[31], cube[31], cube[31]]
+        middleLayer_actual = [cube[3], cube[4], cube[5], cube[12], cube[13], cube[14], cube[21], cube[22], cube[23], cube[30], cube[31], cube[32]]
+        self.assertEqual(middleLayer_solved, middleLayer_actual) 
+        bottomLayer_solved = [cube[7], cube[7], cube[7], cube[16], cube[16], cube[16], cube[25], cube[25], cube[25], cube[34], cube[34], cube[34]]
+        bottomLayer_actual = [cube[6], cube[7], cube[8], cube[15], cube[16], cube[17], cube[24], cube[25], cube[26], cube[33], cube[34], cube[35]]
+        self.assertEqual(bottomLayer_solved, bottomLayer_actual) 
+        downFace_solved = [cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49], cube[49]]
+        downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
+        self.assertEqual(downFace_solved, downFace_actual)
+        

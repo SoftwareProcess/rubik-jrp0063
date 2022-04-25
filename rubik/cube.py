@@ -118,28 +118,61 @@ class Cube:
         
         else:
             
+            # if middle layer already solved
+            if all(color == self[4] for color in [self[3], self[4], self[5]]) and all(color == self[13] for color in [self[12], self[13], self[14]]) and all(color == self[22] for color in [self[21], self[22], self[23]]) and all(color == self[31] for color in [self[30], self[31], self[32]]):
+                return
+            
             # if down face already solved
             if all(color == self[49] for color in [self[45], self[46], self[47], self[48], self[50], self[51], self[52], self[53]]):
-                return
+                self.makeMiddleLayer()
             
             # if bottom cross already solved
             elif all(color == self[49] for color in [self[46], self[48], self[50], self[52]]):
                 self.makeDownFace()
+                self.makeMiddleLayer()
             
             # if up daisy already solved
             elif all(color == self[49] for color in [self[37], self[39], self[41], self[43]]):
                 self.makeBottomCross()
                 self.makeDownFace()
+                self.makeMiddleLayer()
                 
             # if scrambled
             else:
                 self.makeDaisy()
                 self.makeBottomCross()
                 self.makeDownFace()
+                self.makeMiddleLayer()
                 
     def makeMiddleLayer(self):
-        
-        return
+        while any(color != self[4] for color in [self[3], self[4], self[5]]) or any(color != self[13] for color in [self[12], self[13], self[14]]) or any(color != self[22] for color in [self[21], self[22], self[23]]) or any(color != self[31] for color in [self[30], self[31], self[32]]):
+            if self[1] != self[40] and self[43] != self[40]:
+                if self[1] == self[4]:
+                    if self[43] == self[31]:
+                        self.rotate('u' + 'l' + 'u' + 'L')
+                    elif self[43] == self[13]:
+                        self.rotate('U' + 'R' + 'U' + 'r')
+                elif self[1] == self[13]:
+                    self.rotate('u')
+                    if self[41] == self[4]:
+                        self.rotate('u' + 'f' + 'u' + 'F')
+                    elif self[41] == self[22]:
+                        self.rotate('U' + 'B' + 'U' + 'b')
+                elif self[1] == self[22]:
+                    self.rotate('u' + 'u')
+                    if self[37] == self[13]:
+                        self.rotate('u' + 'r' + 'u' + 'R')
+                    elif self[37] == self[31]:
+                        self.rotate('U' + 'L' + 'U' + 'l')
+                elif self[1] == self[31]:
+                    self.rotate('U')
+                    if self[39] == self[22]:
+                        self.rotate('u' + 'b' + 'u' + 'B')
+                    elif self[39] == self[4]:
+                        self.rotate('U' + 'F' + 'U' + 'f')
+                self.makeDownFace()
+            else:
+                self.rotate('U')
                 
     def makeDownFace(self):
         # form down face from other formations
