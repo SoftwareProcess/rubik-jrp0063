@@ -191,6 +191,10 @@ class Cube:
                 elif self[3] == self[31]:
                     self.rotate('l' + 'u' + 'L')
                 self.makeDownFace()
+            # disrupt
+            elif (self[43] == self[40] or self[1] == self[40]) and (self[41] == self[40] or self[10] == self[40]) and (self[37] == self[40] or self[19] == self[40]) and (self[39] == self[40] or self[28] == self[40]):
+                self.rotate('R' + 'U' + 'r')
+                self.rotate('U')
             else:
                 self.rotate('U')
                 
