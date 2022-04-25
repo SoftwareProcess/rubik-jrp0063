@@ -267,7 +267,7 @@ class CubeTest(unittest.TestCase):
         downFace_actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(downFace_solved, downFace_actual)
         
-    #@unittest.skip    
+    @unittest.skip    
     def test_cube_30_middlelayer_solve_from_middlelayer(self):
         cube_str = 'rwboooooowwogggggggwwrrrrrrbwgbbbbbborwbwowgryyyyyyyyy'
         cube = Cube(cube_str)
