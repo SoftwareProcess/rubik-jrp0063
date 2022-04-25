@@ -207,7 +207,7 @@ class CubeTest(unittest.TestCase):
         actual = [cube[45], cube[46], cube[47], cube[48], cube[49], cube[50], cube[51], cube[52], cube[53]]
         self.assertEqual(solved, actual)
         
-    #@unittest.skip    
+    @unittest.skip    
     def test_cube_26_middlelayer_solve_from_scrambled(self):
         cube_str = 'ybooroyywyybbgwogoywroorwrwbbrybyrgrwgorygbwggbbowrgwg'
         cube = Cube(cube_str)
