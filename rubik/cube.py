@@ -138,6 +138,7 @@ class Cube:
                 self.makeDownFace()
                 
     def makeMiddleLayer(self):
+        
         return
                 
     def makeDownFace(self):
