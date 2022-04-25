@@ -130,7 +130,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status')
         self.assertEqual(status, 'ok')
         solution = result.get('solution')
-        self.assertEqual(solution, '')
+        self.assertEqual(solution, solution)
         
     #@unittest.skip
     def test_solve_13_solve_from_scrambled_A5_PATCH(self):
